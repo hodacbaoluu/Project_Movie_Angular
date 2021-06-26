@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoaiPhimComponent implements OnInit {
 
+  phimDangChieu:boolean=true;
+  handlePhimDangChieu(){
+    this.phimDangChieu=true;
+  }
+  handlePhimSapChieu(){
+    this.phimDangChieu=false;
+  }
+
+
+
   constructor() { }
 
   ngOnInit(): void {

@@ -11,6 +11,7 @@ import { PhimSapChieuComponent } from './phim-sap-chieu/phim-sap-chieu.component
 import { CarouselPhimComponent } from './carousel-phim/carousel-phim.component';
 import { BlockAppComponent } from './block-app/block-app.component';
 import { NewsBlockComponent } from './news-block/news-block.component';
+import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
 
 
 
@@ -23,6 +24,7 @@ import { NewsBlockComponent } from './news-block/news-block.component';
     CarouselPhimComponent,
     BlockAppComponent,
     NewsBlockComponent,
+    ItemCarouselComponent,
 
   ],
   imports: [
