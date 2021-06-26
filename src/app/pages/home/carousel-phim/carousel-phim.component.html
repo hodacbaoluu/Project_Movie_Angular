@@ -39,12 +39,11 @@
                   <div class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
                           <span>{{tenPhim}}</span>
-                          <img class="dropdown__icon film " src="../../../assets/img/dropdown-icon.png" alt="">
                       </a>
                       <div class="dropdown-menu selectScroll">
-                        <div *ngFor="let phim of danhsachPhim">
-                          <a class="dropdown-item" (click)="handlePhim(phim.tenPhim)" href="#">{{phim.tenPhim}}</a>
-                        </div>
+                        <ng-container *ngFor="let phim of danhSachPhim">
+                          <a class="dropdown-item" (click)="handlePhim(phim.tenPhim,phim.maPhim)">{{phim.tenPhim}}</a>
+                        </ng-container>
                       </div>
                   </div>
 
@@ -54,26 +53,16 @@
               <div class="list__dropdown">
                   <div class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
-                          <span>Rạp</span>
-                          <img class="dropdown__icon rap" src="../../../assets/img/dropdown-icon.png" alt="">
+                          <span>{{tenCumRap}}</span>
+
                       </a>
-                      <div class="dropdown-menu selectScroll">
-                          <a class="dropdown-item" href="#">BHD Star Vincom 3/2</a>
-                          <a class="dropdown-item" href="#">BHD Star Vincom Lê Văn Việt</a>
-                          <a class="dropdown-item" href="#">BHD Star Vincom Quang Trung</a>
-                          <a class="dropdown-item" href="#">BHD Star ‎Phạm Hùng</a>
-                          <a class="dropdown-item" href="#">CineStar Hai Bà Trưng</a>
-                          <a class="dropdown-item" href="#">CineStar Quốc Thanh</a>
-                          <a class="dropdown-item" href="#">DCINE Bến Thành</a>
-                          <a class="dropdown-item" href="#">DDC - Đống Đa</a>
-                          <a class="dropdown-item" href="#">Lotte Cinema Cantavil</a>
-                          <a class="dropdown-item" href="#">Lotte Cinema Cộng Hòa</a>
-                          <a class="dropdown-item" href="#">Lotte Cinema Gò Vấp</a>
-                          <a class="dropdown-item" href="#">Lotte Cinema Nam Sài Gòn</a>
-                          <a class="dropdown-item" href="#">Lotte Cinema Phú Thọ</a>
-                          <a class="dropdown-item" href="#">Lotte Cinema Thủ Đức</a>
-                          <a class="dropdown-item" href="#">Mega GS Cao Thắng</a>
+
+                      <div class="dropdown-menu selectScroll" >
+                        <ng-container *ngFor="let tenRap of movieInfoList.lichChieu, let stt=index" >
+                          <a class="dropdown-item" (click)="handleRap(tenRap.thongTinRap.tenCumRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
+                        </ng-container>
                       </div>
+
                   </div>
 
               </div>
@@ -83,7 +72,7 @@
                   <div class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
                           <span>Ngày xem</span>
-                          <img class="dropdown__icon ngay" src="../../../assets/img/dropdown-icon.png" alt="">
+
                       </a>
                       <div class="dropdown-menu">
                           <a class="dropdown-item" href="#">
@@ -124,7 +113,7 @@
                   <div class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
                           <span>Suất chiếu</span>
-                          <img class="dropdown__icon xuat" src="../../../assets/img/dropdown-icon.png" alt="">
+
                       </a>
                       <div class="dropdown-menu">
                           <a class="dropdown-item" href="#">
