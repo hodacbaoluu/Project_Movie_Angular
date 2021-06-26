@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../../core/service/movie/movie.service';
 
 @Component({
   selector: 'app-carousel-phim',
@@ -112,9 +113,40 @@ tenPhim:string="Phim";
 handlePhim(tenPhim:string){
   this.tenPhim=tenPhim;
 }
-  constructor() { }
+  constructor(private movieService:MovieService ) {}
+  movieList:any=[];
+  movieCarousel:any=[];
+  movieCarouselActive:any=[];
+  maPhimActive:number=1374;
+  listMaPhim:any[]=[1329,3394,4428,4332];
+  list:any[]=[];
+  getListMovie(){
+    this.movieService.getListMovieApi().subscribe((data)=>{
+      console.log(data);
+
+      this.movieList=data;
+    })
+  }
+  getCarouselMovie(){
+    for (const maPhim of this.listMaPhim) {
+      this.movieService.getCarouselMovieApi(maPhim).subscribe((data)=>{
+        this.list.push(data);
+      })
+    }
+    this.movieCarousel=this.list;
+  }
+  getCarouselMovieActive(){
+    this.movieService.getCarouselMovieApi(this.maPhimActive).subscribe((data)=>{
+      this.movieCarouselActive=data;
+    })
+  }
+
 
   ngOnInit(): void {
+    this.getCarouselMovieActive();
+    this.getCarouselMovie();
+    this.getListMovie();
+
   }
 
 }

@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
-import { Movie1Component } from './components/movie1/movie1/movie1.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    Movie1Component
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,PagesModule
+    AppRoutingModule,PagesModule,HttpClientModule
 
   ],
   providers: [],

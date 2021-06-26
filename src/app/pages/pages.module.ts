@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { HomeModule } from './home/home.module';
-import { Movie1Component } from '../components/movie1/movie1/movie1.component';
+
 
 
 @NgModule({
