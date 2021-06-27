@@ -26,6 +26,7 @@ import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
     NewsBlockComponent,
     ItemCarouselComponent,
 
+
   ],
   imports: [
     CommonModule,

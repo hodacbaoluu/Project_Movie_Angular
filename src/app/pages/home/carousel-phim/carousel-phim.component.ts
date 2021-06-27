@@ -7,7 +7,7 @@ import { MovieService } from '../../core/service/movie/movie.service';
   styleUrls: ['./carousel-phim.component.scss']
 })
 export class CarouselPhimComponent implements OnInit {
-danhSachPhim:any=[];
+danhSachPhim:any;
 tenPhim:string="Phim";
 maPhim:number=0;
 tenCumRap:string="Rạp";
@@ -37,6 +37,8 @@ handleDay(day:string){
 }
 handleSuatChieu(suatChieu:string){
   this.suatChieu=suatChieu;
+  console.log(suatChieu);
+
 }
   constructor(private movieService:MovieService ) {}
   movieList:any=[];
