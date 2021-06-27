@@ -58,8 +58,13 @@
                       </a>
 
                       <div class="dropdown-menu selectScroll" >
-                        <ng-container *ngFor="let tenRap of movieInfoList.lichChieu, let stt=index" >
-                          <a class="dropdown-item" (click)="handleRap(tenRap.thongTinRap.tenCumRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
+                        <ng-container *ngFor="let tenRap of movieInfoList.lichChieu, let stt=index, let last=last" >
+                          <ng-container *ngIf="!last" >
+                          <a class="dropdown-item" *ngIf="movieInfoList.lichChieu[stt].thongTinRap.tenCumRap !==movieInfoList.lichChieu[stt+1].thongTinRap.tenCumRap" (click)="handleRap(tenRap.thongTinRap.tenCumRap,tenRap.thongTinRap.maRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
+                          </ng-container>
+                          <ng-container *ngIf="last" >
+                            <a class="dropdown-item"  (click)="handleRap(tenRap.thongTinRap.tenCumRap,tenRap.thongTinRap.maRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
+                            </ng-container>
                         </ng-container>
                       </div>
 
@@ -71,38 +76,24 @@
               <div class="list__dropdown">
                   <div class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
-                          <span>Ngày xem</span>
-
+                          <span *ngIf="day!=='Ngày xem',else ngayXem">{{day | date:'dd/MM/YYYY'}}</span>
+                          <ng-template #ngayXem><span>{{day}}</span></ng-template>
                       </a>
-                      <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">
-                              <p class="day">Hôm nay</p>
-                              <p class="date">2021-01-26</p>
+                      <div class="dropdown-menu selectScroll">
+                        <ng-container *ngFor="let day of movieInfoList.lichChieu, let stt=index, let last=last" >
+                          <ng-container *ngIf="day.thongTinRap.tenCumRap==tenCumRap " >
+                            <ng-container *ngIf="!last">
+                          <a class="dropdown-item" *ngIf="(movieInfoList.lichChieu[stt].ngayChieuGioChieu|date:'dd/MM/YYYY')!==(movieInfoList.lichChieu[stt+1].ngayChieuGioChieu|date:'dd/MM/YYYY')" (click)="handleDay(day.ngayChieuGioChieu)" >
+                            <p class="day"   >{{day.ngayChieuGioChieu|date:'dd/MM/YYYY'}}</p>
                           </a>
-                          <a class="dropdown-item" href="#">
-                              <p class="day">Ngày mai</p>
-                              <p class="date">2021-01-27</p>
+                        </ng-container>
+                          <ng-container *ngIf="last">
+                          <a class="dropdown-item" *ngIf="last" (click)="handleDay(day.ngayChieuGioChieu)" >
+                            <p class="day"   >{{day.ngayChieuGioChieu|date:'dd/MM/YYYY'}}</p>
                           </a>
-                          <a class="dropdown-item" href="#">
-                              <p class="day">Thứ năm</p>
-                              <p class="date">2021-01-28</p>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <p class="day">Thứ sáu</p>
-                              <p class="date">2021-01-29</p>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <p class="day">Thứ bảy</p>
-                              <p class="date">2021-01-30</p>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <p class="day">Chủ nhật</p>
-                              <p class="date">2021-01-31</p>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <p class="day">Thứ hai</p>
-                              <p class="date">2021-02-01</p>
-                          </a>
+                        </ng-container>
+                        </ng-container>
+                        </ng-container>
                       </div>
                   </div>
 
@@ -115,16 +106,14 @@
                           <span>Suất chiếu</span>
 
                       </a>
-                      <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">
-                              18:30
+                      <div class="dropdown-menu" >
+                        <!-- <ng-container *ngFor="let suatChieu of movieInfoList.lichChieu, let stt=index, let last= last" >
+                        <ng-container *ngIf="day!=='Ngày xem'" >
+                          <a class="dropdown-item" *ngIf="(day|date:'dd/MM/YYYY')==(suatChieu.ngayChieuGiochieu|date:'dd/MM/YYYY')" (click)="handleSuatChieu(suatChieu.thongTinRap.ngayChieuGiochieu)">
+                              {{suatChieu.ngayChieuGiochieu}}
                           </a>
-                          <a class="dropdown-item" href="#">
-                              20:05
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              22:30
-                          </a>
+                        </ng-container>
+                      </ng-container> -->
                       </div>
                   </div>
 
