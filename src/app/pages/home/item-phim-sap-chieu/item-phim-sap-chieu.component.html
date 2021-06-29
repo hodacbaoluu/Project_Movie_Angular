@@ -1,0 +1,12 @@
+<div class="overlay">
+  <img class="anh__demo" [style.background-image]="'url(\''+phim.hinhAnh+'\')'" alt="">
+  <div class="hoverImg"></div>
+  <a class="venobox  vbox-item" [href]="phim.trailer" data-vbtype="video">
+      <img class="play__icon" src="./../img/play-video.png" alt="">
+  </a>
+  <div class="gio__chieu">{{phim.ngayChieuGioChieu| date:"dd/MM"}}</div>
+</div>
+<div class="noi__dung2">
+  <p class="trich"><span class="symbol2">P</span> {{phim.tenPhim}}</p>
+  <p class="hours">92 phút</p>
+</div>
