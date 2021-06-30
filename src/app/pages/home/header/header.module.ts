@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { HeaderComponent } from './header.component';
+import { SignInComponent } from '../../sign-in/sign-in.component';
 
 
 @NgModule({
