@@ -913,6 +913,7 @@ img.xuat {
 
 .carousel-indicators {
   left: 5% !important;
+  bottom: -25px !important;
 }
 
 .btn-trailer {
@@ -1091,7 +1092,7 @@ p.trich {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
@@ -1119,13 +1120,17 @@ p.hours {
 }
 
 .hinh__anh .overlay .anh__demo {
-  width: 100%;
-  height: auto;
+  width: 225px;
+  height: 333px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 2%;
 }
-
 .hinh__anh .overlay {
   position: relative;
+  height: 333px;
+  width: 225px;
 }
 
 .hinh__anh .hoverImg {

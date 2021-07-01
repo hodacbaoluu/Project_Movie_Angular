@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../../core/service/movie/movie.service';
 
 @Component({
   selector: 'app-phim-dang-chieu',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhimDangChieuComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private phimDangChieuService:MovieService) { }
+danhSachPhimDangChieu:any=[];
+maNhom:number=1;
+  getNameMovie(){
+    this.phimDangChieuService.getListMovieApi(this.maNhom).subscribe((data)=>{
+      this.danhSachPhimDangChieu=data;
+    })
+  }
   ngOnInit(): void {
+    this.getNameMovie();
   }
 
 }

@@ -10,6 +10,7 @@ export class CarouselPhimComponent implements OnInit {
 danhSachPhim:any;
 tenPhim:string="Phim";
 maPhim:number=0;
+maNhom:number=1;
 tenCumRap:string="Rạp";
 day:string="Ngày xem";
 suatChieu:string="Suất chiếu";
@@ -19,19 +20,22 @@ handlePhim(tenPhim:string,maPhim:number){
   this.maPhim=maPhim;
   console.log(maPhim);
   this.tenCumRap="Rạp";
-  this.day="Ngày xem"
+  this.day="Ngày xem";
+  this.suatChieu="Suất chiếu"
   this.getInfoMovie();
 }
 handleRap(tenCumRap:string,maRap:string){
   this.tenCumRap=tenCumRap;
   this.maRap=maRap;
   console.log(maRap);
-
+  this.day="Ngày xem";
+  this.suatChieu="Suất chiếu"
   this.getInfoMovie();
 }
 handleDay(day:string){
   this.day=day;
   this.getInfoMovie();
+  this.suatChieu="Suất chiếu"
   console.log(day);
 
 }
@@ -49,7 +53,7 @@ handleSuatChieu(suatChieu:string){
   listMaPhim:any[]=[1329,3394,4428,4332];
   list:any[]=[];
   getListMovie(){
-    this.movieService.getListMovieApi().subscribe((data)=>{
+    this.movieService.getListMovieApi(this.maNhom).subscribe((data)=>{
 
 
       this.movieList=data;
@@ -69,7 +73,7 @@ handleSuatChieu(suatChieu:string){
     })
   }
   getNameMovie(){
-    this.movieService.getListMovieApi().subscribe((data)=>{
+    this.movieService.getListMovieApi(this.maNhom).subscribe((data)=>{
       this.danhSachPhim=data;
     })
   }

@@ -7,10 +7,11 @@ import {tap,catchError} from 'rxjs/operators'
 export class MovieService {
 
   constructor(private httpClient:HttpClient) { }
-  getListMovieApi(){
-    return this.httpClient.get('https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01').pipe(
+  getListMovieApi(maNhom:number){
+    return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP0${maNhom}`).pipe(
       tap((data)=>{
-      
+        console.log(maNhom);
+
       }),
       catchError((err)=>{
         console.log(err);

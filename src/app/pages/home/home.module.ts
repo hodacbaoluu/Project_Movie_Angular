@@ -12,6 +12,8 @@ import { CarouselPhimComponent } from './carousel-phim/carousel-phim.component';
 import { BlockAppComponent } from './block-app/block-app.component';
 import { NewsBlockComponent } from './news-block/news-block.component';
 import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
+import { ItemPhimDangChieuComponent } from './item-phim-dang-chieu/item-phim-dang-chieu.component';
+import { ItemPhimSapChieuComponent } from './item-phim-sap-chieu/item-phim-sap-chieu.component';
 import { CinemaComplexBlockComponent } from './cinema-complex-block/cinema-complex-block.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
@@ -27,6 +29,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     BlockAppComponent,
     NewsBlockComponent,
     ItemCarouselComponent,
+    ItemPhimDangChieuComponent,
+    ItemPhimSapChieuComponent,
     CinemaComplexBlockComponent,
     
 
