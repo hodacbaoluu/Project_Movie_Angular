@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-nguoiDangKy:any=[];
+  @ViewChild("formDangKy") formDK?:NgForm;
+  nguoiDangKy:any=[];
   constructor() { }
   DangKy(value:any){
     this.nguoiDangKy.push(value);
-   
+    this.formDK?.reset();
 
 
   }
