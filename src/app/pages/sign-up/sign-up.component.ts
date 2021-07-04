@@ -6,9 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-
+nguoiDangKy:any=[];
   constructor() { }
+  DangKy(value:any){
+    this.nguoiDangKy.push(value);
+   
 
+
+  }
   ngOnInit(): void {
   }
 

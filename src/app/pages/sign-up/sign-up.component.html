@@ -1,1 +1,121 @@
-<p>sign-up works!</p>
+<div class="bgLogin">
+<form #formDangKy="ngForm" (ngSubmit)="DangKy(formDangKy.value)" >
+  <div class="container">
+    <h1>Sign Up</h1>
+    <hr>
+    <div class="form-group">
+      <label><b>Tài Khoản</b></label>
+      <input type="text" placeholder="Nhập tài khoản" class="form-control" name="taiKhoan" #taiKhoan='ngModel' ngModel required minlength="6" maxlength="20" >
+
+      <div *ngIf="taiKhoan.errors && (taiKhoan.dirty || taiKhoan.touched)">
+         <!-- kiểm tra rỗng -->
+        <div class="alert alert-danger" *ngIf="taiKhoan.errors.required" >Vui lòng nhập tài khoản</div>
+
+        <!-- kiểm tra độ dài -->
+        <div class="alert alert-danger" *ngIf="taiKhoan.errors.minlength">
+          Vui lòng nhập tài khoản có từ 6 đến 20 kí tự
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="psw"><b>Mật Khẩu</b></label>
+      <input type="password" placeholder="Nhập mật khẩu" class="form-control" name="matKhau" #matKhau="ngModel" [pattern]='"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{6,}$"' maxlength="20" ngModel required >
+      <div *ngIf="matKhau.errors && (matKhau.dirty || matKhau.touched)">
+        <!-- kiểm tra rỗng -->
+       <div class="alert alert-danger" *ngIf="matKhau.errors.required" >Vui lòng nhập mật khẩu</div>
+
+       <!-- kiểm tra độ dài -->
+      <div class="alert alert-danger"  *ngIf="matKhau.errors.pattern">
+          Vui lòng nhập phải có ít nhất một in hoa, một kí tự đặt biệt, một số, một chữ và ít nhất có 6 kí tự
+       </div>
+   </div>
+    </div>
+    <div class="form-group">
+      <label for=""><b>Email</b> </label>
+      <input type="email" name="email"  class="form-control" placeholder="Nhập email" [pattern]='"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+      + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"' #email="ngModel" ngModel required>
+
+      <div *ngIf="email.errors && (email.touched || email.dirty)">
+        <div class="alert alert-danger" *ngIf="email.errors.required">
+          Vui lòng nhập email
+        </div>
+        <div class="alert alert-danger" *ngIf="email.errors.pattern">
+          Vui lòng nhập đúng định dạng email
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Số điện thoại</label>
+      <input type="number" name="soDT" class="form-control" placeholder="Nhập số điện thoại" #soDT='ngModel' ngModel required  >
+      <div *ngIf="soDT.errors && (soDT.touched || soDT.dirty)">
+        <div class="alert alert-danger" *ngIf="soDT.errors.required">
+          Vui lòng nhập số điện thoại
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Mã loại người dùng</label>
+      <select class="sel" name="maLoaiNguoiDung" #maLoaiNguoiDung="ngModel" ngModel required  >
+        <option value="" disabled>--Lựa chọn mã loại người dùng--</option>
+        <option value="admin">Admin</option>
+        <option value="custom">Custom</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="(maLoaiNguoiDung.value!='' && !maLoaiNguoiDung.dirty) ||(maLoaiNguoiDung.value==''&&(maLoaiNguoiDung.touched ||maLoaiNguoiDung.dirty))">
+        Vui lòng lựa chọn
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label><b>Họ Tên</b></label>
+      <input type="text" placeholder="Nhập họ tên" class="form-control" [pattern]='"^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
+      "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
+      "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$"'  name="hoTen" #hoTen='ngModel' ngModel required minlength="6" maxlength="20" >
+
+      <div *ngIf="hoTen.errors && (hoTen.dirty || hoTen.touched)">
+         <!-- kiểm tra rỗng -->
+        <div class="alert alert-danger" *ngIf="hoTen.errors.required" >Vui lòng nhập họ tên</div>
+        <!-- kiểm tra kí tự chữ -->
+        <div class="alert alert-danger" *ngIf="hoTen.errors.pattern">
+          Vui lòng nhập đúng kí tự chữ
+        </div>
+    </div>
+    </div>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="form-group">
+
+      <button type="submit" class="btn btn-success" [disabled]="!formDangKy.valid " >Sign Up</button>
+    </div>
+  </div>
+</form>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tai khoan</th>
+      <th>Mat khau</th>
+      <th>Email</th>
+      <th>so dien thoai</th>
+      <th>maloainguoidung</th>
+      <th>ho ten</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of nguoiDangKy" >
+      <td >{{member.taiKhoan}}</td>
+      <td>{{member.matKhau}}</td>
+      <td>{{member.email}}</td>
+      <td >{{member.soDT}}</td>
+      <td>{{member.maLoaiNguoiDung}}</td>
+      <td>{{member.hoTen}}</td>
+    </tr>
+  </tbody>
+  <button>Cap Nhat</button>
+</table>

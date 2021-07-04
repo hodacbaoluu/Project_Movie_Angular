@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 
 import { HomeComponent } from './home.component';
-import { HeaderModule } from './header/header.module';
-import { FooterModule } from './footer/footer.module';
 import { LoaiPhimComponent } from './loai-phim/loai-phim.component';
 import { PhimDangChieuComponent } from './phim-dang-chieu/phim-dang-chieu.component';
 import { PhimSapChieuComponent } from './phim-sap-chieu/phim-sap-chieu.component';
@@ -14,8 +12,13 @@ import { NewsBlockComponent } from './news-block/news-block.component';
 import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
 import { ItemPhimDangChieuComponent } from './item-phim-dang-chieu/item-phim-dang-chieu.component';
 import { ItemPhimSapChieuComponent } from './item-phim-sap-chieu/item-phim-sap-chieu.component';
+<<<<<<< HEAD
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+=======
 import { CinemaComplexBlockComponent } from './cinema-complex-block/cinema-complex-block.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+>>>>>>> a1784535d5a045d060c1290785198fe79ebc159d
 
 
 
@@ -31,15 +34,34 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ItemCarouselComponent,
     ItemPhimDangChieuComponent,
     ItemPhimSapChieuComponent,
+<<<<<<< HEAD
+    FooterComponent,
+    HeaderComponent
+=======
     CinemaComplexBlockComponent,
     
+>>>>>>> a1784535d5a045d060c1290785198fe79ebc159d
 
 
   ],
   imports: [
+<<<<<<< HEAD
+    CommonModule
+=======
     CommonModule,
   HeaderModule,FooterModule,SlickCarouselModule
+>>>>>>> a1784535d5a045d060c1290785198fe79ebc159d
   ],
-  exports:[HomeComponent]
+  exports:[HomeComponent,
+    LoaiPhimComponent,
+    PhimDangChieuComponent,
+    PhimSapChieuComponent,
+    CarouselPhimComponent,
+    BlockAppComponent,
+    NewsBlockComponent,
+    ItemCarouselComponent,
+    ItemPhimDangChieuComponent,
+    ItemPhimSapChieuComponent,
+    FooterComponent,HeaderComponent]
 })
 export class HomeModule { }
