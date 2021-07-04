@@ -57,11 +57,11 @@
     <div class="form-group">
       <label for="">Mã loại người dùng</label>
       <select class="sel" name="maLoaiNguoiDung" #maLoaiNguoiDung="ngModel" ngModel required  >
-        <option value="" disabled>--Lựa chọn mã loại người dùng--</option>
+        <option value="" disabled > --Lựa chọn mã loại người dùng--</option>
         <option value="admin">Admin</option>
         <option value="custom">Custom</option>
       </select>
-      <div class="alert alert-danger" *ngIf="(maLoaiNguoiDung.value!='' && !maLoaiNguoiDung.dirty) ||(maLoaiNguoiDung.value==''&&(maLoaiNguoiDung.touched ||maLoaiNguoiDung.dirty))">
+      <div class="alert alert-danger" *ngIf="(maLoaiNguoiDung.value==''&&(maLoaiNguoiDung.touched ||maLoaiNguoiDung.dirty))">
         Vui lòng lựa chọn
       </div>
     </div>

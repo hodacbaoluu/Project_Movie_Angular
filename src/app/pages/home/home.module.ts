@@ -12,13 +12,11 @@ import { NewsBlockComponent } from './news-block/news-block.component';
 import { ItemCarouselComponent } from './item-carousel/item-carousel.component';
 import { ItemPhimDangChieuComponent } from './item-phim-dang-chieu/item-phim-dang-chieu.component';
 import { ItemPhimSapChieuComponent } from './item-phim-sap-chieu/item-phim-sap-chieu.component';
-<<<<<<< HEAD
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-=======
 import { CinemaComplexBlockComponent } from './cinema-complex-block/cinema-complex-block.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
->>>>>>> a1784535d5a045d060c1290785198fe79ebc159d
+
 
 
 
@@ -34,23 +32,13 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ItemCarouselComponent,
     ItemPhimDangChieuComponent,
     ItemPhimSapChieuComponent,
-<<<<<<< HEAD
     FooterComponent,
-    HeaderComponent
-=======
-    CinemaComplexBlockComponent,
-    
->>>>>>> a1784535d5a045d060c1290785198fe79ebc159d
-
+    HeaderComponent,CinemaComplexBlockComponent,
 
   ],
   imports: [
-<<<<<<< HEAD
-    CommonModule
-=======
-    CommonModule,
-  HeaderModule,FooterModule,SlickCarouselModule
->>>>>>> a1784535d5a045d060c1290785198fe79ebc159d
+ CommonModule,SlickCarouselModule
+
   ],
   exports:[HomeComponent,
     LoaiPhimComponent,
