@@ -16,7 +16,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule,FormsModule,HomeModule
+    PagesRoutingModule,FormsModule,HomeModule,
   ],
   exports:[PagesComponent,SignInComponent,SignUpComponent]
 

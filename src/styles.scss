@@ -154,10 +154,7 @@
   background-size: cover;
 }
 
-#wrapHome .row {
-  margin-left: 0;
-  margin-right: 0;
-}
+
 
 #wrapHome .homeApp {
   padding: 120px 0 88px 0;
@@ -1239,6 +1236,125 @@ a .play__icon {
   width: 50px;
   height: 50px;
 }
+
+// start admim--css
+
+.admin__header {
+  background-color: rgba(255,255,255,.95);
+  height:60px;
+  box-shadow: 0 0 15px rgb(0 0 0 / 30%);
+  position: relative;
+}
+
+.admin__header .admin__img{
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+}
+
+.admin__sidebar li{
+  margin-bottom: 2rem;
+}
+
+.admin__sidebar {
+  // width: 100vw;
+  height: calc(100vh - 60px);
+  padding: 4rem 0;
+  box-shadow: 5px 5px 15px rgb(0 0 0 / 30%);
+}
+
+.admin__sidebar ul li a:hover {
+  background-color: #fb4226;
+  color: white;
+}
+
+.admin__sidebar ul li a{
+  text-decoration: none;
+  color: #fb4226;
+  border: 1px solid black;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: all 0.7s ;
+}
+
+.admin__sidebar ul{
+  list-style:  none;
+  padding: 0 10px;
+}
+
+.admin__content{
+  padding: 2rem 2rem;
+}
+
+.admin__content .admin__add-movie{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 120px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 16px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  box-sizing: content-box;
+}
+
+.admin__content .admin__add-movie a{
+  text-align: center;
+  display: inline;
+  margin: 0 40%;
+  border-radius: 25px;
+  height: 45px;
+  line-height: 45px;
+  background-color: #fb4226;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.7s;
+}
+
+.admin__content .admin__add-movie a:hover{
+  background-color: white;
+  color: #fb4226;
+  border: 1px solid black;
+}
+
+.admin__content .admin__add-movie .admin__add-movie--find input{
+  margin-right:  20px;
+  width: 80%;
+  outline: none;
+
+}
+
+.admin__content .admin__add-movie .admin__add-movie--find{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 
 @media screen and (max-width:992px) {
   .tool__content {

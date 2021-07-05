@@ -37,7 +37,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 
   ],
   imports: [
- CommonModule,SlickCarouselModule
+ CommonModule,SlickCarouselModule,
 
   ],
   exports:[HomeComponent,
