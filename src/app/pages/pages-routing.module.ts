@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SignUpGuard } from './core/guard/sign-up.guard';
 import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       },{
         path:'sign-up',
         component:SignUpComponent,
+        canDeactivate:[SignUpGuard],
       }
     ]
   }
