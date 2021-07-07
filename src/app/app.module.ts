@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AdminModule } from './admin/admin.module';
 // import { SlickCarouselComponent, SlickCarouselModule, } from 'ngx-slick-carousel';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     PagesModule,
     HttpClientModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent],

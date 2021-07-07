@@ -1,69 +1,64 @@
 <div class="admin__content">
-    <h3 style="text-align: center;">Thêm Phim</h3>
+    <h3 style="text-align: center;">Thêm Người Dùng</h3>
     <form>
       <div class="row g-3 admin__input">
         <div class="col">
-          <label for="">Mã Phim</label>
+          <label for="">Tài Khoản</label>
           <input
             type="text"
             class="form-control"
-            placeholder="Mã Phim"
+            placeholder="Tài Khoản"
             aria-label="First name"
           />
         </div>
         <div class="col">
-          <label for="">Ngày khởi chiếu</label>
+          <label for="">Email</label>
           <input
-            type="date"
+            type="text"
             class="form-control"
-            placeholder="Ngày khởi chiếu"
+            placeholder="Email"
             aria-label="Last name"
           />
         </div>
       </div>
       <div class="row g-3 admin__input">
         <div class="col">
-          <label for="">Tên Phim</label>
+          <label for="">Mật Khẩu</label>
           <input
             type="text"
             class="form-control"
-            placeholder="Tên Phim"
+            placeholder="Mật Khẩu"
             aria-label="First name"
           />
         </div>
         <div class="col">
-          <label for="">Đánh Giá</label>
+          <label for="">Số Điện Thoại</label>
           <input
             type="text"
             class="form-control"
-            placeholder="Đánh giá"
+            placeholder="Số Điện Thoại"
             aria-label="Last name"
           />
         </div>
       </div>
       <div class="row g-3 admin__input">
         <div class="col">
-          <label for="">Trailer</label>
+          <label for="">Họ Tên</label>
           <input
             type="text"
             class="form-control"
-            placeholder="Trailer"
+            placeholder="Họ Tên"
             aria-label="First name"
           />
         </div>
         <div class="col">
-          <label for="">Hình Ảnh</label>
-          <input
-            type="file"
-            class="form-control"
-            placeholder="Hình Ảnh"
-            aria-label="Last name"
-          />
+          <label for="">Loại Người Dùng</label>
+          <select name="" id="" class="form-control">
+            <option value="" disabled > --Lựa chọn mã loại người dùng--</option>
+            <option value="admin">Admin</option>
+            <option value="custom">Custom</option>
+          </select>
         </div>
-      </div>
-      <div class="admin__moTa">
-        <label for="">Mô tả</label>
-        <textarea name="" id="" cols="102" rows="5"></textarea>
       </div>
       <div class="admin__button">
         <button class="btn btn-success buton__add">Thêm</button>
