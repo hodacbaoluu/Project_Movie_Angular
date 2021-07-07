@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CinemaComplexBlockComponent } from './cinema-complex-block/cinema-complex-block.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -37,7 +38,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 
   ],
   imports: [
- CommonModule,SlickCarouselModule,
+ CommonModule,SlickCarouselModule,RouterModule
+
 
   ],
   exports:[HomeComponent,
