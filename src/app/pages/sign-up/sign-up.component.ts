@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../core/service/auth/auth.service';
 
 @Component({
@@ -26,12 +27,13 @@ export class SignUpComponent implements OnInit {
   handleSignUp(){
     console.log(this.formDangKy?.value);
     this.authService.signUpApi(this.formDangKy?.value).subscribe((data)=>{
-      console.log(data);
-
+      alert('Đăng ký thành công 😎');
+      this.router.navigate(['/sign-in']);
+      this.formDangKy?.reset();
     })
 
   }
-  constructor(private authService:AuthService){}
+  constructor(private authService:AuthService, private router:Router){}
   ngOnInit(): void {
     this.formDangKy= new FormGroup({
       taiKhoan: new FormControl(null, Validators.required),
