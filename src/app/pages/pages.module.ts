@@ -17,8 +17,8 @@ import { RouterModule } from '@angular/router';
     PagesComponent,SignInComponent,SignUpComponent
   ],
   imports: [
-    CommonModule,
-    PagesRoutingModule,FormsModule,HomeModule,ReactiveFormsModule,RouterModule
+    CommonModule,PagesRoutingModule,FormsModule,HomeModule,ReactiveFormsModule,RouterModule
+
   ],
   exports:[PagesComponent,SignInComponent,SignUpComponent]
 
