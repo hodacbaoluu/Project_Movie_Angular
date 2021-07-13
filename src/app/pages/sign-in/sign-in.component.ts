@@ -16,6 +16,7 @@ export class SignInComponent implements OnInit {
   handleLogin(){
     console.log(this.userLogin);
     this.authService.loginApi(this.userLogin).subscribe((data)=>{
+
       localStorage.setItem("userLogin",JSON.stringify(data));//lưu xuống localStorage
       //Lưu data vào AuthService
       this.authService.setCurrentUser(data);
