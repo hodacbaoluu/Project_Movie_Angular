@@ -1,13 +1,17 @@
+
 <div class="admin__content">
   <div class="admin__add-movie">
-    <a href="#">Thêm Phim</a>
+    <a routerLink="/admin/add-movie">Thêm Phim</a>
     <div class="admin__add-movie--find">
-      <input type="text" placeholder="Nhập vào tên phim hoặc mã phim" />
+      <input
+        type="text"
+        placeholder="Nhập vào tài khoản hoặc họ tên người dùng"
+      />
       <button class="btn btn-info">Tìm</button>
     </div>
   </div>
 </div>
-<div>
+<div class="table__list">
   <table>
     <tr>
       <th>Mã Phim</th>
@@ -18,59 +22,15 @@
       <th>Ngày khởi Chiếu</th>
       <th></th>
     </tr>
-    <tr>
-      <td>Alfreds Futterkiste</td>
-      <td>Maria Anders</td>
+    <tr *ngFor="let movie of movieList">
+      <td>{{ movie.maPhim }}</td>
+      <td>{{ movie.tenPhim }}</td>
+      <td><img src="{{ movie.hinhAnh }}" alt="" style="width: 50px;height: 50px; object-fit: cover;"/></td>
+      <td>{{ movie.moTa }}</td>
+      <td>{{ movie.maNhom }}</td>
+      <td>{{ movie.ngayKhoiChieu }}</td>
       <td>Germany</td>
-      <td>Germany</td>
-      <td>Germany</td>
-      <td>Germany</td>
-      <td>Germany</td>
-    </tr>
-    <tr>
-      <td>Centro comercial Moctezuma</td>
-      <td>Francisco Chang</td>
-      <td>Mexico</td>
-      <td>Mexico</td>
-      <td>Mexico</td>
-      <td>Mexico</td>
-      <td>Mexico</td>
-    </tr>
-    <tr>
-      <td>Ernst Handel</td>
-      <td>Roland Mendel</td>
-      <td>Austria</td>
-      <td>Austria</td>
-      <td>Austria</td>
-      <td>Austria</td>
-      <td>Austria</td>
-    </tr>
-    <tr>
-      <td>Island Trading</td>
-      <td>Helen Bennett</td>
-      <td>UK</td>
-      <td>UK</td>
-      <td>UK</td>
-      <td>UK</td>
-      <td>UK</td>
-    </tr>
-    <tr>
-      <td>Laughing Bacchus Winecellars</td>
-      <td>Yoshi Tannamuri</td>
-      <td>Canada</td>
-      <td>Canada</td>
-      <td>Canada</td>
-      <td>Canada</td>
-      <td>Canada</td>
-    </tr>
-    <tr>
-      <td>Magazzini Alimentari Riuniti</td>
-      <td>Giovanni Rovelli</td>
-      <td>Italy</td>
-      <td>Italy</td>
-      <td>Italy</td>
-      <td>Italy</td>
-      <td>Italy</td>
     </tr>
   </table>
 </div>
+

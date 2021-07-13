@@ -8,11 +8,10 @@ import { Observable } from 'rxjs';
 export class MovieService {
 
   constructor(private httpClient:HttpClient) { }
-  getListMovieApi(maNhom:number):Observable<any>{
+  getListMovieApi(maNhom:number){
     return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP0${maNhom}`).pipe(
       tap((data)=>{
         console.log(maNhom);
-
       }),
       catchError((err)=>{
         console.log(err);
@@ -33,5 +32,15 @@ export class MovieService {
 
       })
     )
+  }
+  getListUserApi(){
+    return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP10`).pipe(
+      tap((data)=>{
+
+      }),
+      catchError((err)=>{
+        return err
+      })
+      )
   }
 }

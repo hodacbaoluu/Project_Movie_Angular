@@ -6,6 +6,11 @@ import { AdminComponent } from './admin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
+import { MovieManagerComponent } from './movie-manager/movie-manager.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { AddUserComponent } from './add-user/add-user.component';
+// import { AddUserComponent } from './add-user/add-user.component';
 
 
 @NgModule({
@@ -13,11 +18,17 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     AdminComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    AddMovieComponent,
+    MovieManagerComponent,
+    UserManagementComponent,
+    AddUserComponent,
+    // AddUserComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule
-  ]
+  ],
+  exports:[AdminComponent]
 })
 export class AdminModule { }

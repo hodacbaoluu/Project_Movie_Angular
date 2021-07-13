@@ -1351,6 +1351,31 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.table__list {
+  height: 400px;
+    overflow-y: auto;
+}
+
+.admin__moTa{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.buton__add{
+  margin-right: 10px;
+}
+
+.admin__input{
+  margin-bottom: 10px;
+}
+
+.admin__button{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
 
 @media screen and (max-width:992px) {
   .tool__content {

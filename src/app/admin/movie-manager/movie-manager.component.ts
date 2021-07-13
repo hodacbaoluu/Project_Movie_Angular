@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from 'src/app/pages/core/service/movie/movie.service';
 
 @Component({
   selector: 'app-movie-manager',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieManagerComponent implements OnInit {
 
-  constructor() { }
+  maNhom: number = 1;
+  constructor(private movieService: MovieService) {}
 
-  ngOnInit(): void {
+  movieList: any = [];
+
+  getListMovie() {
+    this.movieService.getListMovieApi(this.maNhom).subscribe((data) => {
+      console.log(data);
+      this.movieList = data;
+    });
   }
 
+  ngOnInit(): void {
+    this.getListMovie();
+  }
 }
