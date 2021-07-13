@@ -16,8 +16,7 @@ const routes: Routes = [
     children:[
       {
         path:'movie-manager',
-
-        component:MovieManagerComponent
+        component:MovieManagerComponent,
 
       },
       {

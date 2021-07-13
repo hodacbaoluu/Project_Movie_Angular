@@ -17,7 +17,6 @@ export class AuthService {
     this.currentUserSubject.next(value);
   }
 
-
   constructor(private httpClient:HttpClient ) {
     const userJson=localStorage.getItem('userLogin');
     if(userJson){
@@ -47,6 +46,19 @@ export class AuthService {
         console.log(err);
         return err;
 
+      })
+    )
+  }
+  inforAPI(taiKhoan:any):Observable<any>{
+    return this.httpClient.post('https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan',taiKhoan).pipe(
+      tap((data)=>{
+        console.log(data);
+
+      }),
+      catchError((err)=>{
+        console.log(err);
+        return err;
+        
       })
     )
   }

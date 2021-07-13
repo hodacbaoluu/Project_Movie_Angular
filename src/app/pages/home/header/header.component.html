@@ -25,11 +25,28 @@
               </ul>
           </div>
           <div class="isLogin col-md-6">
-              <div class="accout">
-                  <img class="admin" src="../../../../assets/img/avatar.png">
-                  <a routerLink="/sign-in">Đăng Nhập</a>
+              <div class="accout" >
+                  <div *ngIf="currentUser===null, else logIn">
+                    <img class="admin" src="../../../../assets/img/avatar.png">
+                    <a routerLink="/sign-in">Đăng Nhập</a>
+                  </div>
+                  <ng-template #logIn>
+                      <div class="nav-item dropdown">
+                      <a class="nav-link  " href="#" id="navbardrop" data-toggle="dropdown">
+                        <img class="admin" src="../../../../assets/img/avatar.png">
+                        <span class="diachi">{{currentUser.hoTen}}</span>
+                        <img class="dropdown__icon" src="../../../../assets/img/dropdown-icon.png" alt="">
+                      </a>
+                      <div class="dropdown-menu selectScroll" >
+                          <a class="dropdown-item" routerLink="/user/personal-information">Thông tin cá nhân</a>
+                          <a class="dropdown-item" (click)="handleLogout()" href="/sign-in">Đăng xuất</a>
+                      </div>
+                    </div>
+
+
+                  </ng-template>
               </div>
-              <div class="list__dropdown">
+              <!-- <div class="list__dropdown">
                   <div class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle where" href="#" id="navbardrop" data-toggle="dropdown">
                           <img src="../../../../assets/img/location-header.png" alt="">
@@ -45,7 +62,7 @@
                       </div>
                   </div>
 
-              </div>
+              </div> -->
           </div>
       </div>
   </div>

@@ -7,48 +7,54 @@ import { AuthService } from '../../core/service/auth/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  danhSachTP:any[]=[{
-    tenTinh:"Hà Nội",
-    maTinh:"#hanoi"
-  },{
-    tenTinh:"Quảng Nam",
-    maTinh:"#quangnam"
-  },{
-    tenTinh:"Hồ Chí Minh",
-    maTinh:"#hochiminh"
-  },{
-    tenTinh:"Nha Trang",
-    maTinh:"#nhatrang"
-  },{
-    tenTinh:"Vũng Tàu",
-    maTinh:"#vungtau"
-  },{
-    tenTinh:"Bình Định",
-    maTinh:"#binhdinh"
-  },{
-    tenTinh:"Quảng Trị",
-    maTinh:"#quangtri"
-  },{
-    tenTinh:"Quảng Bình",
-    maTinh:"#quangbinh"
-  },{
-    tenTinh:"Huế",
-    maTinh:"#hue"
-  },{
-    tenTinh:"Hà Tĩnh",
-    maTinh:"#hatinh"
-  },{
-    tenTinh:"Lâm Đồng",
-    maTinh:"#lamdong"
-  },{
-    tenTinh:"Bình Dương",
-    maTinh:"#binhduong"
-  },]
-  tenTinh:string="Hà Nội";
-  maTinh:string="#hanoi"
-  handleTinh(tenTinh:string,maTinh:string){
-    this.tenTinh=tenTinh;
-    this.maTinh=maTinh;
+  // danhSachTP:any[]=[{
+  //   tenTinh:"Hà Nội",
+  //   maTinh:"#hanoi"
+  // },{
+  //   tenTinh:"Quảng Nam",
+  //   maTinh:"#quangnam"
+  // },{
+  //   tenTinh:"Hồ Chí Minh",
+  //   maTinh:"#hochiminh"
+  // },{
+  //   tenTinh:"Nha Trang",
+  //   maTinh:"#nhatrang"
+  // },{
+  //   tenTinh:"Vũng Tàu",
+  //   maTinh:"#vungtau"
+  // },{
+  //   tenTinh:"Bình Định",
+  //   maTinh:"#binhdinh"
+  // },{
+  //   tenTinh:"Quảng Trị",
+  //   maTinh:"#quangtri"
+  // },{
+  //   tenTinh:"Quảng Bình",
+  //   maTinh:"#quangbinh"
+  // },{
+  //   tenTinh:"Huế",
+  //   maTinh:"#hue"
+  // },{
+  //   tenTinh:"Hà Tĩnh",
+  //   maTinh:"#hatinh"
+  // },{
+  //   tenTinh:"Lâm Đồng",
+  //   maTinh:"#lamdong"
+  // },{
+  //   tenTinh:"Bình Dương",
+  //   maTinh:"#binhduong"
+  // },]
+  // tenTinh:string="Hà Nội";
+  // maTinh:string="#hanoi"
+  // handleTinh(tenTinh:string,maTinh:string){
+  //   this.tenTinh=tenTinh;
+  //   this.maTinh=maTinh;
+
+  // }
+
+  handleLogout(){
+    console.log(this.currentUser);
+    localStorage.removeItem('userLogin');
 
   }
   constructor(private authService: AuthService) { }
@@ -60,6 +66,7 @@ currentUser:any=null;
     //cách 2: khi data trên service thay đổi sẽ chạy lại callback và nhận được data mới
     this.authService.currentUser.subscribe((data)=>{
       this.currentUser=data;
+      console.log(this.currentUser);
     })
   }
 
