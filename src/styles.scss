@@ -1259,6 +1259,7 @@ a .play__icon {
   height: calc(100vh - 60px);
   padding: 4rem 0;
   box-shadow: 5px 5px 15px rgb(0 0 0 / 30%);
+  margin-top: 60px;
 }
 
 .admin__sidebar ul li a:hover {
@@ -1286,6 +1287,7 @@ a .play__icon {
 
 .admin__content{
   padding: 2rem 2rem;
+  margin-top: 60px;
 }
 
 .admin__content .admin__add-movie{
@@ -1341,18 +1343,31 @@ table {
   width: 100%;
 }
 
-td, th {
+td {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  text-align: center;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  position: sticky;
+  z-index: 44;
+  background: #f0f1f0;
+  top: 0;
+  // text-align: center;
+}
+
+tr {
+  // background-color: #dddddd;
+  text-align: center;
 }
 
 .table__list {
-  height: 400px;
+  height: 370px;
     overflow-y: auto;
 }
 
@@ -1374,6 +1389,15 @@ tr:nth-child(even) {
   display: flex;
   justify-content: flex-end;
   margin-top: 2rem;
+}
+
+.admin__phanTrang{
+  margin-top: 10px;
+}
+
+.admin__phanTrang ul{
+  list-style: none;
+  display: flex;
 }
 
 
