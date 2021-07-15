@@ -5,6 +5,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { RouterModule } from '@angular/router';
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import { PersonalInformationComponent } from './personal-information/personal-in
   ],
   imports: [
     CommonModule,
-    UserRoutingModule,RouterModule
+    UserRoutingModule,RouterModule,FormsModule,ReactiveFormsModule
   ],
   exports:[PersonalInformationComponent ]
 })

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders,HttpErrorResponse} from '@angular/common/http'
 import {tap,catchError} from 'rxjs/operators'
 import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
@@ -58,7 +58,24 @@ export class AuthService {
       catchError((err)=>{
         console.log(err);
         return err;
-        
+
+      })
+    )
+  }
+  updateInfoAPI(user:any,accesstoken:any):Observable<any>{
+      const headers= new HttpHeaders({
+        'Content-Type': 'application/json-patch+json',
+        'Authorization': `Bearer ${accesstoken}`
+      })
+    return this.httpClient.put('https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',user,{headers:headers}).pipe(
+      tap((data)=>{
+        console.log(data);
+
+      }),
+      catchError((err)=>{
+        console.log(err);
+        return err;
+
       })
     )
   }
