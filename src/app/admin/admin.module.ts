@@ -10,6 +10,9 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { MovieManagerComponent } from './movie-manager/movie-manager.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { AddUserComponent } from './add-user/add-user.component';
 
 
@@ -27,7 +30,10 @@ import { AddUserComponent } from './add-user/add-user.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    NgxPaginationModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   exports:[AdminComponent]
 })

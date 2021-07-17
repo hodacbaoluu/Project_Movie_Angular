@@ -9,21 +9,15 @@ import { MovieService } from 'src/app/pages/core/service/movie/movie.service';
 export class MovieManagerComponent implements OnInit {
   maNhom: number = 1;
   soTrang: number = 1;
+  page: number = 1;
+  text!:string;
 
-  changePage(soTrang: any) {
-    this.soTrang = soTrang;
-    console.log(this.soTrang);
-  }
   constructor(private movieService: MovieService) {}
 
   movieList: any = [];
-  dataMovie: any = Object.values(this.movieList)
   getListMovie() {
-    this.movieService.getPaging(this.soTrang).subscribe((data) => {
-      
+    this.movieService.getPagingMovie(this.soTrang).subscribe((data) => {
       this.movieList = data;
-      console.log(this.movieList.items)
-      console.log(this.dataMovie)
     });
   }
 

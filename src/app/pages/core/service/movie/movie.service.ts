@@ -47,18 +47,31 @@ export class MovieService {
         })
       );
   }
-  getPaging(soTrang: number) {
+  getPagingMovie(soTrang: number): Observable<any> {
     return this.httpClient
-      .get(
-        `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP01&soTrang=${soTrang}&soPhanTuTrenTrang=10`
+      .get<any>(
+        `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+          // console.log(data);
         }),
         catchError((err) => {
           return err;
         })
       );
+  }
+  getPagingUser(soTrang: number): Observable<any> {
+    return this.httpClient
+    .get<any>(`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`
+    )
+    .pipe(
+      tap((data) => {
+        console.log(data)
+      }),
+      catchError((err) => {
+        return err
+      })
+    )
   }
 }

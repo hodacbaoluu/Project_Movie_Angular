@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { SlickCarouselComponent, SlickCarouselModule, } from 'ngx-slick-carousel';
 
 @NgModule({
@@ -14,7 +15,7 @@ import { AdminModule } from './admin/admin.module';
     AppRoutingModule,
     PagesModule,
     HttpClientModule,
-    AdminModule
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

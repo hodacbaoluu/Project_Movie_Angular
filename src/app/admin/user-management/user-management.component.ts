@@ -7,13 +7,15 @@ import { MovieService } from 'src/app/pages/core/service/movie/movie.service';
   styleUrls: ['./user-management.component.scss'],
 })
 export class UserManagementComponent implements OnInit {
+  text!: string;
   maNhom: number = 10;
+  soTrang: number = 1;
+  page: number = 1;
   constructor(private movieService: MovieService) {}
-
   userList: any = [];
 
   getListUser() {
-    this.movieService.getListUserApi().subscribe((data) => {
+    this.movieService.getPagingUser(this.soTrang).subscribe((data) => {
       console.log(data);
       this.userList = data;
     });
