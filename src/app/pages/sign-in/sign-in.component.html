@@ -1,1 +1,36 @@
-<p>sign-in works!</p>
+<app-header></app-header>
+<div class="bgLogin">
+
+  <form  #formDangNhap='ngForm' (ngSubmit)='handleLogin()' >
+    <div class="imgcontainer">
+      <img src="../../../assets/img/web-logo.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <div class="form-group">
+        <label for="uname"><b>Tài Khoản</b></label>
+      <input type="text" class="form-control" placeholder="Enter Username" [(ngModel)]="userLogin.taiKhoan" #taiKhoan='ngModel' name="taiKhoan" required>
+      <div class="alert alert-danger" *ngIf="taiKhoan.errors &&(taiKhoan.touched ||taiKhoan.dirty)">
+        Vui lòng nhập tài khoản
+      </div>
+      </div>
+
+      <div class="form-group">
+        <label for="uname"><b>Mật Khẩu</b></label>
+      <input type="password" class="form-control" placeholder="Nhập mật khẩu" [(ngModel)]="userLogin.matKhau" #matKhau='ngModel' name="matKhau" required>
+      <div class="alert alert-danger" *ngIf="matKhau.errors &&(matKhau.touched ||matKhau.dirty)">
+        Vui lòng nhập mật khẩu
+      </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="formDangNhap.invalid">Đăng Nhập</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Nhớ mật khẩu
+      </label>
+    </div>
+    <div class="dangKy">Bạn chưa có tài khoản ?
+      <a routerLink="/sign-up">Đăng Ký</a>
+    </div>
+  </form>
+</div>
+
+

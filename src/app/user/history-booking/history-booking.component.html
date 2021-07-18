@@ -1,0 +1,10 @@
+<h1>Lịch sử đặt vé</h1>
+<hr>
+<div class="selectScroll">
+<div *ngFor="let booking of listBooking">
+<app-chi-tiet-booking [booking]="booking" [thongTin]="thongTin"></app-chi-tiet-booking>
+<hr>
+</div>
+</div>
+<hr>
+

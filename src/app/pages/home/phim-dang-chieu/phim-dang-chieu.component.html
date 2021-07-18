@@ -1,1 +1,48 @@
-<p>phim-dang-chieu works!</p>
+<div class="tab-content">
+  <div class="tab-pane container active" id="dang-chieu">
+      <div id="bo_phim_dang_chieu" class="carousel slide" data-ride="carousel" data-interval="false">
+
+          <!-- Indicators -->
+          <ul class="carousel-indicators">
+              <li data-target="#bo_phim_dang_chieu" data-slide-to="0" class="active"></li>
+              <li data-target="#bo_phim_dang_chieu" data-slide-to="1"></li>
+              <li data-target="#bo_phim_dang_chieu" data-slide-to="2"></li>
+          </ul>
+
+          <!-- The slideshow -->
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="row">
+                      <div class="col-md-3 hinh__anh" *ngFor="let phim of danhSachPhimDangChieu | slice:0:8 ">
+                          <app-item-phim-dang-chieu [phim]="phim"></app-item-phim-dang-chieu>
+                      </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-md-3 hinh__anh" *ngFor="let phim of danhSachPhimDangChieu | slice:9:17 ">
+                      <app-item-phim-dang-chieu [phim]="phim"></app-item-phim-dang-chieu>
+                  </div>
+              </div>
+              </div>
+              <div class="carousel-item ">
+                <div class="row">
+                  <div class="col-md-3 hinh__anh" *ngFor="let phim of danhSachPhimDangChieu | slice:18:23 ">
+                      <app-item-phim-dang-chieu [phim]="phim"></app-item-phim-dang-chieu>
+                  </div>
+              </div>
+              </div>
+          </div>
+
+
+          <!-- Left and right controls -->
+          <a class="carousel-control-prev" href="#bo_phim_dang_chieu" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#bo_phim_dang_chieu" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+          </a>
+
+      </div>
+
+  </div>

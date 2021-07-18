@@ -1,1 +1,31 @@
-<p>user-management works!</p>
+<div class="admin__content">
+  <div class="admin__add-movie">
+    <a routerLink="/admin/add-user">Thêm Người Dùng</a>
+    <div class="admin__add-movie--find">
+      <input type="text" placeholder="Nhập vào tên phim hoặc mã phim" />
+      <button class="btn btn-info">Tìm</button>
+    </div>
+  </div>
+</div>
+<div class="table__list">
+  <table>
+    <tr>
+      <th>STT</th>
+      <th>Tài Khoản</th>
+      <th>Mật Khẩu</th>
+      <th>Họ Tên</th>
+      <th>Email</th>
+      <th>SĐT</th>
+      <th>Thao Tác</th>
+    </tr>
+    <tr *ngFor="let user of userList, let STT = index">
+      <td> {{STT + 1}} </td>
+      <td> {{user.taiKhoan}} </td>
+      <td> {{user.matKhau}} </td>
+      <td> {{user.hoTen}} </td>
+      <td> {{user.email}} </td>
+      <td> {{user.soDt}} </td>
+      <td>Thao Tác</td>
+    </tr>
+  </table>
+</div>

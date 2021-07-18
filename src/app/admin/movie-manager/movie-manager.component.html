@@ -1,1 +1,36 @@
-<p>movie-manager works!</p>
+
+<div class="admin__content">
+  <div class="admin__add-movie">
+    <a routerLink="/admin/add-movie">Thêm Phim</a>
+    <div class="admin__add-movie--find">
+      <input
+        type="text"
+        placeholder="Nhập vào tài khoản hoặc họ tên người dùng"
+      />
+      <button class="btn btn-info">Tìm</button>
+    </div>
+  </div>
+</div>
+<div class="table__list">
+  <table>
+    <tr>
+      <th>Mã Phim</th>
+      <th>Tên Phim</th>
+      <th>Hình Ảnh</th>
+      <th>Mô tả</th>
+      <th>Mã Nhóm</th>
+      <th>Ngày khởi Chiếu</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let movie of movieList">
+      <td>{{ movie.maPhim }}</td>
+      <td>{{ movie.tenPhim }}</td>
+      <td><img src="{{ movie.hinhAnh }}" alt="" style="width: 50px;height: 50px; object-fit: cover;"/></td>
+      <td>{{ movie.moTa }}</td>
+      <td>{{ movie.maNhom }}</td>
+      <td>{{ movie.ngayKhoiChieu }}</td>
+      <td>Germany</td>
+    </tr>
+  </table>
+</div>
+

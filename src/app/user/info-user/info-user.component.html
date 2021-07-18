@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="khung">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active " data-toggle="tab" href="#info">
+          <mat-icons class="material-icons">person</mat-icons>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " data-toggle="tab" href="#history">
+          <mat-icons class="material-icons">today</mat-icons>
+        </a>
+      </li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane container  active" id="info">
+        <app-personal-information></app-personal-information>
+      </div>
+      <div class="tab-pane container fade  " id="history">
+        <app-history-booking></app-history-booking>
+      </div>
+    </div>
+  </div>
+</div>
