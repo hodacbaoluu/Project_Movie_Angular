@@ -5,7 +5,8 @@
     <div class="admin__add-movie--find">
       <input
         type="text"
-        placeholder="Nhập vào tài khoản hoặc họ tên người dùng"
+        placeholder="Nhập vào tên phim hoặc mã phim"
+        [(ngModel)]="text"
       />
       <button class="btn btn-info">Tìm</button>
     </div>
@@ -22,8 +23,8 @@
       <th>Ngày khởi Chiếu</th>
       <th></th>
     </tr>
-    <tr *ngFor="let movie of movieList">
-      <td>{{ movie.maPhim }}</td>
+    <tr *ngFor="let movie of movieList | paginate: {id: 'listMovie', itemsPerPage: 8, currentPage: page } | filter: text">
+      <td >{{ movie.maPhim}}</td>
       <td>{{ movie.tenPhim }}</td>
       <td><img src="{{ movie.hinhAnh }}" alt="" style="width: 50px;height: 50px; object-fit: cover;"/></td>
       <td>{{ movie.moTa }}</td>
@@ -33,4 +34,18 @@
     </tr>
   </table>
 </div>
-
+<pagination-controls id="listMovie" align="right" class="mt-3" (pageChange)="page = $event"></pagination-controls>
+<!-- <div class="admin__phanTrang">
+  <ul #soTrang (change)="changePage(soTrang)">
+    <li value="1"><a href="">1</a></li>
+    <li value="2"><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+  </ul>
+</div>
+ -->

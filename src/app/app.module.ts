@@ -9,6 +9,10 @@ import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 
+
+import { AdminModule } from './admin/admin.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 // import { SlickCarouselComponent, SlickCarouselModule, } from 'ngx-slick-carousel';
 
 @NgModule({
@@ -19,8 +23,9 @@ import {MatIconModule} from '@angular/material/icon';
     AppRoutingModule,
     PagesModule,
     HttpClientModule,
+
     UserModule,
-    BrowserAnimationsModule,MatIconModule
+    BrowserAnimationsModule,MatIconModule, AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
