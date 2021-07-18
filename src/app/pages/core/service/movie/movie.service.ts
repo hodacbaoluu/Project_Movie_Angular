@@ -11,7 +11,7 @@ export class MovieService {
   getListMovieApi(maNhom:number){
     return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP0${maNhom}`).pipe(
       tap((data)=>{
-        console.log(maNhom);
+
       }),
       catchError((err)=>{
         console.log(err);
@@ -42,5 +42,16 @@ export class MovieService {
         return err
       })
       )
+  }
+  getListNameMovieAPI(maNhom:string,tenPhim:string):Observable<any>{
+    return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=${maNhom}&tenPhim=${tenPhim}`).pipe(
+      tap((data)=>{
+      }),
+      catchError((err)=>{
+        console.log(err);
+        return err;
+
+      })
+    )
   }
 }

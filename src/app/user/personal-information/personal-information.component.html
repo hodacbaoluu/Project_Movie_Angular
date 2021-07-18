@@ -1,5 +1,7 @@
-<div class="spinner-border"></div>
+
+<!-- <div class="spinner-border"></div> -->
 <div class="container">
+  <div class="space">
   <h1>Thông Tin Cá Nhân</h1>
   <hr>
   <div class="row">
@@ -10,11 +12,15 @@
   <div class="row">
     <div class="col-6">Mật Khẩu :</div>
     <div class="col-6" id="passwd" >
-      <input *ngIf="ktra, else ktraSai"  type="password" [value]='userInfo.matKhau' disabled>
-      <ng-template #ktraSai>
+      <input  matInput [type]="hide? 'password':'text'" [value]='userInfo.matKhau' disabled>
+      <!-- <ng-template #hideSai>
         <input type="text" [value]="userInfo.matKhau" disabled>
       </ng-template>
-      <button class="btn btn-success" (click)="see()">Mat</button>
+      <button mat-icon-button matSuffix (click)="hide=!hide"><mat-icon class="material-icons">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button> -->
+      <button class="icon" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon class="material-icons">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+
 
      </div>
   </div>
@@ -134,9 +140,14 @@
        </div>
         </div>
         <hr>
-        <a href="/user/personal-information" >
+        <ng-container *ngIf=" formCapNhat.dirty, else Close">
+        <a href="/user/info-user" >
           <button type="button" class="btn btn-danger clos"  >Close</button>
         </a>
+      </ng-container>
+      <ng-template #Close>
+        <button type="button" class="btn btn-danger clos" data-dismiss="modal"  >Close</button>
+      </ng-template>
         <button
         class="btn btn-success update"
         type="submit"  [disabled]="!formCapNhat.valid || !formCapNhat.dirty" >Cập nhật</button>
@@ -149,4 +160,7 @@
   </div>
 </div>
 </div>
+</div>
+
+
 

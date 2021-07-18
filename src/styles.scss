@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+
+
 * {
   padding: 0;
   margin: 0;
@@ -9,6 +11,9 @@
 
 
 /* newBlock */
+ul{
+  margin-bottom: 0 !important;
+}
 
 #newBlock .nav-pills {
   height: 40px;
@@ -855,7 +860,7 @@ img.xuat {
 
 #demo {
   position: relative;
-  padding-top: 60px;
+  padding-top: 75px;
 }
 
 .pic {
@@ -1715,3 +1720,6 @@ tr:nth-child(even) {
   #footer .footer-top .tix-text:last-child a:first-child {
       margin-right: 10px;
   }}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

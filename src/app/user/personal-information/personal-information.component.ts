@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/pages/core/service/auth/auth.service';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import { FormGroup, FormControl, FormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,91 +9,85 @@ import { Router } from '@angular/router';
   styleUrls: ['./personal-information.component.scss']
 })
 export class PersonalInformationComponent implements OnInit {
-  formCapNhat?:FormGroup;
+  formCapNhat?: FormGroup;
+  hide: boolean = true;
 
-  ktra:boolean=true;//mở tắt nhìn thấy mật khẩu
-see(){
-  if(this.ktra){
-    this.ktra=false;
-  } else this.ktra=true;
+  user: any = {
+    taiKhoan: this.authService.getCurrentUser().taiKhoan,
+  };
+  userInfo: any = {};
 
-}
+  capNhat(thamSo: any) {
+    let taiKhoan = thamSo.getAttribute('data-taiKhoan');
+    let matKhau = thamSo.getAttribute('data-matKhau');
+    let hoTen = thamSo.getAttribute('data-hoTen');
+    let email = thamSo.getAttribute('data-email');
+    let soDT = thamSo.getAttribute('data-soDT');
 
-user:any={
-  taiKhoan:this.authService.getCurrentUser().taiKhoan, };
-userInfo:any={};
+    this.formCapNhat?.setValue({
+      hoTen: hoTen,
+      email: email,
+      soDT: soDT,
+      taiKhoan: taiKhoan,
+      matKhau: matKhau,
+      maNhom: "GP01",
+      maLoaiNguoiDung: "QuanTri",
 
-capNhat(thamSo:any){
-  let taiKhoan=thamSo.getAttribute('data-taiKhoan');
-  let matKhau=thamSo.getAttribute('data-matKhau');
-  let hoTen=thamSo.getAttribute('data-hoTen');
-  let email=thamSo.getAttribute('data-email');
-  let soDT=thamSo.getAttribute('data-soDT');
+    })
 
-  this.formCapNhat?.setValue({
-    hoTen:hoTen,
-    email:email,
-    soDT:soDT,
-    taiKhoan:taiKhoan,
-    matKhau:matKhau,
-    maNhom:"GP01",
-    maLoaiNguoiDung:"QuanTri",
+  }
+  handleCapNhat() {
+    console.log(this.formCapNhat?.value);
+    this.authService.updateInfoAPI(this.formCapNhat?.value, this.token).subscribe((data) => {
+      alert('Cập nhật thành công 🤩');
 
-  })
+      this.router.navigate(['/user/personal-information']);
+    })
 
-}
-handleCapNhat(){
-  console.log(this.formCapNhat?.value);
-  this.authService.updateInfoAPI( this.formCapNhat?.value,this.token).subscribe((data)=>{
-    alert('Cập nhật thành công 🤩');
+  }
+  currenUser: any = null;
+  token: any;
+  constructor(private authService: AuthService, private router: Router) { }
 
-    this.router.navigate(['/user/personal-information']);
-  })
-
-}
-currenUser:any=null;
-token:any;
-  constructor(private authService:AuthService, private router:Router) { }
-
-  get taiKhoan(){
+  get taiKhoan() {
     return this.formCapNhat?.get('taiKhoan');
   }
-  get matKhau(){
+  get matKhau() {
     return this.formCapNhat?.get('matKhau');
   }
-  get hoTen(){
+  get hoTen() {
     return this.formCapNhat?.get('hoTen');
   }
-  get email(){
+  get email() {
     return this.formCapNhat?.get('email');
   }
-  get soDT(){
+  get soDT() {
     return this.formCapNhat?.get('soDT');
   }
 
   ngOnInit(): void {
-    this.authService.inforAPI(this.user).subscribe((data)=>{this.userInfo=data;});
+    this.authService.inforAPI(this.user).subscribe((data) => { this.userInfo = data; });
 
 
-    this.authService.currentUser.subscribe((data)=>{
-      this.currenUser=data;
+    this.authService.currentUser.subscribe((data) => {
+      this.currenUser = data;
 
-      this.token=this.currenUser.accessToken;
+      this.token = this.currenUser.accessToken;
     })
     console.log(this.token);
-  
+
 
 
     // this.user=this.authService.getCurrentUser();
     // console.log(this.user);
-    this.formCapNhat= new FormGroup({
-      taiKhoan: new FormControl(null,Validators.required),
-      matKhau: new FormControl(null,Validators.required),
-      email: new FormControl(null,Validators.required),
-      soDT: new FormControl(null,Validators.required),
-      hoTen: new FormControl(null,Validators.required),
-      maNhom:new FormControl(null,Validators.required),
-      maLoaiNguoiDung:new FormControl(null,Validators.required),
+    this.formCapNhat = new FormGroup({
+      taiKhoan: new FormControl(null, Validators.required),
+      matKhau: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      soDT: new FormControl(null, Validators.required),
+      hoTen: new FormControl(null, Validators.required),
+      maNhom: new FormControl(null, Validators.required),
+      maLoaiNguoiDung: new FormControl(null, Validators.required),
 
     })
   }
@@ -103,5 +96,5 @@ token:any;
 
 
 
-  }
+}
 
