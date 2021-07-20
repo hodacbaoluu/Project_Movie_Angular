@@ -1,1 +1,51 @@
-<p>movie-manager works!</p>
+
+<div class="admin__content">
+  <div class="admin__add-movie">
+    <a routerLink="/admin/add-movie">Thêm Phim</a>
+    <div class="admin__add-movie--find">
+      <input
+        type="text"
+        placeholder="Nhập vào tên phim hoặc mã phim"
+        [(ngModel)]="text"
+      />
+      <button class="btn btn-info">Tìm</button>
+    </div>
+  </div>
+</div>
+<div class="table__list">
+  <table>
+    <tr>
+      <th>Mã Phim</th>
+      <th>Tên Phim</th>
+      <th>Hình Ảnh</th>
+      <th>Mô tả</th>
+      <th>Mã Nhóm</th>
+      <th>Ngày khởi Chiếu</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let movie of movieList | paginate: {id: 'listMovie', itemsPerPage: 8, currentPage: page } | filter: text">
+      <td >{{ movie.maPhim}}</td>
+      <td>{{ movie.tenPhim }}</td>
+      <td><img src="{{ movie.hinhAnh }}" alt="" style="width: 50px;height: 50px; object-fit: cover;"/></td>
+      <td>{{ movie.moTa }}</td>
+      <td>{{ movie.maNhom }}</td>
+      <td>{{ movie.ngayKhoiChieu }}</td>
+      <td>Germany</td>
+    </tr>
+  </table>
+</div>
+<pagination-controls id="listMovie" align="right" class="mt-3" (pageChange)="page = $event"></pagination-controls>
+<!-- <div class="admin__phanTrang">
+  <ul #soTrang (change)="changePage(soTrang)">
+    <li value="1"><a href="">1</a></li>
+    <li value="2"><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">1</a></li>
+  </ul>
+</div>
+ -->
