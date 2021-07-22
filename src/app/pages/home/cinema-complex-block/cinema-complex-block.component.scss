@@ -1,0 +1,10 @@
+.scroll{
+    height: 600px;
+    overflow-y:scroll;
+}
+.diaChiRap{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 230px;
+    text-overflow: ellipsis;
+}
