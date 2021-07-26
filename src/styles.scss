@@ -1261,7 +1261,7 @@ a .play__icon {
 
 .admin__sidebar {
   // width: 100vw;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 80px);
   padding: 4rem 0;
   box-shadow: 5px 5px 15px rgb(0 0 0 / 30%);
   margin-top: 60px;
@@ -1343,7 +1343,7 @@ a .play__icon {
 }
 
 table {
-  font-family: arial, sans-serif;
+  // font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -1363,6 +1363,7 @@ th {
   z-index: 44;
   background: #f0f1f0;
   top: 0;
+  width: 0;
   // text-align: center;
 }
 

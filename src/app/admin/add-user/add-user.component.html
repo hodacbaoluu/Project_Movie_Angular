@@ -1,6 +1,6 @@
-<div class="admin__content">
+<div class="admin__content" *ngIf="formAddUser">
     <h3 style="text-align: center;">Thêm Người Dùng</h3>
-    <form>
+    <form [formGroup]="formAddUser" (ngSubmit)="handleAddUser()">
       <div class="row g-3 admin__input">
         <div class="col">
           <label for="">Tài Khoản</label>
@@ -9,6 +9,7 @@
             class="form-control"
             placeholder="Tài Khoản"
             aria-label="First name"
+            formControlName='taiKhoan'
           />
         </div>
         <div class="col">
@@ -18,6 +19,7 @@
             class="form-control"
             placeholder="Email"
             aria-label="Last name"
+            formControlName='email'
           />
         </div>
       </div>
@@ -29,6 +31,7 @@
             class="form-control"
             placeholder="Mật Khẩu"
             aria-label="First name"
+            formControlName='matKhau'
           />
         </div>
         <div class="col">
@@ -38,6 +41,7 @@
             class="form-control"
             placeholder="Số Điện Thoại"
             aria-label="Last name"
+            formControlName="soDt"
           />
         </div>
       </div>
@@ -49,19 +53,20 @@
             class="form-control"
             placeholder="Họ Tên"
             aria-label="First name"
+            formControlName='hoTen'
           />
         </div>
         <div class="col">
           <label for="">Loại Người Dùng</label>
-          <select name="" id="" class="form-control">
+          <select name="" id="" class="form-control" formControlName='maloaiNguoiDung'>
             <option value="" disabled > --Lựa chọn mã loại người dùng--</option>
-            <option value="admin">Admin</option>
+            <option value="QuanTri">Quản Trị</option>
             <option value="custom">Custom</option>
           </select>
         </div>
       </div>
       <div class="admin__button">
-        <button class="btn btn-success buton__add">Thêm</button>
+        <button class="btn btn-success buton__add" type="submit">Thêm</button>
         <button class="btn btn-info">Lưu</button>
       </div>
     </form>
