@@ -11,7 +11,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { HomeModule } from '../pages/home/home.module';
 
 import { NgxPaginationModule } from 'ngx-pagination';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 // import { AddUserComponent } from './add-user/add-user.component';
@@ -29,7 +29,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   imports: [
     CommonModule,
     AdminRoutingModule,HomeModule,
-    FormsModule,Ng2SearchPipeModule,NgxPaginationModule
+    FormsModule,Ng2SearchPipeModule,NgxPaginationModule,
+    ReactiveFormsModule
 
 
   ],
