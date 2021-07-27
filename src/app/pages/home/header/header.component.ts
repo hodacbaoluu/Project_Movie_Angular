@@ -21,9 +21,10 @@ export class HeaderComponent implements OnInit {
     //cách 1: chỉ gọi đúng 1 lần duy nhất nếu currentUser trên service thay đổi (không thể cập nhật)
     // this.authService.getCurrentUser();
     //cách 2: khi data trên service thay đổi sẽ chạy lại callback và nhận được data mới
-    this.authService.currentUser.subscribe((data) => {
-      this.currentUser = data;
-      console.log(this.currentUser);
+
+    this.authService.currentUser.subscribe((data)=>{
+      this.currentUser=data;
+      console.log(this.currentUser.accessToken);
     })
   }
 
