@@ -7,7 +7,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 
 import { AdminModule } from './admin/admin.module';
@@ -25,10 +25,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HttpClientModule,
 
     UserModule,
-    BrowserAnimationsModule,MatIconModule, AdminModule,
+    BrowserAnimationsModule, MatIconModule, AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 
 })
-export class AppModule {}
+export class AppModule { }

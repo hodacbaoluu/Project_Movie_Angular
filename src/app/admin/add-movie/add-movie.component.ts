@@ -16,7 +16,7 @@ export class AddMovieComponent implements OnInit {
     private movieService: MovieService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.authService.currentUser.subscribe((data) => {
@@ -35,6 +35,7 @@ export class AddMovieComponent implements OnInit {
       ngayKhoiChieu: new FormControl(''),
       danhGia: new FormControl(''),
     });
+
   }
 
   formAddMovie?: FormGroup;

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../core/service/movie/movie.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailComponent implements OnInit {
 
-  constructor() { }
 
+  constructor(private movieService: MovieService, private activatedRoute: ActivatedRoute, private sanitized: DomSanitizer) { }
+  maPhim: any;
+  infoMovie: any;
+  getMaPhim() {
+    this.activatedRoute.params.subscribe((params) => {
+      console.log(params);
+      this.maPhim = params.maPhim;
+
+    })
+  }
+  getInfoMovieAPI() {
+    this.movieService.getCarouselMovieApi(this.maPhim).subscribe((data) => {
+      this.infoMovie = data;
+      console.log(data);
+
+    })
+  }
+  trailer(oldURL: string): SafeResourceUrl {
+    if (oldURL) {
+      oldURL = oldURL.replace("watch?v=", "embed/");
+    }
+    return this.sanitized.bypassSecurityTrustResourceUrl(oldURL);
+  }
   ngOnInit(): void {
+    this.getMaPhim();
+    this.getInfoMovieAPI();
+
   }
 
 }
+
