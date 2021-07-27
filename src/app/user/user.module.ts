@@ -11,17 +11,15 @@ import { InfoUserComponent } from './info-user/info-user.component';
 import { HistoryBookingComponent } from './history-booking/history-booking.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChiTietBookingComponent } from './chi-tiet-booking/chi-tiet-booking.component';
-
-
 @NgModule({
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
-    UserComponent,PersonalInformationComponent, InfoUserComponent, HistoryBookingComponent, ChiTietBookingComponent
+    UserComponent, PersonalInformationComponent, InfoUserComponent, HistoryBookingComponent, ChiTietBookingComponent
   ],
   imports: [
-    CommonModule,HomeModule,
-    UserRoutingModule,RouterModule,FormsModule,ReactiveFormsModule
+    CommonModule, HomeModule,
+    UserRoutingModule, RouterModule, FormsModule, ReactiveFormsModule
   ],
-  exports:[]
+  exports: []
 })
 export class UserModule { }

@@ -2,11 +2,7 @@
   <div class="admin__add-movie">
     <a routerLink="/admin/add-movie">Thêm Phim</a>
     <div class="admin__add-movie--find">
-      <input
-        type="text"
-        placeholder="Nhập vào tên phim hoặc mã phim"
-        [(ngModel)]="text"
-      />
+      <input type="text" placeholder="Nhập vào tên phim hoặc mã phim" [(ngModel)]="text" />
       <button class="btn btn-info">Tìm</button>
     </div>
   </div>
@@ -26,62 +22,33 @@
       <td>{{ movie.maPhim }}</td>
       <td>{{ movie.tenPhim }}</td>
       <td>
-        <img
-          src="{{ movie.hinhAnh }}"
-          alt=""
-          style="width: 50px; height: 50px; object-fit: cover"
-        />
+        <img src="{{ movie.hinhAnh }}" alt="" style="width: 50px; height: 50px; object-fit: cover" />
       </td>
       <td>{{ movie.moTa }}</td>
       <td>{{ movie.maNhom }}</td>
       <td>{{ movie.ngayKhoiChieu }}</td>
       <td>
-        <button
-          class="btn btn-warning"
-          type="button"
-          data-toggle="modal"
-          data-target="#exampleModalCenter"
-          #btnCapNhap
-          [attr.data-maPhim]="movie.maPhim"
-          [attr.data-tenPhim]="movie.tenPhim"
-          [attr.data-hinhAnh]="movie.hinhAnh"
-          [attr.data-moTa]="movie.moTa"
-          [attr.data-ngayKhoiChieu]="movie.ngayKhoiChieu"
-          [attr.data-biDanh]="movie.biDanh"
-          [attr.data-trailer]="movie.trailer"
-          [attr.data-danhGia]="movie.danhGia"
-          (click)="capNhat(btnCapNhap)"
-        >
+        <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModalCenter" #btnCapNhap
+          [attr.data-maPhim]="movie.maPhim" [attr.data-tenPhim]="movie.tenPhim" [attr.data-hinhAnh]="movie.hinhAnh"
+          [attr.data-moTa]="movie.moTa" [attr.data-ngayKhoiChieu]="movie.ngayKhoiChieu"
+          [attr.data-biDanh]="movie.biDanh" [attr.data-trailer]="movie.trailer" [attr.data-danhGia]="movie.danhGia"
+          (click)="capNhat(btnCapNhap)">
           Sửa
         </button>
-        <button
-          class="btn btn-danger"
-          (click)="handleDeleteMovie(movie.maPhim)"
-        >
+        <button class="btn btn-danger" (click)="handleDeleteMovie(movie.maPhim)">
           Xóa
         </button>
       </td>
     </tr>
   </table>
 </div>
-<div
-  class="modal fade"
-  id="exampleModalCenter"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true"
->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="exampleModalCenterTitle">Cập Nhật Phim</h3>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -89,77 +56,37 @@
         <form [formGroup]="formUpdateMovie" (ngSubmit)="handleUpdateMovie(formUpdateMovie.value, imgThemPhim.files )">
           <div class="form-group">
             <label>Mã Phim</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Mã Phim"
-              formControlName="maPhim"
-              name="maPhim"
-            />
+            <input type="text" class="form-control" placeholder="Mã Phim" formControlName="maPhim" name="maPhim" />
           </div>
           <div class="form-group">
             <label>Tên Phim</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Tên Phim"
-              formControlName="tenPhim"
-              name="tenPhim"
-            />
+            <input type="text" class="form-control" placeholder="Tên Phim" formControlName="tenPhim" name="tenPhim" />
           </div>
           <div class="form-group">
             <label>Trailer</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Trailer"
-              formControlName="trailer"
-              name="trailer"
-            />
+            <input type="text" class="form-control" placeholder="Trailer" formControlName="trailer" name="trailer" />
           </div>
           <div class="form-group">
             <label>Mã Nhóm</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Mã Nhóm"
-              formControlName="maNhom"
-              name="maNhom"
-            />
+            <input type="text" class="form-control" placeholder="Mã Nhóm" formControlName="maNhom" name="maNhom" />
           </div>
           <div class="form-group">
             <label>Ngày Khởi Chiếu</label>
-            <input
-              type="datetime"
-              class="form-control"
-              placeholder="Ngày Khởi Chiếu"
-              formControlName="ngayKhoiChieu"
-              name="ngayKhoiChieu"
-            />
+            <input type="date" class="form-control" placeholder="Ngày Khởi Chiếu" formControlName="ngayKhoiChieu"
+              name="ngayKhoiChieu" />
           </div>
           <div class="form-group">
             <label>Hình Ảnh</label>
-            <input type="file" class="form-control" #imgThemPhim  />
+            <input type="file" class="form-control" #imgThemPhim />
           </div>
           <div class="form-group">
             <label>Mô Tả</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Ngày Khởi Chiếu"
-              formControlName="moTa"
-              name="moTa"
-            />
+            <input type="text" class="form-control" placeholder="Ngày Khởi Chiếu" formControlName="moTa" name="moTa" />
           </div>
           <div class="form-group">
             <label>Bí Danh</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Ngày Khởi Chiếu"
-              formControlName="biDanh"
-              name="biDanh"
-            />
+            <input type="text" class="form-control" placeholder="Ngày Khởi Chiếu" formControlName="biDanh"
+              name="biDanh" />
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -169,7 +96,7 @@
           </div>
         </form>
       </div>
-      
+
     </div>
   </div>
 </div>

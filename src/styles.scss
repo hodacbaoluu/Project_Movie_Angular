@@ -989,7 +989,10 @@ span.diachi {
   background: white;
   z-index: 9999;
 }
-
+//Khoảng cách từ header đến trang nội dung
+.noiDung{
+  padding-top: 6%;
+}
 #tool .list__tool {
   font-size: 14px;
   color: black;

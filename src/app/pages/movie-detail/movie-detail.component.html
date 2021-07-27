@@ -1,1 +1,80 @@
-<p>movie-detail works!</p>
+<app-header></app-header>
+<ng-container *ngIf="infoMovie">
+  <div class="noiDung">
+    <div class="hinhNen">
+      <img class="background" [src]="infoMovie.hinhAnh">
+    </div>
+    <div class="backgroundBlack"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-4"><img class="hinhChinh" [src]="infoMovie.hinhAnh"></div>
+        <div class="col-8">
+          <div class="tenPhim">
+            <h1>{{infoMovie.tenPhim}}</h1>
+          </div>
+          <div class="moTa">
+            <div class="row">
+              <span class="title col-2">MÔ TẢ: </span>
+              <span class="col-10">{{infoMovie.moTa}}</span>
+            </div>
+
+          </div>
+          <div class="ngayKhoiChieu">
+            <div class="row">
+              <span class="title col-2">
+                NGÀY CHIẾU:
+              </span>
+              <span class="col-10">{{infoMovie.ngayKhoiChieu | date:"dd-MM-yyyy"}}</span>
+            </div>
+
+          </div>
+          <div class="gioKhoiChieu">
+            <div class="row">
+              <span class="title col-2">GIỜ CHIẾU: </span>
+              <span class="col-10">{{infoMovie.ngayKhoiChieu | date:"HH:MM:SS"}}</span>
+            </div>
+
+          </div>
+          <div class="danhGia">
+            <div class="row">
+              <span class="title col-2">ĐÁNH GIÁ: </span>
+              <span class="col-10">{{infoMovie.danhGia}}/10</span>
+            </div>
+
+          </div>
+          <div class="datVe">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg xemTrailer" data-toggle="modal" data-target="#modelId">
+              Trailer
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" [src]="trailer(infoMovie.trailer)" allowfullscreen></iframe>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <button class="btn btn-success btn-lg datVe">Đặt vé</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <app-footer></app-footer>
+</ng-container>
