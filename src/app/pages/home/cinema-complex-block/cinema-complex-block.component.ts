@@ -20,14 +20,14 @@ export class CinemaComplexBlockComponent implements OnInit {
       id: 'bhd',
     },
     {
-      id: 'cns',
+      id: 'cgv',
     },
     {
       id: 'cine',
 
     },
     {
-      id: 'ddc',
+      id: 'galaxy',
 
     },
     {
