@@ -18,6 +18,7 @@ import { CinemaComplexBlockComponent } from './cinema-complex-block/cinema-compl
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { RouterModule } from '@angular/router';
 import { ItemCinemaComplexBlockComponent } from './item-cinema-complex-block/item-cinema-complex-block.component';
+import { ChiTietRapComponent } from './chi-tiet-rap/chi-tiet-rap.component';
 
 
 
@@ -35,7 +36,7 @@ import { ItemCinemaComplexBlockComponent } from './item-cinema-complex-block/ite
     ItemPhimDangChieuComponent,
     ItemPhimSapChieuComponent,
     FooterComponent,
-    HeaderComponent,CinemaComplexBlockComponent, ItemCinemaComplexBlockComponent,
+    HeaderComponent,CinemaComplexBlockComponent, ItemCinemaComplexBlockComponent, ChiTietRapComponent,
 
   ],
   imports: [

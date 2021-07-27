@@ -11,7 +11,7 @@
         </ng-container>
       </div>
       <div class="tab-content col-sm-11" id="contentdad">
-        <div class="tab-pane fade " [id]="idRap[stt].id+'-content'" role="tabpanel" aria-labelledby="cns"
+        <div class="tab-pane fade " [id]="idRap[stt].id+'-content'" role="tabpanel" aria-labelledby="cgv"
           *ngFor="let rap of heThongRap, let stt=index" [class.active]="s2Index === stt" [class.show]="s2Index===stt">
           <div class="row">
             <ul class="nav nav-tabs  col-md-5 scroll" id="myTab" role="tablist"
@@ -32,7 +32,7 @@
                           <div><span class="bhd">{{thongTin.tenCumRap | slice:0:thongTin.tenCumRap.indexOf('-')}}</span>
                             {{thongTin.tenCumRap | slice:thongTin.tenCumRap.indexOf('-')}}</div>
                           <div class="diaChiRap">{{thongTin.diaChi}}</div>
-                          <div>[chi tiết]</div>
+                          <div> <a routerLink="/chi-tiet-rap">[chi tiết]</a> </div>
                         </div>
 
                       </div>
@@ -83,161 +83,13 @@
                     </div>
                   </ng-container>
                 </ng-container>
-                <!-- <div class="item">
-                  <div class="info_movie d-flex container-fluid">
-                    <div class="mr-2 left">
-                      <img
-                        src="https://s3img.vcdn.vn/mobile/123phim/2020/12/lua-deu-gap-lua-dao-the-con-heartist-c16-16082739589858_60x60.png"
-                        alt="" class="w_50">
-                    </div>
-                    <div class="right">
-                      <div class="title__movie-item">
-                        <span class="type-movie-item C16">C16</span>
-                        <span class="name-movie-item">Lừa Đểu Gặp Lừa Đảo - The
-                          Con-Heartist</span>
-                      </div>
-                      <div class="info_movie-item mt-1">
-                        128 phút - TIX 8.8 - IMDb 0
-                      </div>
-                    </div>
-                  </div>
-                  <div class="time container-fluid">
-                    <div class="type-watch">
-                      <h6>2D Digital</h6>
-                      <a href="" class="item btn">
-                        <span>20:10</span> ~ 21:50
-                      </a>
-                      <a href="" class="item btn">
-                        <span>21:10</span> ~ 22:50
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="info_movie d-flex container-fluid">
-                    <div class="mr-2 left">
-                      <img src="https://s3img.vcdn.vn/mobile/123phim/2020/12/em-la-cua-em-16091411645152_60x60.png"
-                        alt="" class="w_50">
-                    </div>
-                    <div class="right">
-                      <div class="title__movie-item">
-                        <span class="type-movie-item C16">C16</span>
-                        <span class="name-movie-item">'Em' Là Của Em</span>
-                      </div>
-                      <div class="info_movie-item mt-1">
-                        0 phút - TIX 7.5 - IMDb 0
-                      </div>
-                    </div>
-                  </div>
-                  <div class="time container-fluid">
-                    <div class="type-watch">
-                      <h6>2D Digital</h6>
-                      <a href="" class="item btn">
-                        <span>20:10</span> ~ 21:50
-                      </a>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="info_movie d-flex container-fluid">
-                    <div class="mr-2 left">
-                      <img
-                        src="https://s3img.vcdn.vn/mobile/123phim/2021/01/tay-xa-thu-the-marksman-c16-16111970241171_60x60.png"
-                        alt="" class="w_50">
-                    </div>
-                    <div class="right">
-                      <div class="title__movie-item">
-                        <span class="type-movie-item C16">C16</span>
-                        <span class="name-movie-item">Tay Xạ Thủ - The Marksman</span>
-                      </div>
-                      <div class="info_movie-item mt-1">
-                        107 phút - TIX 7.3 - IMDb 0
-                      </div>
-                    </div>
-                  </div>
-                  <div class="time container-fluid">
-                    <div class="type-watch">
-                      <h6>2D Digital</h6>
-                      <a href="" class="item btn">
-                        <span>20:10</span> ~ 21:50
-                      </a>
-                      <a href="" class="item btn">
-                        <span>21:10</span> ~ 22:50
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="info_movie d-flex container-fluid">
-                    <div class="mr-2 left">
-                      <img
-                        src="https://s3img.vcdn.vn/mobile/123phim/2021/01/nam-sinh-so-11-the-child-who-would-not-come-c18-16111996672572_60x60.png"
-                        alt="" class="w_50">
-                    </div>
-                    <div class="right">
-                      <div class="title__movie-item">
-                        <span class="type-movie-item C16">C16</span>
-                        <span class="name-movie-item">Nam Sinh Số 11 - The Child Who Would
-                          Not
-                          Come</span>
-                      </div>
-                      <div class="info_movie-item mt-1">
-                        88 phút - TIX 8.8 - IMDb 0
-                      </div>
-                    </div>
-                  </div>
-                  <div class="time container-fluid">
-                    <div class="type-watch">
-                      <h6>2D Digital</h6>
-                      <a href="" class="item btn">
-                        <span>20:10</span> ~ 21:50
-                      </a>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="info_movie d-flex container-fluid">
-                    <div class="mr-2 left">
-                      <img
-                        src="https://s3img.vcdn.vn/mobile/123phim/2021/01/can-phong-ma-am-stigmatized-properties-c16-16113060341189_60x60.png"
-                        alt="" class="w_50">
-                    </div>
-                    <div class="right">
-                      <div class="title__movie-item">
-                        <span class="type-movie-item C16">C16</span>
-                        <span class="name-movie-item">Căn Phòng Ma Ám - Stigmatized
-                          Properties</span>
-                      </div>
-                      <div class="info_movie-item mt-1">
-                        111 phút - TIX 7.5 - IMDb 0
-                      </div>
-                    </div>
-                  </div>
-                  <div class="time container-fluid">
-                    <div class="type-watch">
-                      <h6>2D Digital</h6>
-                      <a href="" class="item btn">
-                        <span>20:10</span> ~ 21:50
-                      </a>
-                      <a href="" class="item btn">
-                        <span>21:10</span> ~ 22:50
-                      </a>
-                    </div>
-                  </div>
-                </div> -->
               </div>
-              \
+
 
             </div>
           </div>
         </div>
-        \
+
       </div>
     </div>
   </div>
