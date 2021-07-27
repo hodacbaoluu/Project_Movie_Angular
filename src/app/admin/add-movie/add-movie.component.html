@@ -1,114 +1,64 @@
-
 <div class="admin__content" *ngIf="formAddMovie">
-    <h3 style="text-align: center;">Thêm Phim</h3>
-    <form [formGroup]="formAddMovie"  (ngSubmit)="handleAddMovie(formAddMovie.value, imgPhim.files)">
-      <div class="row g-3 admin__input">
-        <div class="col">
-          <label for="">Mã Phim</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Mã Phim"
-            aria-label="First name"
-            formControlName="maPhim"
-            name="maPhim"
-          />
-        </div>
-        <div class="col">
-          <label for="">Ngày khởi chiếu</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Ngày khởi chiếu"
-            aria-label="Last name"
-            formControlName="ngayKhoiChieu"
-            name="ngayKhoiChieu"
-          />
-        </div>
+  <h3 style="text-align: center;">Thêm Phim</h3>
+  <form [formGroup]="formAddMovie" (ngSubmit)="handleAddMovie(formAddMovie.value, imgPhim.files)">
+    <div class="row g-3 admin__input">
+      <div class="col">
+        <label for="">Mã Phim</label>
+        <input type="text" class="form-control" placeholder="Mã Phim" aria-label="First name" formControlName="maPhim"
+          name="maPhim" />
       </div>
-      <div class="row g-3 admin__input">
-        <div class="col">
-          <label for="">Tên Phim</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Tên Phim"
-            aria-label="First name"
-            formControlName="tenPhim"
-            name="tenPhim"
-          />
-        </div>
-        <div class="col">
-          <label for="">Đánh Giá</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Đánh giá"
-            aria-label="Last name"
-            formControlName="danhGia"
-            name="danhGia"
-          />
-        </div>
+      <div class="col">
+        <label for="">Ngày khởi chiếu</label>
+        <input type="text" class="form-control" placeholder="Ngày khởi chiếu" aria-label="Last name"
+          formControlName="ngayKhoiChieu" name="ngayKhoiChieu" />
       </div>
-      <div class="row g-3 admin__input">
-        <div class="col">
-          <label for="">Trailer</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Trailer"
-            aria-label="First name"
-            formControlName="trailer"
-            name="trailer"
-          />
-        </div>
-        <div class="col">
-          <label for="">Hình Ảnh</label>
-          <input
-            type="file"
-            class="form-control"
-            placeholder="Hình Ảnh"
-            aria-label="Last name"
-            #imgPhim
-          />
-        </div>
+    </div>
+    <div class="row g-3 admin__input">
+      <div class="col">
+        <label for="">Tên Phim</label>
+        <input type="text" class="form-control" placeholder="Tên Phim" aria-label="First name" formControlName="tenPhim"
+          name="tenPhim" />
       </div>
-      <div class="row g-3 admin__input">
-        <div class="col">
-          <label for="">Mã Nhóm</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Mã Nhóm"
-            aria-label="First name"
-            formControlName="maNhom"
-            name="maNhom"
-          />
-        </div>
-        <div class="col">
-          <label for="">Bí Danh</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Bí Danh"
-            aria-label="Last name"
-            formControlName="biDanh"
-            name="biDanh"
-          />
-        </div>
+      <div class="col">
+        <label for="">Đánh Giá</label>
+        <input type="text" class="form-control" placeholder="Đánh giá" aria-label="Last name" formControlName="danhGia"
+          name="danhGia" />
       </div>
-      <div class="admin__moTa">
-        <label for="">Mô tả</label>
-        <textarea name="" id="" cols="102" rows="5" formControlName="moTa"></textarea>
-      </div>
-      <div class="admin__button">
-        <button class="btn btn-success buton__add" type="submit" >Thêm</button>
-        <button class="btn btn-info">Lưu</button>
+    </div>
+    <div class="row g-3 admin__input">
+      <div class="col">
+        <label for="">Trailer</label>
+        <input type="text" class="form-control" placeholder="Trailer" aria-label="First name" formControlName="trailer"
+          name="trailer" />
       </div>
       <div class="col">
         <label for="">Hình Ảnh</label>
-        <input type="file" class="form-control" placeholder="Hình Ảnh" aria-label="Last name" />
+        <input type="file" class="form-control" placeholder="Hình Ảnh" aria-label="Last name" #imgPhim />
       </div>
+    </div>
+    <div class="row g-3 admin__input">
+      <div class="col">
+        <label for="">Mã Nhóm</label>
+        <input type="text" class="form-control" placeholder="Mã Nhóm" aria-label="First name" formControlName="maNhom"
+          name="maNhom" />
+      </div>
+      <div class="col">
+        <label for="">Bí Danh</label>
+        <input type="text" class="form-control" placeholder="Bí Danh" aria-label="Last name" formControlName="biDanh"
+          name="biDanh" />
+      </div>
+    </div>
+    <div class="admin__moTa">
+      <label for="">Mô tả</label>
+      <textarea name="" id="" cols="102" rows="5" formControlName="moTa"></textarea>
+    </div>
+    <div class="admin__button">
+      <button class="btn btn-success buton__add" type="submit">Thêm</button>
+      <button class="btn btn-info">Lưu</button>
+    </div>
+    <div class="col">
+      <label for="">Hình Ảnh</label>
+      <input type="file" class="form-control" placeholder="Hình Ảnh" aria-label="Last name" />
     </div>
     <div class="admin__moTa">
       <label for="">Mô tả</label>
