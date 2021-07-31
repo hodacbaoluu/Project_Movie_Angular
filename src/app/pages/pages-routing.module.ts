@@ -26,7 +26,7 @@ const routes: Routes = [
         component: SignUpComponent,
         canDeactivate: [SignUpGuard],
       }, {
-        path: 'chi-tiet-rap',
+        path: 'chi-tiet-rap/:maHeThongRap/:maCumRap',
         component: ChiTietRapComponent,
       },
       {

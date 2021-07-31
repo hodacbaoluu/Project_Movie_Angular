@@ -32,7 +32,8 @@
                           <div><span class="bhd">{{thongTin.tenCumRap | slice:0:thongTin.tenCumRap.indexOf('-')}}</span>
                             {{thongTin.tenCumRap | slice:thongTin.tenCumRap.indexOf('-')}}</div>
                           <div class="diaChiRap">{{thongTin.diaChi}}</div>
-                          <div> <a routerLink="/chi-tiet-rap">[chi tiết]</a> </div>
+                          <div> <a [routerLink]="'/chi-tiet-rap/'+rap.maHeThongRap+'/'+thongTin.maCumRap">[chi tiết]</a>
+                          </div>
                         </div>
 
                       </div>
@@ -74,10 +75,15 @@
                       <div class="time container-fluid">
                         <div class="type-watch">
                           <h6>2D Digital</h6>
-                          <a href="" class="item btn">
-                            <span>20:10</span> ~ 21:50
-                          </a>
+                          <ng-container *ngFor="let thongTin of phim.lstLichChieuTheoPhim, let stt=index">
+                            <a href="" class="item btn"
+                              *ngIf="(thongTin.ngayChieuGioChieu|date:'dd/MM/yyyy')=='05/03/2020'">
 
+                              <span>{{thongTin.ngayChieuGioChieu
+                                |date:" HH:MM"}}</span>
+
+                            </a>
+                          </ng-container>
                         </div>
                       </div>
                     </div>

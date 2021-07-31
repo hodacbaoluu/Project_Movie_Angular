@@ -1,24 +1,72 @@
-<!-- <div class="navss">
-  <div class="container">
-    <ul class="nav nav-pills muc">
-      <li class="nav-item">
-        <a class="nav-link lichChieu active" (click)="handleLichChieu()" data-toggle="pill" href="#lich-chieu">Đang
-          chiếu</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link thongTin" (click)="handleThongTin()" data-toggle="pill" href="#thong-tin">Sắp chiếu</a>
-      </li>
-      <li>
-        <a class="nav-link danhGia" (click)="handleDanhGia()" data-toggle="pill" href="#danh-gia"></a>
+<!-- <div *ngFor="let item of listRap">
+  <ng-container *ngIf="item.maCumRap===listMa.maCumRap">
+    <ng-container *ngFor="let rap of item.danhSachRap">
+      <h1>{{rap.maRap}}-{{rap.tenRap}}</h1>
+      <ng-container *ngFor="let lich of lichChieu ">
+        <ng-container *ngFor="let lich1 of lich.lstCumRap">
+          <ng-container *ngIf="lich1.maCumRap===listMa.maCumRap">
+            <ng-container *ngFor="let lich2 of lich1.danhSachPhim">
+              <ng-container *ngFor="let lich3 of lich2.lstLichChieuTheoPhim">
+                <ng-container *ngIf="lich3.maRap==rap.maRap">
+                  {{lich3.ngayChieuGioChieu}}
+                </ng-container>
+                {{lich3.ngayChieuGioChieu}}
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+  </ng-container>
+</div> -->
+<div class="boCuc">
+  <div class="thongTinRap">
+    <ul>
+      <li *ngFor="let lich of lichChieu ">
+        <div class="row">
+          <div class="col-1">
+            <div class="logo" *ngIf="lich.maHeThongRap==listMa.maHeThongRap">
+              <img [src]="lich.logo" alt="">
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="thongTin" *ngFor="let lich2 of lich.lstCumRap" (click)="handleCumRap(lich2.maCumRap)">
+              <ng-container *ngIf="lich2.maCumRap==listMa.maCumRap"></ng-container>
+              <div class="tenRap">{{lich2.tenCumRap}}</div>
+              <div class="diaChi">{{lich2.diaChi}}</div>
+              <hr>
+            </div>
+
+          </div>
+          <div class="col-8 week">
+            <ng-container *ngFor="let thu of thuNgay">
+              <h1>{{thu.thu}}</h1>
+              <div class="thoiGian" *ngFor="let item of lich.lstCumRap ">
+                <ng-container *ngIf="item.maCumRap==listMa.maCumRap">
+                  <ng-container *ngFor="let item2 of item.danhSachPhim">
+
+                    <ng-container *ngFor="let item3 of item2.lstLichChieuTheoPhim ,let stt=index">
+                      <ng-container *ngIf="getDay(item3.ngayChieuGioChieu |date:'yyyy/MM/dd')==thu.thu">
+                        {{item2.tenPhim}}
+                        <div class="ngay">
+                          <div class="day" (click)="handlePhim(item2.tenPhim,item3.ngayChieuGioChieu)">
+                            <!-- <h2>{{item3.ngayChieuGioChieu |date:"HH:mm:SS"}}</h2> -->
+                            <!-- <h1>{{item2.tenPhim}}</h1> -->
+                          </div>
+                        </div>
+                      </ng-container>
+                    </ng-container>
+
+
+                  </ng-container>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+        </div>
       </li>
     </ul>
-    <div class="row">
-      <div class="col-12" *ngIf="phimDangChieu; else phimSapChieu">
-        <app-phim-dang-chieu></app-phim-dang-chieu>
-      </div>
-      <ng-template #phimSapChieu>
-        <div class="col-12">
-          <app-phim-sap-chieu></app-phim-sap-chieu>
-        </div>
-      </ng-template>
-    </div> -->
+  </div>
+
+</div>
