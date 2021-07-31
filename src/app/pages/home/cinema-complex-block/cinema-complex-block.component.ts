@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Hidden } from '@material-ui/core';
+import { takeUntil } from 'rxjs/operators';
 import { CinemaService } from '../../core/service/cinema/cinema.service';
 
 @Component({
@@ -8,7 +11,7 @@ import { CinemaService } from '../../core/service/cinema/cinema.service';
 })
 export class CinemaComplexBlockComponent implements OnInit {
 
-  constructor(private cinemaService: CinemaService) { }
+  constructor(private cinemaService: CinemaService, private router: Router) { }
   heThongRap: any = [];
   maHeThongRap: string = "BHDStar";
   thongTinRap: any = [];
@@ -100,6 +103,9 @@ export class CinemaComplexBlockComponent implements OnInit {
     this.getHinhRap();
     this.getInfoCumRap();
     this.getInforChieuCinema();
+    console.log(this.idRap.values);
+
+
 
 
 
