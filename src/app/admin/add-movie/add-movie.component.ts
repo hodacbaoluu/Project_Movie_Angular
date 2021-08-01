@@ -31,7 +31,7 @@ export class AddMovieComponent implements OnInit {
       trailer: new FormControl(''),
       // hinhAnh: new FormControl(''),
       moTa: new FormControl(''),
-      maNhom: new FormControl('GP01'),
+      maNhom: new FormControl('GP06'),
       ngayKhoiChieu: new FormControl(''),
       danhGia: new FormControl(''),
     });
@@ -57,7 +57,7 @@ export class AddMovieComponent implements OnInit {
         var frm = new FormData();
         frm.append('Files', fileImg[0]);
         frm.append('tenphim', value.tenPhim);
-        frm.append('manhom', 'GP01');
+        frm.append('manhom', 'GP06');
         this.movieService.addImageMovie(frm).subscribe((data) => {
           if (data == true) {
           }

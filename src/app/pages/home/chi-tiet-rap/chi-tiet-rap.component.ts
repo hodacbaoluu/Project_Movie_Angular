@@ -12,30 +12,66 @@ export class ChiTietRapComponent implements OnInit {
   maHeThongRap: any = [];
   listRap: any;
   lichChieu: any;
+  thu: string = "Thứ Hai";
   maCumRap: string = "";
-  tenPhim: any;
+  tenPhim: any = [];
+  ngayChieu: any = [];
+  hide: boolean = false;
   thuNgay: any = [
     {
+      id: 0,
       thu: "Thứ Hai"
     }, {
+      id: 1,
       thu: "Thứ Ba"
     },
     {
-      thu: "Thứ Sáu"
+      id: 2,
+      thu: "Thứ Tư"
     },
     {
+      id: 3,
       thu: "Thứ Năm"
     },
     {
+      id: 4,
       thu: "Thứ Sáu"
     },
     {
+      id: 5,
       thu: "Thứ Bảy"
     },
     {
+      id: 6,
       thu: "Chủ Nhật"
     }
   ]
+  idRap: any = [
+    {
+      id: 'bhd',
+    },
+    {
+      id: 'cgv',
+    },
+    {
+      id: 'cine',
+
+    },
+    {
+      id: 'galaxy',
+
+    },
+    {
+      id: 'lotte',
+    },
+    {
+      id: 'mega',
+    }
+  ];
+  index: number = 0;
+  sIndex: number = 0;
+  s2Index: number = 0;
+  s3Index: number = 0;
   constructor(private activatedRoute: ActivatedRoute, private cinemaService: CinemaService, private router: Router) { }
 
 
@@ -46,22 +82,20 @@ export class ChiTietRapComponent implements OnInit {
 
     })
   }
-  // getInfoRap() {
-  //   this.cinemaService.getCinemaAPI().subscribe((data) => {
-  //     this.listRap = data;
-  //     console.log(this.listRap);
-  //     this.maHeThongRap = this.listRap.findIndex((data: any) => {
-  //       console.log(data.maHeThongRap);
 
-
-  //     })
-  //   }
-  //   )
-  // }
   getInfoCumRap() {
     this.cinemaService.getInfoCumRapCinemaAPI(this.listMa.maHeThongRap).subscribe((data) => {
       console.log(data);
       this.listRap = data;
+      this.listRap.forEach((e: any, index: any) => {
+        if (e.maCumRap == this.listMa.maCumRap) {
+          this.sIndex = index;
+        }
+
+
+      });
+
+      this.maCumRap = this.listMa.maCumRap;
 
     })
   }
@@ -71,8 +105,25 @@ export class ChiTietRapComponent implements OnInit {
 
       this.lichChieu = data;
 
-
     })
+
+
+
+  }
+
+  setIndex(index: number, maCumRap: string, maHeThongRap: any) {
+    this.s3Index = index;
+    this.maCumRap = maCumRap;
+    this.thu = "Thứ Hai";
+    this.index = 0;
+    console.log(index);
+
+    console.log(maCumRap);
+
+    this.router.navigate([`/chi-tiet-rap/${maHeThongRap}/${maCumRap}`])
+  }
+  add(a: number) {
+    return a + 1;
   }
   getDay(ngay: any) {
     let d = new Date(ngay);
@@ -106,7 +157,14 @@ export class ChiTietRapComponent implements OnInit {
     }
     return dayname;
   }
+  getThu(thu: any, stt: any) {
+    this.thu = thu;
+    this.index = stt;
+    console.log(thu);
+
+  }
   handleCumRap(maCumRap: string) {
+
     this.maCumRap = maCumRap;
     console.log(maCumRap);
     this.router.navigate([`/chi-tiet-rap/${this.listMa.maHeThongRap}/${maCumRap}`])
@@ -117,25 +175,16 @@ export class ChiTietRapComponent implements OnInit {
 
 
   }
-  // test() {
-  //   for (let index = 0; index < this.thuNgay.length - 1; index++) {
-  //     for (let index1 = index + 1; index1 < this.thuNgay.length; index1++) {
-  //       if (this.thuNgay[index] != this.thuNgay[index1]) {
-  //         console.log(this.thuNgay);
 
-  //       }
 
-  //     }
-
-  //   }
-  // }
 
   ngOnInit(): void {
     this.getListMaRap();
     // this.getInfoRap();
     this.getInfoCumRap();
     this.getLichChieuRap();
-    // this.test();
+
+
 
 
 

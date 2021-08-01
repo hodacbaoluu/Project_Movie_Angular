@@ -9,14 +9,14 @@ import Swal from 'sweetalert2';
   providedIn: 'root',
 })
 export class MovieService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
   getListMovieApi(maNhom: number) {
     return this.httpClient
       .get(
         `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP0${maNhom}`
       )
       .pipe(
-        tap((data) => {}),
+        tap((data) => { }),
         catchError((err) => {
           console.log(err);
           return err;
@@ -29,7 +29,7 @@ export class MovieService {
         `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`
       )
       .pipe(
-        tap((data) => {}),
+        tap((data) => { }),
         catchError((err) => {
           console.log(err);
           return err;
@@ -39,10 +39,10 @@ export class MovieService {
   getListUserApi() {
     return this.httpClient
       .get(
-        `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP10`
+        `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP06`
       )
       .pipe(
-        tap((data) => {}),
+        tap((data) => { }),
         catchError((err) => {
           return err;
         })
@@ -51,7 +51,7 @@ export class MovieService {
   getMovieApi(): Observable<any> {
     return this.httpClient
       .get<any>(
-        `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`
+        `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP06`
       )
       .pipe(
         tap((data) => {
@@ -65,7 +65,7 @@ export class MovieService {
   getPagingUser(): Observable<any> {
     return this.httpClient
       .get<any>(
-        `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`
+        `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP06`
       )
       .pipe(
         tap((data) => {
@@ -82,7 +82,7 @@ export class MovieService {
         `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=${maNhom}&tenPhim=${tenPhim}`
       )
       .pipe(
-        tap((data) => {}),
+        tap((data) => { }),
         catchError((err) => {
           console.log(err);
           return err;

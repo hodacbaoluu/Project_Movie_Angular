@@ -58,7 +58,7 @@ export class CinemaService {
     )
   }
   getInfoChieuCinemaAPI(maHeThongRap: string): Observable<any> {
-    return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP01`).pipe(
+    return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP06`).pipe(
       tap((data) => {
         console.log(data);
 
