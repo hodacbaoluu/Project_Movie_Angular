@@ -1,4 +1,11 @@
-
+.lichchieu{
+  padding-top:100px !important ;
+  margin: 0 !important;
+}
+.tieuDe{
+  text-align: center;
+  font-size: 3rem;
+}
 .logo img{
   height: 60px;
   width: 60px;
@@ -6,4 +13,20 @@
 .week{
   display: flex;
   justify-content: space-around;
+}
+.thuNgay{
+  margin: 20px 20px 25px 0;
+
+}
+.thuNgay span{
+  white-space: nowrap;
+
+}
+.thuNgay span:hover{
+  cursor: pointer;
+  color: red;
+  opacity: 0.5s;
+}
+.thuNgay.active{
+  color: red;
 }

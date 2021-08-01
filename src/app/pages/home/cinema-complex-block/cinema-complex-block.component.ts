@@ -50,6 +50,8 @@ export class CinemaComplexBlockComponent implements OnInit {
 
 
 
+
+
     this.getInfoCumRap();
     this.getInforChieuCinema();
 
@@ -79,6 +81,8 @@ export class CinemaComplexBlockComponent implements OnInit {
       data.map((value: any) => {
         this.thongTinRap.push(value);
         this.maCumRap = this.thongTinRap[0].maCumRap;
+        console.log(this.thongTinRap);
+
       })
 
     })
@@ -92,6 +96,7 @@ export class CinemaComplexBlockComponent implements OnInit {
       data.map((value: any) => {
         lstLichChieu.push(value);
         this.listLichChieu = lstLichChieu[0].lstCumRap;
+        console.log(this.listLichChieu);
 
 
       })

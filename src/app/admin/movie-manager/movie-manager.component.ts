@@ -40,7 +40,7 @@ export class MovieManagerComponent implements OnInit {
       biDanh: biDanh,
       trailer: trailer,
       danhGia: danhGia,
-      maNhom: 'GP01',
+      maNhom: 'GP06',
     });
   }
 
@@ -48,7 +48,7 @@ export class MovieManagerComponent implements OnInit {
     private movieService: MovieService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   getListMovie() {
     this.movieService.getMovieApi().subscribe((data) => {
@@ -66,14 +66,14 @@ export class MovieManagerComponent implements OnInit {
         var frm = new FormData();
         frm.append('Files', fileImg[0]);
         frm.append('tenphim', value.tenPhim);
-        frm.append('manhom', 'GP01');
+        frm.append('manhom', 'GP06');
         this.movieService.addImageMovie(frm).subscribe((data) => {
           if (data == true) {
           }
         });
       }
       Swal.fire('Good job!', 'Cập nhật thành công', 'success');
-      setTimeout(() => {window.location.reload()}, 2000)
+      setTimeout(() => { window.location.reload() }, 2000)
     });
     // this.movieService.UpdateMovieAdmin(value, this.token).subscribe((data) => {
     //   if (typeof data === 'object') {
@@ -114,7 +114,7 @@ export class MovieManagerComponent implements OnInit {
       biDanh: new FormControl(''),
       trailer: new FormControl(''),
       danhGia: new FormControl(''),
-      maNhom: new FormControl('GP01'),
+      maNhom: new FormControl('GP06'),
     });
   }
 }
