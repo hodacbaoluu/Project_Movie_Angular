@@ -1,1 +1,49 @@
-<p>booking works!</p>
+<app-header></app-header>
+<div id="PhongVe" *ngFor="let thongTin of thongTinPhim">
+  <div class="row">
+    <div class="thongTin col-8">
+      <div class="thongTinPhongVe container" >
+        <div class="chiTietPhongVe">
+          <img
+            src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"
+            alt=""
+            width="50px"
+            height="50px"
+          />
+          <p>
+            {{thongTin.thongTinPhim.tenCumRap}} <br />
+            {{thongTin.thongTinPhim.ngayChieu}} - {{thongTin.thongTinPhim.gioChieu}} - {{thongTin.thongTinPhim.tenRap}}
+          </p>
+        </div>
+        <div class="time">
+          <h6>Thời Gian</h6>
+          <p>
+            <countdown
+            [config]="{ leftTime: 300, format: 'm:ss' }"
+            (event)="handleTime($event)"
+            ></countdown>
+          </p>
+        </div>
+      </div>
+      <div class="phongChieu">
+        <div id="trapezium" class="container">
+          <p>Màn Hình</p>
+        </div>
+        <app-list-ghe *ngFor="let ghe of ListGhe" [ghe]="ghe" (emitStatus)="chonGhe($event, ghe)"></app-list-ghe>
+      </div>
+    </div>
+    <div class="muaVe col-4 container">
+      <p >TỔNG TIỀN : {{tongTien}} VND </p>
+      <p>
+        Phim : {{thongTin.thongTinPhim.tenPhim}} <br />
+        Tên Rạp : {{thongTin.thongTinPhim.tenRap}} <br />
+        Thời Gian chiếu : {{thongTin.thongTinPhim.gioChieu}}
+      </p>
+      <p *ngFor="let ghe of danhSachGheDaDat">
+        <span>Ghế: {{ghe.tenGhe}} - Giá: {{ghe.giaVe}} - Loại ghế: {{ghe.loaiGhe}} </span>
+      </p>
+      <button class="btn btn-warning" (click)="datMuaGhe()">Đặt Mua</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

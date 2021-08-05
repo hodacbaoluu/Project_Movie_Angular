@@ -8,12 +8,12 @@ import { MovieService } from '../../core/service/movie/movie.service';
 })
 export class PhimDangChieuComponent implements OnInit {
 
-  constructor(private phimDangChieuService:MovieService) { }
-danhSachPhimDangChieu:any=[];
-maNhom:number=1;
-  getNameMovie(){
-    this.phimDangChieuService.getListMovieApi(this.maNhom).subscribe((data)=>{
-      this.danhSachPhimDangChieu=data;
+  constructor(private phimDangChieuService: MovieService) { }
+  danhSachPhimDangChieu: any = [];
+  maNhom: number = 6;
+  getNameMovie() {
+    this.phimDangChieuService.getListMovieApi(this.maNhom).subscribe((data) => {
+      this.danhSachPhimDangChieu = data;
     })
   }
   ngOnInit(): void {

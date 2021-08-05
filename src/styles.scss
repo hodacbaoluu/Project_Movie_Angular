@@ -367,23 +367,23 @@ ul{
   font-weight: 600;
 }
 
-.CNS {
+.cns {
   color: #df0d7a;
 }
 
-.DDC {
+.ddc {
   color: #9c9c9c
 }
 
-.MEGA {
+.mega {
   color: #e5a813;
 }
 
-.CINE {
+.cine {
   color: black;
 }
 
-.LOTTE {
+.lotte {
   color: #ca4137;
 }
 
@@ -989,7 +989,10 @@ span.diachi {
   background: white;
   z-index: 9999;
 }
-
+//Khoảng cách từ header đến trang nội dung
+.noiDung{
+  padding-top: 6%;
+}
 #tool .list__tool {
   font-size: 14px;
   color: black;
@@ -1261,7 +1264,7 @@ a .play__icon {
 
 .admin__sidebar {
   // width: 100vw;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 60px);
   padding: 4rem 0;
   box-shadow: 5px 5px 15px rgb(0 0 0 / 30%);
   margin-top: 60px;

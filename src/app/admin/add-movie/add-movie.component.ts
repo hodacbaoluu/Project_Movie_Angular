@@ -16,7 +16,7 @@ export class AddMovieComponent implements OnInit {
     private movieService: MovieService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.authService.currentUser.subscribe((data) => {
@@ -31,10 +31,11 @@ export class AddMovieComponent implements OnInit {
       trailer: new FormControl(''),
       // hinhAnh: new FormControl(''),
       moTa: new FormControl(''),
-      maNhom: new FormControl('GP01'),
+      maNhom: new FormControl('GP06'),
       ngayKhoiChieu: new FormControl(''),
       danhGia: new FormControl(''),
     });
+
   }
 
   formAddMovie?: FormGroup;
@@ -56,7 +57,7 @@ export class AddMovieComponent implements OnInit {
         var frm = new FormData();
         frm.append('Files', fileImg[0]);
         frm.append('tenphim', value.tenPhim);
-        frm.append('manhom', 'GP01');
+        frm.append('manhom', 'GP06');
         this.movieService.addImageMovie(frm).subscribe((data) => {
           if (data == true) {
           }
@@ -65,27 +66,5 @@ export class AddMovieComponent implements OnInit {
       Swal.fire('Good job!', 'Đã Thêm Phim', 'success');
       this.router.navigate(['/admin/movie-manager']);
     });
-    // //thêm hinhAnh cho phim
-    // value.hinhAnh = fileImg[0].name;
-
-    // this.movieService.addMovieAdmin(value, this.token).subscribe((data) => {
-    //   if (typeof data === 'object') {
-    //     //chuyển sang dạng formData
-    //     var frm = new FormData();
-    //     frm.append('File', fileImg[0]);
-    //     frm.append('tenphim', value.tenPhim);
-    //     frm.append('manhom', 'GP01');
-    //     this.movieService.addImageMovie(frm).subscribe((data) => {
-    //       // if (data === true) {
-    //       //   alert('thêm phim thành công');
-    //       // }else{
-    //       //   alert("có lỗi")
-    //       // }
-    //     });
-    //   }
-
-    // });
   }
-
-  // handleDeleteMovie(){}
 }

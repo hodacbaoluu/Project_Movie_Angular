@@ -8,25 +8,25 @@ import { MovieService } from '../../core/service/movie/movie.service';
 })
 export class PhimSapChieuComponent implements OnInit {
 
-  constructor(private phimSapChieuService:MovieService) { }
-danhSachPhimSapChieu:any=[];
-danhSachLichChieu:any=[];
-maNhom:number=5;
+  constructor(private phimSapChieuService: MovieService) { }
+  danhSachPhimSapChieu: any = [];
+  danhSachLichChieu: any = [];
+  maNhom: number = 6;
 
-  getNameMovie(){
-    this.phimSapChieuService.getListMovieApi(this.maNhom).subscribe((data)=>{
-      this.danhSachPhimSapChieu=data;
+  getNameMovie() {
+    this.phimSapChieuService.getListMovieApi(this.maNhom).subscribe((data) => {
+      this.danhSachPhimSapChieu = data;
 
     })
   }
-//   getInfoMovie(){
+  //   getInfoMovie(){
 
-//     this.phimSapChieuService.getCarouselMovieApi(this.maPhim).subscribe((data)=>{
-//       console.log(data);
-//       this.danhSachLichChieu=data;
+  //     this.phimSapChieuService.getCarouselMovieApi(this.maPhim).subscribe((data)=>{
+  //       console.log(data);
+  //       this.danhSachLichChieu=data;
 
-//     })
-// }
+  //     })
+  // }
   ngOnInit(): void {
     this.getNameMovie();
   }
