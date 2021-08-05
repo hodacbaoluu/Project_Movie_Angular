@@ -1,0 +1,78 @@
+.chiTietPhongVe{
+    display: flex;
+}
+
+.chiTietPhongVe img{
+    margin-right: 20px;
+}
+
+.thongTinPhongVe{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.time p{
+    text-align: center;
+}
+
+#trapezium {
+    height: 0;
+    width: 100%;
+    border-bottom: 60px solid #afafaf;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    text-align: center;
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+.phongChieu{
+    border-top: black 5px solid ;
+}
+
+.thongTin{
+    padding: 0 50px;
+}
+
+#PhongVe .row{
+    margin: 0;
+}
+
+.muaVe p:first-child{
+    text-align: center;
+    color: #fb4226;
+    font-size: 30px;
+    padding: 40px 0;
+    border-bottom: darkgray dashed 2px;
+}
+
+.muaVe p:nth-child(2){
+    padding: 30px 0;
+    border-bottom: 2px dashed grey;
+}
+
+// .muaVe p:nth-child() {
+//     border-top: 2px darkgray dashed;
+//     padding: 30px 0;
+// }
+
+.muaVe button {
+    width: 100%;
+    height: 40px;
+}
+
+.muaVe{
+    box-shadow: 0 0 15px rgb(0 0 0 / 30%);
+    height: 100vh;
+}
+
+#PhongVe{
+    padding: 85px 0;
+}
+
+.muaVe {
+    padding-top: 100px;
+}
+

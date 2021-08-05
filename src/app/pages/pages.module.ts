@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { BookingModule } from './booking/booking.module';
 
 
 

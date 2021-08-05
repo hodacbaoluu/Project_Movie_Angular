@@ -176,6 +176,9 @@ export class ChiTietRapComponent implements OnInit {
 
   }
 
+  booking(){
+    this.router.navigate(["/booking"])
+  }
 
 
   ngOnInit(): void {
