@@ -14,12 +14,13 @@ import { BookingModule } from './booking/booking.module';
 
 
 
+
 @NgModule({
   declarations: [
     PagesComponent, SignInComponent, SignUpComponent, MovieDetailComponent
   ],
   imports: [
-    CommonModule, PagesRoutingModule, FormsModule, HomeModule, ReactiveFormsModule, RouterModule
+    CommonModule, PagesRoutingModule, FormsModule, HomeModule, ReactiveFormsModule, RouterModule, BookingModule
 
   ],
   exports: [PagesComponent, SignInComponent, SignUpComponent]
