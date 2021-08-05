@@ -7,6 +7,7 @@ import {
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
@@ -21,7 +22,7 @@ export class AuthService {
     this.currentUserSubject.next(value);
   }
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     const userJson = localStorage.getItem('userLogin');
     if (userJson) {
       this.setCurrentUser(JSON.parse(userJson));
@@ -141,11 +142,44 @@ export class AuthService {
             });
           } else {
             Swal.fire('Good job!', 'Đã Xóa Người Dùng', 'success');
-            setTimeout(() => {window.location.reload()}, 2000)
-            
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
           }
-          
+
           return err.status;
+        })
+      );
+  }
+
+  postQuanLyDatVe(taiKhoan: any, accesstoken: any) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json-patch+json',
+      Authorization: `Bearer ${accesstoken}`,
+    });
+    return this.httpClient
+      .post(
+        'https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe',
+        taiKhoan,
+        { headers: headers }
+      )
+      .pipe(
+        tap((data) => {
+          console.log(data);
+        }),
+        catchError((err) => {
+          console.log(err);
+          if (err.status == 500) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: err.error,
+            });
+          } else {
+            Swal.fire('Good job!', 'Đã Đặt Vé Thành Công', 'success');
+            this.router.navigate(['/'])
+          }
+          return err;
         })
       );
   }

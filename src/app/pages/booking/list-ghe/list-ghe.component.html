@@ -1,0 +1,7 @@
+<ng-container *ngIf="!ghe.daDat; else gheDaDuocDat">
+    <button class="btn btn-primary mt-3 mr-3" [ngClass]="{'btn-warning': status}" (click)="datGhe()"> {{ghe.tenGhe}} </button>
+</ng-container>
+
+<ng-template #gheDaDuocDat>
+    <button class="btn btn-secondary mt-3 mr-3" disabled> {{ghe.tenGhe}} </button>
+</ng-template>

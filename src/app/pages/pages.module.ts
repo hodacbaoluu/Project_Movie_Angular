@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { BookingModule } from './booking/booking.module';
 
 
 
@@ -18,7 +19,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     PagesComponent, SignInComponent, SignUpComponent, MovieDetailComponent
   ],
   imports: [
-    CommonModule, PagesRoutingModule, FormsModule, HomeModule, ReactiveFormsModule, RouterModule
+    CommonModule, PagesRoutingModule, FormsModule, HomeModule, ReactiveFormsModule, RouterModule, BookingModule
 
   ],
   exports: [PagesComponent, SignInComponent, SignUpComponent]

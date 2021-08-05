@@ -70,4 +70,16 @@ export class CinemaService {
       })
     )
   }
+
+  getDanhSachPhongVe(maLichChieu: string){
+    return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`).pipe(
+      tap((data) => {
+        console.log(data)
+      }),
+      catchError((err) => {
+        console.log(err);
+        return err;
+      })
+    )
+  }
 }
