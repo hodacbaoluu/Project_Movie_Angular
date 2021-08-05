@@ -1,22 +1,22 @@
- <!-- START carousel header -->
- <div id="demo" class="carousel slide" data-ride="carousel">
+<!-- START carousel header -->
+<div id="demo" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ul class="carousel-indicators">
-      <li data-target="#demo" data-slide-to="0" class="active"></li>
-      <li data-target="#demo" data-slide-to="1"></li>
-      <li data-target="#demo" data-slide-to="2"></li>
-      <li data-target="#demo" data-slide-to="3"></li>
-      <li data-target="#demo" data-slide-to="4"></li>
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+    <li data-target="#demo" data-slide-to="4"></li>
   </ul>
 
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active ">
-     <app-item-carousel [movie]="movieCarouselActive"></app-item-carousel>
-  </div>
-      <div class="carousel-item " *ngFor="let movie of movieCarousel" >
-          <app-item-carousel [movie]="movie"></app-item-carousel>
-      </div>
+      <app-item-carousel [movie]="movieCarouselActive"></app-item-carousel>
+    </div>
+    <div class="carousel-item " *ngFor="let movie of movieCarousel">
+      <app-item-carousel [movie]="movie"></app-item-carousel>
+    </div>
 
 
 
@@ -24,111 +24,117 @@
 
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
-      <span class="prev-icon"></span>
+    <span class="prev-icon"></span>
   </a>
 
   <a class="carousel-control-next" href="#demo" data-slide="next">
-      <span class="next-icon"></span>
+    <span class="next-icon"></span>
   </a>
   <!-- backgroundUnder -->
   <div class="under"></div>
   <div id="tool">
-      <div class="row tool__content">
-          <div class="col-md-4 phim">
-              <div class="list__dropdown">
-                  <div class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
-                          <span>{{tenPhim}}</span>
-                      </a>
-                      <div class="dropdown-menu selectScroll">
-                        <ng-container *ngFor="let phim of danhSachPhim">
-                          <a class="dropdown-item" (click)="handlePhim(phim.tenPhim,phim.maPhim)">{{phim.tenPhim}}</a>
-                        </ng-container>
-                      </div>
-                  </div>
-
-              </div>
+    <div class="row tool__content">
+      <div class="col-md-4 phim">
+        <div class="list__dropdown">
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
+              <span>{{tenPhim}}</span>
+            </a>
+            <div class="dropdown-menu selectScroll">
+              <ng-container *ngFor="let phim of danhSachPhim">
+                <a class="dropdown-item" (click)="handlePhim(phim.tenPhim,phim.maPhim)">{{phim.tenPhim}}</a>
+              </ng-container>
+            </div>
           </div>
-          <div class="col-md-2 cinema">
-              <div class="list__dropdown">
-                  <div class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
-                          <span>{{tenCumRap}}</span>
 
-                      </a>
+        </div>
+      </div>
+      <div class="col-md-2 cinema">
+        <div class="list__dropdown">
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
+              <span>{{tenCumRap}}</span>
 
-                      <div class="dropdown-menu selectScroll" >
-                        <ng-container *ngFor="let tenRap of movieInfoList.lichChieu, let stt=index, let last=last" >
-                          <ng-container *ngIf="!last" >
-                          <a class="dropdown-item" *ngIf="movieInfoList.lichChieu[stt].thongTinRap.tenCumRap !==movieInfoList.lichChieu[stt+1].thongTinRap.tenCumRap" (click)="handleRap(tenRap.thongTinRap.tenCumRap,tenRap.thongTinRap.maRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
-                          </ng-container>
-                          <ng-container *ngIf="last" >
-                            <a class="dropdown-item"  (click)="handleRap(tenRap.thongTinRap.tenCumRap,tenRap.thongTinRap.maRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
-                            </ng-container>
-                        </ng-container>
-                      </div>
+            </a>
 
-                  </div>
-
-              </div>
-          </div>
-          <div class="col-md-2 ngay__chieu">
-              <div class="list__dropdown">
-                  <div class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
-                          <span *ngIf="day!=='Ngày xem',else ngayXem">{{day | date:'dd/MM/YYYY'}}</span>
-                          <ng-template #ngayXem><span>{{day}}</span></ng-template>
-                      </a>
-                      <div class="dropdown-menu selectScroll">
-                        <ng-container *ngFor="let day of movieInfoList.lichChieu, let stt=index, let last=last" >
-                          <!-- <app-narbar-phim [day]="day" [movieInfoList]="movieInfoList" [stt]="stt" [last]="last" [tenPhim]="tenPhim" [maPhim]="maPhim"></app-narbar-phim> -->
-                          <ng-container *ngIf="(day.thongTinRap.tenCumRap==tenCumRap) &&(day.tenPhim===tenPhim) " >
-                            <ng-container *ngIf="!last">
-                              <a class="dropdown-item" *ngIf="(movieInfoList.lichChieu[stt].ngayChieuGioChieu|date:'dd/MM/YYYY')!==(movieInfoList.lichChieu[stt+1].ngayChieuGioChieu|date:'dd/MM/YYYY')" (click)="handleDay(day.ngayChieuGioChieu)" >
-                                <p class="day"   >{{day.ngayChieuGioChieu|date:'dd/MM/YYYY'}}</p>
-                              </a>
-                            </ng-container>
-                            <ng-container *ngIf="last">
-                              <a class="dropdown-item" *ngIf="last" (click)="handleDay(day.ngayChieuGioChieu)" >
-                                <p class="day"   >{{day.ngayChieuGioChieu|date:'dd/MM/YYYY'}}</p>
-                              </a>
-                            </ng-container>
-                          </ng-container>
-                        </ng-container>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-          <div class="col-md-2 xuat__chieu">
-              <div class="list__dropdown">
-                  <div class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
-                          <span *ngIf="suatChieu!=='Suất chiếu', else tenMucSuatChieu">{{suatChieu |date:'HH:mm:ss'}}</span>
-                          <ng-template #tenMucSuatChieu><span>{{suatChieu}}</span></ng-template>
-                      </a>
-                      <div class="dropdown-menu" >
-                        <ng-container *ngFor="let suatChieu of movieInfoList.lichChieu, let stt=index, let last= last" >
-                        <ng-container *ngIf='day!=="Ngày xem"' >
-                          <a class="dropdown-item" *ngIf="(suatChieu.ngayChieuGioChieu|date:'dd/MM/YYYY')===(day|date:'dd/MM/YYYY') &&(suatChieu.thongTinRap.tenCumRap===tenCumRap)" (click)="handleSuatChieu(suatChieu.ngayChieuGioChieu)">
-                              {{suatChieu.ngayChieuGioChieu |date:'HH:mm:ss'}}
-                          </a>
-                        </ng-container>
-                      </ng-container>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-          <div class="col-md-2">
-              <button class="btn">MUA VÉ NGAY</button>
+            <div class="dropdown-menu selectScroll">
+              <ng-container *ngFor="let tenRap of movieInfoList.lichChieu, let stt=index, let last=last">
+                <ng-container *ngIf="!last">
+                  <a class="dropdown-item"
+                    *ngIf="movieInfoList.lichChieu[stt].thongTinRap.tenCumRap !==movieInfoList.lichChieu[stt+1].thongTinRap.tenCumRap"
+                    (click)="handleRap(tenRap.thongTinRap.tenCumRap,tenRap.thongTinRap.maRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
+                </ng-container>
+                <ng-container *ngIf="last">
+                  <a class="dropdown-item"
+                    (click)="handleRap(tenRap.thongTinRap.tenCumRap,tenRap.thongTinRap.maRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
+                </ng-container>
+              </ng-container>
+            </div>
 
           </div>
+
+        </div>
+      </div>
+      <div class="col-md-2 ngay__chieu">
+        <div class="list__dropdown">
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
+              <span *ngIf="day!=='Ngày xem',else ngayXem">{{day | date:'dd/MM/YYYY'}}</span>
+              <ng-template #ngayXem><span>{{day}}</span></ng-template>
+            </a>
+            <div class="dropdown-menu selectScroll">
+              <ng-container *ngFor="let day of movieInfoList.lichChieu, let stt=index, let last=last">
+                <!-- <app-narbar-phim [day]="day" [movieInfoList]="movieInfoList" [stt]="stt" [last]="last" [tenPhim]="tenPhim" [maPhim]="maPhim"></app-narbar-phim> -->
+                <ng-container *ngIf="(day.thongTinRap.tenCumRap==tenCumRap) &&(day.tenPhim===tenPhim) ">
+                  <ng-container *ngIf="!last">
+                    <a class="dropdown-item"
+                      *ngIf="(movieInfoList.lichChieu[stt].ngayChieuGioChieu|date:'dd/MM/YYYY')!==(movieInfoList.lichChieu[stt+1].ngayChieuGioChieu|date:'dd/MM/YYYY')"
+                      (click)="handleDay(day.ngayChieuGioChieu)">
+                      <p class="day">{{day.ngayChieuGioChieu|date:'dd/MM/YYYY'}}</p>
+                    </a>
+                  </ng-container>
+                  <ng-container *ngIf="last">
+                    <a class="dropdown-item" *ngIf="last" (click)="handleDay(day.ngayChieuGioChieu)">
+                      <p class="day">{{day.ngayChieuGioChieu|date:'dd/MM/YYYY'}}</p>
+                    </a>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-2 xuat__chieu">
+        <div class="list__dropdown">
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle list__tool" href="#" id="navbardrop" data-toggle="dropdown">
+              <span *ngIf="suatChieu!=='Suất chiếu', else tenMucSuatChieu">{{suatChieu |date:'HH:mm:ss'}}</span>
+              <ng-template #tenMucSuatChieu><span>{{suatChieu}}</span></ng-template>
+            </a>
+            <div class="dropdown-menu">
+              <ng-container *ngFor="let suatChieu of movieInfoList.lichChieu, let stt=index, let last= last">
+                <ng-container *ngIf='day!=="Ngày xem"'>
+                  <a class="dropdown-item"
+                    *ngIf="(suatChieu.ngayChieuGioChieu|date:'dd/MM/YYYY')===(day|date:'dd/MM/YYYY') &&(suatChieu.thongTinRap.tenCumRap===tenCumRap)"
+                    (click)="handleSuatChieu(suatChieu.ngayChieuGioChieu)">
+                    {{suatChieu.ngayChieuGioChieu |date:'HH:mm:ss'}}
+                  </a>
+                </ng-container>
+              </ng-container>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-2">
+        <button class="btn">MUA VÉ NGAY</button>
 
       </div>
+
+    </div>
 
   </div>
 
 </div>
 <!-- END carousel header -->
-

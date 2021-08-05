@@ -7,10 +7,12 @@
   <div class="_rate">
     <p>{{phim.danhGia}}</p>
     <p>
+      <ng-container *ngFor="let sao of sao">
+        <img *ngIf="sao.link!=null" [src]='sao.link' alt="">
+      </ng-container>
+      <!-- <img src="../../../../assets/img/star1.png" alt="">
       <img src="../../../../assets/img/star1.png" alt="">
-      <img src="../../../../assets/img/star1.png" alt="">
-      <img src="../../../../assets/img/star1.png" alt="">
-      <img src="../../../../assets/img/star1.2.png" alt="">
+      <img src="../../../../assets/img/star1.2.png" alt=""> -->
     </p>
   </div>
 
