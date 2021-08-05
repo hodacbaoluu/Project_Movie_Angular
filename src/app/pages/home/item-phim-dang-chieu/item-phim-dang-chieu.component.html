@@ -2,22 +2,25 @@
   <img class="anh__demo" [style.background-image]="'url(\''+phim.hinhAnh+'\')'" alt="">
   <div class="hoverImg"></div>
   <a class="venobox vbox-item" [href]="phim.trailer" data-vbtype="video">
-      <img class="play__icon" src="../../../../assets/img/play-video.png" alt="">
+    <img class="play__icon" src="../../../../assets/img/play-video.png" alt="">
   </a>
   <div class="_rate">
-      <p>{{phim.danhGia}}</p>
-      <p>
-          <img src="../../../../assets/img/star1.png" alt="">
-          <img src="../../../../assets/img/star1.png" alt="">
-          <img src="../../../../assets/img/star1.png" alt="">
-          <img src="../../../../assets/img/star1.2.png" alt="">
-      </p>
+    <p>{{phim.danhGia}}</p>
+    <p>
+      <ng-container *ngFor="let sao of sao">
+        <img *ngIf="sao.link!=null" [src]='sao.link' alt="">
+      </ng-container>
+      <!-- <img src="../../../../assets/img/star1.png" alt="">
+      <img src="../../../../assets/img/star1.png" alt="">
+      <img src="../../../../assets/img/star1.2.png" alt=""> -->
+    </p>
   </div>
-  <button class="btn">MUA VÉ</button>
+
+  <button class="btn" (click)="layMaPhim(phim.maPhim)">MUA VÉ </button>
+
 </div>
 <div class="noi__dung">
   <p class="trich"><span class="symbol">C18</span>{{phim.tenPhim}}
   </p>
   <p class="hours">100 phút</p>
 </div>
-

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MovieService } from '../../core/service/movie/movie.service';
 
 @Component({
   selector: 'app-item-phim-sap-chieu',
@@ -6,10 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./item-phim-sap-chieu.component.scss']
 })
 export class ItemPhimSapChieuComponent implements OnInit {
-@Input()phim:any;
+  @Input() phim: any;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

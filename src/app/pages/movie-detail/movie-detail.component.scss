@@ -1,0 +1,73 @@
+.tenPhim, .moTa, .ngayKhoiChieu, .gioKhoiChieu, .danhGia{
+  color: white;
+}
+.noiDung{
+  position: relative;
+}
+.background{
+  filter: blur(15px);
+  width: calc(100% + 5px);
+
+}
+.hinhChinh{
+  width: 350px;
+  height: 500px;
+  padding-bottom: 10px;
+}
+.hinhNen{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.backgroundBlack{
+  background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.tenPhim h1{
+  text-align: center;
+  font-size: 3rem !important;
+}
+.moTa, .ngayKhoiChieu, .gioKhoiChieu, .danhGia{
+  padding-top: 30px;
+}
+.moTa span:nth-child(1), .ngayKhoiChieu span:nth-child(1), .gioKhoiChieu span:nth-child(1), .danhGia span:nth-child(1){
+  color: rgb(251, 255, 13);
+  font-size: 1rem;
+}
+.moTa span:nth-child(2), .ngayKhoiChieu span:nth-child(2), .gioKhoiChieu span:nth-child(2), .danhGia span:nth-child(2){
+  font-size: 1rem;
+}
+.modal-content{
+  border: none;
+  background: transparent;
+  padding-top: 30px;
+}
+.modal-body{
+  width: 150%;
+  transform: translate(-17%, 0);
+}
+.modal-header{
+  border: none;
+}
+.xemTrailer{
+  margin: 80px;
+}
+.thu{
+  justify-content: space-around;
+}
+.thuNgay:hover{
+  cursor: pointer;
+}
+.thuNgay.active span{
+  color: red;
+}
+.hide{
+  display: none;
+}

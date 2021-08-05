@@ -7,83 +7,83 @@ import { MovieService } from '../../core/service/movie/movie.service';
   styleUrls: ['./carousel-phim.component.scss']
 })
 export class CarouselPhimComponent implements OnInit {
-danhSachPhim:any;
-tenPhim:string="Phim";
-maPhim:number=0;
-maNhom:number=1;
-tenCumRap:string="Rạp";
-day:string="Ngày xem";
-suatChieu:string="Suất chiếu";
-maRap:string="";
-handlePhim(tenPhim:string,maPhim:number){
-  this.tenPhim=tenPhim;
-  this.maPhim=maPhim;
-  console.log(maPhim);
-  this.tenCumRap="Rạp";
-  this.day="Ngày xem";
-  this.suatChieu="Suất chiếu"
-  this.getInfoMovie();
-}
-handleRap(tenCumRap:string,maRap:string){
-  this.tenCumRap=tenCumRap;
-  this.maRap=maRap;
-  console.log(maRap);
-  this.day="Ngày xem";
-  this.suatChieu="Suất chiếu"
-  this.getInfoMovie();
-}
-handleDay(day:string){
-  this.day=day;
-  this.getInfoMovie();
-  this.suatChieu="Suất chiếu"
-  console.log(day);
+  danhSachPhim: any;
+  tenPhim: string = "Phim";
+  maPhim: number = 0;
+  maNhom: number = 6;
+  tenCumRap: string = "Rạp";
+  day: string = "Ngày xem";
+  suatChieu: string = "Suất chiếu";
+  maRap: string = "";
+  handlePhim(tenPhim: string, maPhim: number) {
+    this.tenPhim = tenPhim;
+    this.maPhim = maPhim;
+    console.log(maPhim);
+    this.tenCumRap = "Rạp";
+    this.day = "Ngày xem";
+    this.suatChieu = "Suất chiếu"
+    this.getInfoMovie();
+  }
+  handleRap(tenCumRap: string, maRap: string) {
+    this.tenCumRap = tenCumRap;
+    this.maRap = maRap;
+    console.log(maRap);
+    this.day = "Ngày xem";
+    this.suatChieu = "Suất chiếu"
+    this.getInfoMovie();
+  }
+  handleDay(day: string) {
+    this.day = day;
+    this.getInfoMovie();
+    this.suatChieu = "Suất chiếu"
+    console.log(day);
 
-}
-handleSuatChieu(suatChieu:string){
-  this.suatChieu=suatChieu;
-  console.log(suatChieu);
+  }
+  handleSuatChieu(suatChieu: string) {
+    this.suatChieu = suatChieu;
+    console.log(suatChieu);
 
-}
-  constructor(private movieService:MovieService ) {}
-  movieList:any=[];
-  movieCarousel:any=[];
-  movieCarouselActive:any=[];
-  movieInfoList:any=[];
-  maPhimActive:number=1374;
-  listMaPhim:any[]=[1329,3394,4428,4332];
-  list:any[]=[];
-  getListMovie(){
-    this.movieService.getListMovieApi(this.maNhom).subscribe((data)=>{
+  }
+  constructor(private movieService: MovieService) { }
+  movieList: any = [];
+  movieCarousel: any = [];
+  movieCarouselActive: any = [];
+  movieInfoList: any = [];
+  maPhimActive: number = 1374;
+  listMaPhim: any[] = [1329, 3394, 4428, 4332];
+  list: any[] = [];
+  getListMovie() {
+    this.movieService.getListMovieApi(this.maNhom).subscribe((data) => {
 
 
-      this.movieList=data;
+      this.movieList = data;
     })
   }
-  getCarouselMovie(){
+  getCarouselMovie() {
     for (const maPhim of this.listMaPhim) {
-      this.movieService.getCarouselMovieApi(maPhim).subscribe((data)=>{
+      this.movieService.getCarouselMovieApi(maPhim).subscribe((data) => {
         this.list.push(data);
       })
     }
-    this.movieCarousel=this.list;
+    this.movieCarousel = this.list;
   }
-  getCarouselMovieActive(){
-    this.movieService.getCarouselMovieApi(this.maPhimActive).subscribe((data)=>{
-      this.movieCarouselActive=data;
+  getCarouselMovieActive() {
+    this.movieService.getCarouselMovieApi(this.maPhimActive).subscribe((data) => {
+      this.movieCarouselActive = data;
     })
   }
-  getNameMovie(){
-    this.movieService.getListMovieApi(this.maNhom).subscribe((data)=>{
-      this.danhSachPhim=data;
+  getNameMovie() {
+    this.movieService.getListMovieApi(this.maNhom).subscribe((data) => {
+      this.danhSachPhim = data;
     })
   }
-  getInfoMovie(){
+  getInfoMovie() {
 
-      this.movieService.getCarouselMovieApi(this.maPhim).subscribe((data)=>{
-        console.log(data);
-        this.movieInfoList=data;
+    this.movieService.getCarouselMovieApi(this.maPhim).subscribe((data) => {
+      console.log(data);
+      this.movieInfoList = data;
 
-      })
+    })
   }
   ngOnInit(): void {
     this.getCarouselMovieActive();

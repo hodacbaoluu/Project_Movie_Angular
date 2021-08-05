@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+
+
 * {
   padding: 0;
   margin: 0;
@@ -9,6 +11,9 @@
 
 
 /* newBlock */
+ul{
+  margin-bottom: 0 !important;
+}
 
 #newBlock .nav-pills {
   height: 40px;
@@ -362,23 +367,23 @@
   font-weight: 600;
 }
 
-.CNS {
+.cns {
   color: #df0d7a;
 }
 
-.DDC {
+.ddc {
   color: #9c9c9c
 }
 
-.MEGA {
+.mega {
   color: #e5a813;
 }
 
-.CINE {
+.cine {
   color: black;
 }
 
-.LOTTE {
+.lotte {
   color: #ca4137;
 }
 
@@ -855,7 +860,7 @@ img.xuat {
 
 #demo {
   position: relative;
-  padding-top: 60px;
+  padding-top: 75px;
 }
 
 .pic {
@@ -984,7 +989,10 @@ span.diachi {
   background: white;
   z-index: 9999;
 }
-
+//Khoảng cách từ header đến trang nội dung
+.noiDung{
+  padding-top: 6%;
+}
 #tool .list__tool {
   font-size: 14px;
   color: black;
@@ -1338,7 +1346,7 @@ a .play__icon {
 }
 
 table {
-  font-family: arial, sans-serif;
+  // font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -1358,6 +1366,7 @@ th {
   z-index: 44;
   background: #f0f1f0;
   top: 0;
+  width: 0;
   // text-align: center;
 }
 
@@ -1435,7 +1444,37 @@ tr {
       padding: 0;
   }
 } */
-
+// @media screen and (min-width:320px){
+//     #demo{
+//       padding-top:60px;
+//     }
+//     .pic{
+//       height: 200px;
+//     }
+//     .venobox.btn-trailer{
+//       top:18%;
+//       left:38%;
+//     }
+//     .prev-icon, .next-icon{
+//       top:60%;
+//     }
+//     #tool{
+//       display: none;
+//     }
+//     .navss .container{
+//       margin-top: 30px;
+//     }
+//     .nav.nav-pills.muc{
+//       flex-wrap: nowrap !important;
+//     }
+//     .dangChieu, .sapChieu{
+//       white-space: nowrap;
+//     }
+//     .hinh__anh .overlay{
+//       height: 300px;
+//       width: 100%;
+//     }
+// }
 @media screen and (max-width:736px) {
   .anh__demo {
       display: none;
@@ -1475,7 +1514,7 @@ tr {
   .menu__list {
       opacity: 1;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
   }
   .tool__content {
       display: none;
@@ -1739,3 +1778,6 @@ tr {
   #footer .footer-top .tix-text:last-child a:first-child {
       margin-right: 10px;
   }}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

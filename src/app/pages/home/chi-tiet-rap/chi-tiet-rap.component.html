@@ -1,0 +1,101 @@
+<app-header></app-header>
+<div id="lichchieu" class="lichchieu d-flex">
+  <div class="container">
+    <h1 class="tieuDe">Lịch Chiếu Phim</h1>
+    <div class="row">
+      <div class="nav flex-column nav-pills col-sm-1" id="navdad" role="tablist" aria-orientation="vertical">
+        <!-- id nav là: bhd. đích đến là bhd-content. aria-control: bhd-content -->
+        <ng-container *ngFor="let lich of lichChieu, let stt=index">
+          <a *ngIf="lich.maHeThongRap==listMa.maHeThongRap" class="nav-link active" [id]="idRap[stt].id"
+            data-toggle="pill" [href]="'#'+idRap[stt].id+'-content'" role="tab" aria-selected="false">
+            <img class="w_50" [src]="lich.logo" alt="">
+          </a>
+        </ng-container>
+      </div>
+      <div class="tab-content col-sm-11" id="contentdad">
+        <div class="tab-pane fade " [id]="idRap[stt].id+'-content'" role="tabpanel" aria-labelledby="cgv"
+          *ngFor="let rap of lichChieu, let stt=index" [class.active]="s2Index === stt" [class.show]="s2Index===stt">
+          <div class="row">
+            <ul class="nav nav-tabs  col-md-5 scroll" id="myTab" role="tablist"
+              [class.flex-column]="rap.maHeThongRap=='CineStar'">
+              <li class="nav-item" *ngFor="let thongTin of listRap, let stt=index"
+                (click)="setIndex(stt,thongTin.maCumRap,rap.maHeThongRap)">
+                <a class="nav-link" id="item-1" data-toggle="tab" [href]="'#item-'+add(stt)+'__content'" role="tab"
+                  aria-controls="item-1" aria-selected="true" [class.active]="sIndex===stt">
+                  <div [class]="'item-1 my-3'">
+                    <div class="container-fluid">
+                      <div class="row align-items-center">
+                        <div class="left">
+                          <img class="w_50"
+                            src="https://s3img.vcdn.vn/123phim/2021/01/bhd-star-bitexco-16105952137769.png" alt="">
+                        </div>
+                        <div class="right ml-2">
+                          <div><span class="bhd">{{thongTin.tenCumRap | slice:0:thongTin.tenCumRap.indexOf('-')}}</span>
+                            {{thongTin.tenCumRap | slice:thongTin.tenCumRap.indexOf('-')}}</div>
+                          <div class="diaChiRap">{{thongTin.diaChi}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content col-md-7" id="myTabContent">
+              <div class="thuNgay">
+                <div class="row">
+                  <ng-container *ngFor="let thu of thuNgay ,let stt=index">
+                    <a class="thuNgay" (click)="getThu(thu.thu,stt)" [class.active]="stt==index">
+                      <span>{{thu.thu}}</span></a>
+                  </ng-container>
+                  <hr>
+                </div>
+              </div>
+              <div class="tab-pane fade" [id]="'#item-'+add(stt)+'__content'" role="tabpanel"
+                *ngFor="let thongTin of listRap, let stt=index" [class.active]="s3Index==stt"
+                [class.show]="s3Index==stt">
+                <ng-container *ngFor="let lich of lichChieu">
+                  <ng-container *ngFor="let lich1 of lich.lstCumRap">
+                    <ng-container *ngIf="lich1.maCumRap==maCumRap">
+                      <div class="item" *ngFor="let phim of lich1.danhSachPhim">
+                        <div class="info_movie d-flex container-fluid">
+                          <div class="row align-items-center">
+                            <div class="mr-2 left">
+                              <img [src]="phim.hinhAnh" alt="" class="w_50">
+                            </div>
+                            <div class="right">
+                              <div class="title__movie-item">
+                                <span class="type-movie-item P">P</span>
+                                <span class="name-movie-item">{{phim.tenPhim}}</span>
+                              </div>
+                              <div class="info_movie-item">
+                                100 phút - TIX 9 - IMDb 8
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="time container-fluid">
+                          <div class="type-watch">
+                            <h6>2D Digital</h6>
+                            <ng-container *ngFor="let thongTin of phim.lstLichChieuTheoPhim, let stt=index">
+                              <a href="" class="item btn"
+                                *ngIf="(getDay(thongTin.ngayChieuGioChieu|date:'yyyy/MM/dd'))==thu">
+                                <span>{{thongTin.ngayChieuGioChieu
+                                  |date:" HH:mm"}}</span>
+                              </a>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-4 hinhPhim">
+    <img
+      [src]="hinhPhim"
+      alt=""><br>
+      <h2 class="tenPhim">{{tenPhim}}</h2>
+  </div>
+  <div class="col-8 ">
+    <div class="rap">
+      <img
+        [src]="hinhRap"
+        alt="">
+      <div class="diaChi">
+        <ul>
+          <li><b>Tên Rạp:</b>  {{booking.danhSachGhe[0].tenHeThongRap}}</li>
+          <li><b>Địa chỉ:</b>  {{diaChiRap}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="thongTin">
+      <div class="ngayDat"><b>Ngày đặt:</b>  {{booking.ngayDat | date:'dd/MM/yyyy hh:mm:ss'}}</div>
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Chi tiết đặt
+        </button>
+        <div class="dropdown-menu">
+          <div class="chiTietDat" *ngFor="let chiTietDat of booking.danhSachGhe">{{chiTietDat.tenCumRap}} - Số ghế:
+            {{chiTietDat.tenGhe}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="chiTiet">
+      <div class="thoiLuong"><b>Thời lượng: </b> {{booking.thoiLuongPhim}} phút</div>
+      <div class="giaVe"><b>Giá vé: </b> {{booking.giaVe}}đ/ghế</div>
+    </div>
+
+  </div>
+</div>
