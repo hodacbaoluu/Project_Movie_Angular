@@ -31,14 +31,19 @@
           <div class="gioKhoiChieu">
             <div class="row">
               <span class="title col-2">GIỜ CHIẾU: </span>
-              <span class="col-10">{{infoMovie.ngayKhoiChieu | date:"HH:MM:SS"}}</span>
+              <span class="col-10">{{infoMovie.ngayKhoiChieu | date:"HH:mm:SS"}}</span>
             </div>
 
           </div>
           <div class="danhGia">
             <div class="row">
               <span class="title col-2">ĐÁNH GIÁ: </span>
-              <span class="col-10">{{infoMovie.danhGia}}/10</span>
+              <span>
+                <ng-container *ngFor="let sao of sao">
+                  <img *ngIf="sao.link!=null" [src]='sao.link' alt="">
+                </ng-container>
+
+              </span>
             </div>
 
           </div>
@@ -69,7 +74,11 @@
             </div>
 
 
-            <button class="btn btn-success btn-lg datVe" routerLink='/booking'>Đặt vé</button>
+            <button class="btn btn-success btn-lg datVe" *ngIf="maLichChieu!=0, else hidden" (click)="chuyenTrang()">Đặt
+              vé</button>
+            <ng-template #hidden>
+              <button class="btn btn-success btn-lg datVe" disabled>Đặt vé</button>
+            </ng-template>
           </div>
         </div>
       </div>
@@ -130,19 +139,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- <div class="time container-fluid">
-              <div class="type-watch">
-                <h6>2D Digital</h6>
-                <ng-container *ngFor="let thongTin of phim.lstLichChieuTheoPhim, let stt=index">
-                  <a href="" class="item btn"
-                    *ngIf="(getDay(thongTin.ngayChieuGioChieu|date:'yyyy/MM/dd'))==thu">
-                    <span>{{thongTin.ngayChieuGioChieu
-                      |date:" HH:mm"}}</span>
-                  </a>
-                </ng-container>
-              </div>
-            </div> -->
             </div>
 
           </div>
@@ -152,29 +148,7 @@
   </div>
 
 
-  <!-- <ng-container *ngFor="let maHT of listMaHeThongRap">
-    <div class="test" *ngFor="let ma of cinema">
-      <ng-container *ngIf="maHT.maHeThongRap==ma.maHeThongRap">
-        <img [src]="ma.logo" alt="">
-      </ng-container>
-    </div>
-  </ng-container>
-  <div class="lich">
-    <ng-container *ngFor="let thu of thuNgay">
-      {{thu.thu}}
-      <div class="maLichChieu" *ngFor="let item of lichChieuMovie">
-        <ng-container *ngIf="thu.thu==getDay(item.ngayChieuGioChieu | date:'yyyy/MM/dd')">
-          <ng-container *ngFor="let thongTin of thongTinCumRap">
-            <div class="item" (click)="getMaLichChieu(item.maLichChieu)">
-              {{item.maLichChieu}} - {{item.ngayChieuGioChieu | date:'dd/MM/yyyy HH:mm:ss'}} -
-              {{item.thongTinRap.tenCumRap}}
-            </div>
-          </ng-container>
-        </ng-container>
-      </div>
-    </ng-container>
 
-  </div> -->
   <app-footer></app-footer>
 </ng-container>
 <ng-template #Loading>

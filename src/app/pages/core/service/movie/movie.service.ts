@@ -55,7 +55,7 @@ export class MovieService {
       )
       .pipe(
         tap((data) => {
-          // console.log(data);
+          //
         }),
         catchError((err) => {
           return err;
@@ -69,7 +69,7 @@ export class MovieService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           return err;
@@ -102,7 +102,7 @@ export class MovieService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -114,7 +114,7 @@ export class MovieService {
     let url = `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/UploadHinhAnhPhim`;
     return this.httpClient.post(url, body).pipe(
       tap((data: any) => {
-        console.log(data);
+
       })
     );
   }
@@ -134,7 +134,7 @@ export class MovieService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -149,7 +149,7 @@ export class MovieService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -169,7 +169,7 @@ export class MovieService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);

@@ -30,7 +30,7 @@ export class PersonalInformationComponent implements OnInit {
       soDT: soDT,
       taiKhoan: taiKhoan,
       matKhau: matKhau,
-      maNhom: "GP01",
+      maNhom: "GP06",
       maLoaiNguoiDung: "QuanTri",
 
     })
@@ -40,7 +40,7 @@ export class PersonalInformationComponent implements OnInit {
     console.log(this.formCapNhat?.value);
     this.authService.updateInfoAPI(this.formCapNhat?.value, this.token).subscribe((data) => {
       alert('Cập nhật thành công 🤩');
-      
+
       this.router.navigate(['/user/personal-information']);
     })
 

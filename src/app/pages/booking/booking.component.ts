@@ -46,8 +46,6 @@ export class BookingComponent implements OnInit {
   getMaLichChieu() {
     this.activatedRoute.params.subscribe((data) => {
       this.listMa = data;
-      console.log(this.listMa.maLichChieu);
-
     })
   }
   chonGhe(value: any, tenGhe: any) {
