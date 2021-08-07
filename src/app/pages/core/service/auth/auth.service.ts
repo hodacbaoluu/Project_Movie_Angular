@@ -36,7 +36,7 @@ export class AuthService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -52,7 +52,7 @@ export class AuthService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -68,7 +68,7 @@ export class AuthService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -89,7 +89,7 @@ export class AuthService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -110,7 +110,7 @@ export class AuthService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -130,7 +130,7 @@ export class AuthService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);
@@ -138,7 +138,7 @@ export class AuthService {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: err.error,
+              text: "Bạn chưa đăng nhập",
             });
           } else {
             Swal.fire('Good job!', 'Đã Xóa Người Dùng', 'success');
@@ -165,7 +165,7 @@ export class AuthService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
+
         }),
         catchError((err) => {
           console.log(err);

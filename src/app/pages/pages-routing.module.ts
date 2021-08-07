@@ -34,7 +34,7 @@ const routes: Routes = [
         component: MovieDetailComponent,
       },
       {
-        path: 'booking',
+        path: 'booking/:maLichChieu',
         component: BookingComponent,
       }
     ]

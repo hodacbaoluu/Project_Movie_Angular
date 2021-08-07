@@ -47,16 +47,8 @@ export class CinemaComplexBlockComponent implements OnInit {
     this.s3Index = 0;
     this.maHeThongRap = ma;
     this.s2Index = index;
-
-
-
-
-
     this.getInfoCumRap();
     this.getInforChieuCinema();
-
-
-
   }
   setIndex(index: number, maCumRap: string) {
     this.s3Index = index;
@@ -81,7 +73,7 @@ export class CinemaComplexBlockComponent implements OnInit {
       data.map((value: any) => {
         this.thongTinRap.push(value);
         this.maCumRap = this.thongTinRap[0].maCumRap;
-        console.log(this.thongTinRap);
+        // console.log(this.thongTinRap);
 
       })
 
@@ -108,7 +100,7 @@ export class CinemaComplexBlockComponent implements OnInit {
     this.getHinhRap();
     this.getInfoCumRap();
     this.getInforChieuCinema();
-    console.log(this.idRap.values);
+    // console.log(this.idRap.values);
 
 
 

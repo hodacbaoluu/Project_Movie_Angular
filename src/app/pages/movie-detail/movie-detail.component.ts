@@ -23,6 +23,8 @@ export class MovieDetailComponent implements OnInit {
   thongTinCumRap: any;
   thu: string = "Thứ Hai";
   maHeThongRap: string = "";
+  maLichChieu: number = 0;
+  sao: any = [];
   thuNgay: any = [
     {
       id: 0,
@@ -80,9 +82,7 @@ export class MovieDetailComponent implements OnInit {
   sIndex: number = 0;
   getMaPhim() {
     this.activatedRoute.params.subscribe((params) => {
-      console.log(params);
       this.maPhim = params.maPhim;
-
     })
   }
   getDay(ngay: any) {
@@ -120,28 +120,23 @@ export class MovieDetailComponent implements OnInit {
   getThu(thu: any, stt: any) {
     this.thu = thu;
     this.index = stt;
-    console.log(thu, stt);
-
   }
   getMaLichChieu(maLichChieu: any) {
-    this.router.navigate([`/booking/${maLichChieu}`]);
+    // this.router.navigate([`/booking/${maLichChieu}`]);
+    this.maLichChieu = maLichChieu;
+    console.log(this.maLichChieu);
+
 
   }
   getInfoMovieAPI() {
     this.movieService.getCarouselMovieApi(this.maPhim).subscribe((data) => {
       this.infoMovie = data;
-      console.log(data);
+      this.getSao();
       this.lichChieuMovie = this.infoMovie.lichChieu;
       this.listMaHeThongRap.push({ maHeThongRap: this.lichChieuMovie[0].thongTinRap.maHeThongRap, tenCumRap: this.lichChieuMovie[0].thongTinRap.tenCumRap });
       this.lichChieuMovie.forEach((value: any, index: any) => {
-        console.log(value.thongTinRap.maCumRap);
-
         if ((index <= this.lichChieuMovie.length - 2) && (this.lichChieuMovie[index].thongTinRap.maCumRap != this.lichChieuMovie[index + 1].thongTinRap.maCumRap)) {
-
           this.listMaHeThongRap.push({ maHeThongRap: this.lichChieuMovie[index + 1].thongTinRap.maHeThongRap, tenCumRap: this.lichChieuMovie[index + 1].thongTinRap.tenCumRap });
-
-
-
         }
 
       });
@@ -164,19 +159,13 @@ export class MovieDetailComponent implements OnInit {
   }
   getCinemaApi() {
     this.cinemaService.getCinemaAPI().subscribe((data) => {
-      console.log(data);
       this.cinema = data;
-      console.log(this.cinema);
-
-
     })
   }
   getMaCumRap() {
     this.listMaHeThongRap.map((value: any) => {
-
       this.cinemaService.getInfoCumRapCinemaAPI(value.maHeThongRap).subscribe((data) => {
         this.thongTinCumRap = data;
-
       })
     })
 
@@ -184,8 +173,10 @@ export class MovieDetailComponent implements OnInit {
   add(a: number) {
     return a + 1;
   }
+  chuyenTrang() {
+    this.router.navigate([`/booking/${this.maLichChieu}`])
+  }
   getStt(stt: number, maHeThongRap: string) {
-    console.log(stt);
     this.s2Index = stt;
     this.maHeThongRap = maHeThongRap;
   }
@@ -195,11 +186,24 @@ export class MovieDetailComponent implements OnInit {
     }
     return this.sanitized.bypassSecurityTrustResourceUrl(oldURL);
   }
+  getSao() {
+    let s = 0;
+    for (let i = 1; i <= this.infoMovie.danhGia / 2; i++) {
+      this.sao.push({ sao: 2 }, { link: "../../../../assets/img/star1.png" });
+      s = s + 2;
+    }
+    if ((this.infoMovie.danhGia - s) != 0) {
+      this.sao.push({ sao: this.infoMovie.danhGia - s }, { link: "../../../../assets/img/star1.2.png" });
+    }
+    console.log(this.sao);
+
+  }
 
   ngOnInit(): void {
     this.getMaPhim();
     this.getInfoMovieAPI();
     this.getCinemaApi();
+
     // this.getMaCumRap();
   }
 

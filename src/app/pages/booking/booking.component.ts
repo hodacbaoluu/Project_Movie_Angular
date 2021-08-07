@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/service/auth/auth.service';
 import { CinemaService } from '../core/service/cinema/cinema.service';
 import Swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -20,13 +21,16 @@ export class BookingComponent implements OnInit {
   maGheDangChon?: number;
   giaVeDangChon?: number;
   danhSachVe: any = [];
+  listMa: any;
   constructor(
     private cinemaService: CinemaService,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.cinemaService.getDanhSachPhongVe('43880').subscribe((data) => {
+    this.getMaLichChieu()
+    this.cinemaService.getDanhSachPhongVe(this.listMa.maLichChieu).subscribe((data) => {
       console.log(data);
       this.thongTinPhim.push(data);
       this.ListGhe = this.thongTinPhim[0].danhSachGhe;
@@ -37,7 +41,11 @@ export class BookingComponent implements OnInit {
       this.token = this.currenUser.accessToken;
     });
   }
-
+  getMaLichChieu() {
+    this.activatedRoute.params.subscribe((data) => {
+      this.listMa = data;
+    })
+  }
   chonGhe(value: any, tenGhe: any) {
     console.log(value, tenGhe);
     if (value) {
@@ -65,7 +73,7 @@ export class BookingComponent implements OnInit {
       }
     }
     this.datVe = {
-      maLichChieu: 43880,
+      maLichChieu: this.listMa.maLichChieu,
       danhSachVe: this.danhSachVe,
       taiKhoanNguoiDung: this.authService.getCurrentUser().taiKhoan,
     };
@@ -90,7 +98,7 @@ export class BookingComponent implements OnInit {
       .postQuanLyDatVe(this.datVe, this.token)
       .subscribe((data) => {
         console.log(data);
-        
+
       });
   }
 }
