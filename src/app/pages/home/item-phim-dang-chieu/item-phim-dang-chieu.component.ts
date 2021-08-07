@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../core/service/movie/movie.service';
 
@@ -11,8 +12,8 @@ export class ItemPhimDangChieuComponent implements OnInit {
   @Input() phim: any;
   maPhim: number = 0;
   sao: any = [];
-
-  constructor(private router: Router, private movieService: MovieService) { }
+  ktra: boolean = false;
+  constructor(private router: Router, private movieService: MovieService, private sanitized: DomSanitizer) { }
   layMaPhim(maPhim: number) {
     this.maPhim = maPhim;
     this.router.navigate([`/movie-detail/${maPhim}`]);
@@ -28,6 +29,22 @@ export class ItemPhimDangChieuComponent implements OnInit {
       this.sao.push({ sao: this.phim.danhGia - s }, { link: "../../../../assets/img/star1.2.png" });
     }
 
+  }
+  phatVideo() {
+    this.ktra = true;
+    console.log(this.ktra);
+
+  }
+  dungVideo() {
+    this.ktra = false;
+    console.log(this.ktra);
+
+  }
+  trailer(oldURL: string): SafeResourceUrl {
+    if (oldURL) {
+      oldURL = oldURL.replace("watch?v=", "embed/");
+    }
+    return this.sanitized.bypassSecurityTrustResourceUrl(oldURL);
   }
 
   ngOnInit(): void {

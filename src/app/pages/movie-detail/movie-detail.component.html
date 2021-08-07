@@ -49,13 +49,14 @@
           </div>
           <div class="datVe">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg xemTrailer" data-toggle="modal" data-target="#modelId">
+            <button type="button" (click)="phatVideo()" class="btn btn-primary btn-lg xemTrailer" data-toggle="modal"
+              data-target="#modelId">
               Trailer
             </button>
 
             <!-- Modal -->
             <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-              aria-hidden="true">
+              aria-hidden="true" (click)="dungVideo()">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -65,7 +66,9 @@
                   </div>
                   <div class="modal-body">
                     <div class="embed-responsive embed-responsive-16by9">
-                      <iframe class="embed-responsive-item" [src]="trailer(infoMovie.trailer)" allowfullscreen></iframe>
+                      <iframe *ngIf="ktra==true, else link" class="embed-responsive-item"
+                        [src]="trailer(infoMovie.trailer)" allowfullscreen></iframe>
+                      <ng-template #link> <iframe src=""></iframe></ng-template>
                     </div>
                   </div>
 
@@ -103,13 +106,13 @@
         </div>
         <div class="tab-content col-md-11" id="myTabContent">
           <div class="ngayThu">
-            <div class="row thu">
-              <ng-container *ngFor="let thu of thuNgay ,let stt=index">
-                <a class="thuNgay" (click)="getThu(thu.thu,stt)" [class.active]="stt==index">
-                  <span>{{thu.thu}}</span></a>
-              </ng-container>
-              <hr>
-            </div>
+
+            <ng-container *ngFor="let thu of thuNgay ,let stt=index">
+              <a class="thuNgay" (click)="getThu(thu.thu,stt)" [class.active]="stt==index">
+                <span>{{thu.thu}}</span></a>
+            </ng-container>
+            <hr>
+
           </div>
           <div [id]="ten.maHeThongRap+'-content'" class="tab-pane fade" role="tabpanel" [class.active]="s2Index === stt"
             [class.show]="s2Index===stt" *ngFor="let ten of getTenCumRap, let stt=index">
@@ -127,11 +130,19 @@
 
                       <div class="name-movie-item">{{rap.tenCumRap}}</div>
                       <ng-container *ngFor="let item of lichChieuMovie">
-                        <ng-container *ngIf="thu==getDay(item.ngayChieuGioChieu | date:'yyyy/MM/dd')">
-                          <button (click)="getMaLichChieu(item.maLichChieu)" class="btn btn-success"
-                            *ngIf="item.thongTinRap.tenCumRap==rap.tenCumRap">
-                            <span>{{item.ngayChieuGioChieu | date:'HH:mm'}}</span>
-                          </button>
+                        <ng-container *ngFor="let ngay of listNgay">
+                          <ng-container *ngIf="thu==getDay(item.ngayChieuGioChieu | date:'yyyy/MM/dd')">
+                            <button (click)="getMaLichChieu(item.maLichChieu)" class="btn btn-success"
+                              *ngIf="(item.thongTinRap.tenCumRap==rap.tenCumRap) &&(item.ngayChieuGioChieu |date:'dd')==ngay.ngay, else hiddenDay">
+                              <span>{{item.ngayChieuGioChieu
+                                |
+                                date:'HH:mm'}}</span>
+
+                            </button>
+                            <ng-template #hiddenDay>
+                              <button class="hide"></button>
+                            </ng-template>
+                          </ng-container>
                         </ng-container>
                       </ng-container>
 

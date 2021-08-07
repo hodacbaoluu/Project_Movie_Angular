@@ -25,6 +25,7 @@ export class MovieDetailComponent implements OnInit {
   maHeThongRap: string = "";
   maLichChieu: number = 0;
   sao: any = [];
+  ktra: boolean = false;
   thuNgay: any = [
     {
       id: 0,
@@ -76,6 +77,29 @@ export class MovieDetailComponent implements OnInit {
       id: 'mega',
     }
   ];
+  listNgay: any = [
+    {
+      ngay: 1
+    },
+    {
+      ngay: 2
+    },
+    {
+      ngay: 3
+    },
+    {
+      ngay: 4
+    },
+    {
+      ngay: 5
+    },
+    {
+      ngay: 6
+    },
+    {
+      ngay: 7
+    }
+  ]
   listMaHeThongRap: any = [];
   index: number = 0;
   s2Index: number = 0;
@@ -133,6 +157,8 @@ export class MovieDetailComponent implements OnInit {
       this.infoMovie = data;
       this.getSao();
       this.lichChieuMovie = this.infoMovie.lichChieu;
+      console.log(this.lichChieuMovie);
+
       this.listMaHeThongRap.push({ maHeThongRap: this.lichChieuMovie[0].thongTinRap.maHeThongRap, tenCumRap: this.lichChieuMovie[0].thongTinRap.tenCumRap });
       this.lichChieuMovie.forEach((value: any, index: any) => {
         if ((index <= this.lichChieuMovie.length - 2) && (this.lichChieuMovie[index].thongTinRap.maCumRap != this.lichChieuMovie[index + 1].thongTinRap.maCumRap)) {
@@ -197,6 +223,12 @@ export class MovieDetailComponent implements OnInit {
     }
     console.log(this.sao);
 
+  }
+  phatVideo() {
+    this.ktra = true;
+  }
+  dungVideo() {
+    this.ktra = false;
   }
 
   ngOnInit(): void {

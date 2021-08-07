@@ -1,0 +1,52 @@
+<main class="form-signin">
+  <form #formDangNhap='ngForm' (ngSubmit)='handleLogin()'>
+    <!-- <img class="mb-4" src="../../../../assets/img/web-logo.png" alt="" width="72" height="57">
+      <h1 class="h3 mb-3 fw-normal">ADMIN</h1>
+
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">© 2017–2021</p> -->
+    <div class="text-center">
+      <img class="mb-4 " src="../../../../assets/img/web-logo.png" alt="" width="72" height="57">
+    </div>
+
+    <h1 class="h3 mb-3 fw-normal text-center">ADMIN</h1>
+    <div class="form-group form-floating">
+      <label for=""><b>Tài Khoản</b></label>
+      <input type="text" class="form-control" placeholder="Enter Username" [(ngModel)]="userLogin.taiKhoan"
+        #taiKhoan='ngModel' name="taiKhoan" required>
+      <div class="alert alert-danger" *ngIf="taiKhoan.errors &&(taiKhoan.touched ||taiKhoan.dirty)">
+        Vui lòng nhập tài khoản
+      </div>
+    </div>
+
+    <div class="form-group form-floating">
+      <label for="uname"><b>Mật Khẩu</b></label>
+      <input type="password" class="form-control" placeholder="Nhập mật khẩu" [(ngModel)]="userLogin.matKhau"
+        #matKhau='ngModel' name="matKhau" required>
+      <div class="alert alert-danger" *ngIf="matKhau.errors &&(matKhau.touched ||matKhau.dirty)">
+        Vui lòng nhập mật khẩu
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success" [disabled]="formDangNhap.invalid">Đăng Nhập</button>
+    </div>
+
+
+
+
+  </form>
+
+</main>
