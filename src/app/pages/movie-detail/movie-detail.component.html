@@ -1,5 +1,5 @@
-<app-header></app-header>
-<ng-container *ngIf="infoMovie">
+<ng-container *ngIf="infoMovie, else Loading">
+  <app-header></app-header>
   <div class="noiDung">
     <div class="hinhNen">
       <img class="background" [src]="infoMovie.hinhAnh">
@@ -31,14 +31,19 @@
           <div class="gioKhoiChieu">
             <div class="row">
               <span class="title col-2">GIỜ CHIẾU: </span>
-              <span class="col-10">{{infoMovie.ngayKhoiChieu | date:"HH:MM:SS"}}</span>
+              <span class="col-10">{{infoMovie.ngayKhoiChieu | date:"HH:mm:SS"}}</span>
             </div>
 
           </div>
           <div class="danhGia">
             <div class="row">
               <span class="title col-2">ĐÁNH GIÁ: </span>
-              <span class="col-10">{{infoMovie.danhGia}}/10</span>
+              <span>
+                <ng-container *ngFor="let sao of sao">
+                  <img *ngIf="sao.link!=null" [src]='sao.link' alt="">
+                </ng-container>
+
+              </span>
             </div>
 
           </div>
@@ -69,12 +74,83 @@
             </div>
 
 
-            <button class="btn btn-success btn-lg datVe">Đặt vé</button>
+            <button class="btn btn-success btn-lg datVe" *ngIf="maLichChieu!=0, else hidden" (click)="chuyenTrang()">Đặt
+              vé</button>
+            <ng-template #hidden>
+              <button class="btn btn-success btn-lg datVe" disabled>Đặt vé</button>
+            </ng-template>
           </div>
         </div>
       </div>
     </div>
 
   </div>
+
+  <div id="lichchieu" class="lichchieu d-flex">
+    <div class="container">
+      <h1 class="tieuDe">Lịch Chiếu Phim</h1>
+      <div class="row">
+        <div class="nav flex-column nav-pills col-sm-1" id="navdad" role="tablist" aria-orientation="vertical">
+          <ng-container *ngFor="let maHT of getTenCumRap, let stt=index">
+            <ng-container *ngFor="let ma of cinema">
+              <a *ngIf="maHT.maHeThongRap==ma.maHeThongRap" class="nav-link" (click)="getStt(stt,maHT.maHeThongRap)"
+                [class.active]="stt==s2Index" data-toggle="pill" [href]="'#'+maHT.maHeThongRap+'-content'" role="tab"
+                aria-selected="false">
+                <img class="w_50" [src]="ma.logo" alt="">
+              </a>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="tab-content col-md-11" id="myTabContent">
+          <div class="ngayThu">
+            <div class="row thu">
+              <ng-container *ngFor="let thu of thuNgay ,let stt=index">
+                <a class="thuNgay" (click)="getThu(thu.thu,stt)" [class.active]="stt==index">
+                  <span>{{thu.thu}}</span></a>
+              </ng-container>
+              <hr>
+            </div>
+          </div>
+          <div [id]="ten.maHeThongRap+'-content'" class="tab-pane fade" role="tabpanel" [class.active]="s2Index === stt"
+            [class.show]="s2Index===stt" *ngFor="let ten of getTenCumRap, let stt=index">
+
+            <div class="item" *ngFor="let rap of getChiTiet, let stt=index"
+              [class.hide]="(ten.maHeThongRap!=rap.maHeThongRap) ">
+              <div class="info_movie d-flex container-fluid" *ngIf="ten.maHeThongRap==rap.maHeThongRap">
+                <div class="row align-items-center">
+                  <div class="mr-2 left">
+                    <img src="https://s3img.vcdn.vn/123phim/2021/01/bhd-star-bitexco-16105952137769.png" alt=""
+                      class="w_50">
+                  </div>
+                  <div class="right">
+                    <div class="title__movie-item">
+
+                      <div class="name-movie-item">{{rap.tenCumRap}}</div>
+                      <ng-container *ngFor="let item of lichChieuMovie">
+                        <ng-container *ngIf="thu==getDay(item.ngayChieuGioChieu | date:'yyyy/MM/dd')">
+                          <button (click)="getMaLichChieu(item.maLichChieu)" class="btn btn-success"
+                            *ngIf="item.thongTinRap.tenCumRap==rap.tenCumRap">
+                            <span>{{item.ngayChieuGioChieu | date:'HH:mm'}}</span>
+                          </button>
+                        </ng-container>
+                      </ng-container>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <app-footer></app-footer>
 </ng-container>
+<ng-template #Loading>
+  <div class="spinner-border"></div>
+</ng-template>

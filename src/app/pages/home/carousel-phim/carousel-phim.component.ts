@@ -27,7 +27,7 @@ export class CarouselPhimComponent implements OnInit {
   handleRap(tenCumRap: string, maRap: string) {
     this.tenCumRap = tenCumRap;
     this.maRap = maRap;
-    console.log(maRap);
+    // console.log(maRap);
     this.day = "Ngày xem";
     this.suatChieu = "Suất chiếu"
     this.getInfoMovie();
@@ -36,12 +36,12 @@ export class CarouselPhimComponent implements OnInit {
     this.day = day;
     this.getInfoMovie();
     this.suatChieu = "Suất chiếu"
-    console.log(day);
+    // console.log(day);
 
   }
   handleSuatChieu(suatChieu: string) {
     this.suatChieu = suatChieu;
-    console.log(suatChieu);
+    // console.log(suatChieu);
 
   }
   constructor(private movieService: MovieService) { }
@@ -54,8 +54,6 @@ export class CarouselPhimComponent implements OnInit {
   list: any[] = [];
   getListMovie() {
     this.movieService.getListMovieApi(this.maNhom).subscribe((data) => {
-
-
       this.movieList = data;
     })
   }
@@ -80,7 +78,7 @@ export class CarouselPhimComponent implements OnInit {
   getInfoMovie() {
 
     this.movieService.getCarouselMovieApi(this.maPhim).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.movieInfoList = data;
 
     })

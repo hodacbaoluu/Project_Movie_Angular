@@ -47,7 +47,7 @@ export class CinemaService {
   getInfoCumRapCinemaAPI(maHeThongRap: string): Observable<any> {
     return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`).pipe(
       tap((data) => {
-        console.log(data);
+
 
       }),
       catchError((err) => {
@@ -60,7 +60,7 @@ export class CinemaService {
   getInfoChieuCinemaAPI(maHeThongRap: string): Observable<any> {
     return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP06`).pipe(
       tap((data) => {
-        console.log(data);
+
 
       }),
       catchError((err) => {
@@ -71,10 +71,10 @@ export class CinemaService {
     )
   }
 
-  getDanhSachPhongVe(maLichChieu: string){
+  getDanhSachPhongVe(maLichChieu: string) {
     return this.httpClient.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`).pipe(
       tap((data) => {
-        console.log(data)
+
       }),
       catchError((err) => {
         console.log(err);

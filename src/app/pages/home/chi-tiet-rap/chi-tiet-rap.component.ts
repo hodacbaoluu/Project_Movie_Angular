@@ -78,14 +78,14 @@ export class ChiTietRapComponent implements OnInit {
   getListMaRap() {
     this.activatedRoute.params.subscribe((data) => {
       this.listMa = data;
-      console.log(this.listMa);
+      // console.log(this.listMa);
 
     })
   }
 
   getInfoCumRap() {
     this.cinemaService.getInfoCumRapCinemaAPI(this.listMa.maHeThongRap).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.listRap = data;
       this.listRap.forEach((e: any, index: any) => {
         if (e.maCumRap == this.listMa.maCumRap) {
@@ -116,9 +116,9 @@ export class ChiTietRapComponent implements OnInit {
     this.maCumRap = maCumRap;
     this.thu = "Thứ Hai";
     this.index = 0;
-    console.log(index);
+    // console.log(index);
 
-    console.log(maCumRap);
+    // console.log(maCumRap);
 
     this.router.navigate([`/chi-tiet-rap/${maHeThongRap}/${maCumRap}`])
   }
@@ -160,25 +160,27 @@ export class ChiTietRapComponent implements OnInit {
   getThu(thu: any, stt: any) {
     this.thu = thu;
     this.index = stt;
-    console.log(thu);
+    // console.log(thu);
 
+  }
+  getMaLichChieu(maLichChieu: number) {
+    // console.log(maLichChieu);
+    this.router.navigate([`/booking/${maLichChieu}`])
   }
   handleCumRap(maCumRap: string) {
 
     this.maCumRap = maCumRap;
-    console.log(maCumRap);
+    // console.log(maCumRap);
     this.router.navigate([`/chi-tiet-rap/${this.listMa.maHeThongRap}/${maCumRap}`])
 
   }
   handlePhim(tenPhim: any, maRap: any) {
-    console.log(tenPhim, maRap);
+    // console.log(tenPhim, maRap);
 
 
   }
 
-  booking(){
-    this.router.navigate(["/booking"])
-  }
+
 
 
   ngOnInit(): void {

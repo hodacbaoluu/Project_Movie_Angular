@@ -42,7 +42,7 @@ export class ChiTietBookingComponent implements OnInit {
     })
   }
   getHinhPhim() {
-    this.movieService.getListNameMovieAPI('06', this.booking.tenPhim).subscribe((data) => {
+    this.movieService.getListNameMovieAPI('GP06', this.booking.tenPhim).subscribe((data) => {
       data.map((value: any) => {
         this.hinhPhim = value.hinhAnh;
 

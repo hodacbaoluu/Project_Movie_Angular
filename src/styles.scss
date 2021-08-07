@@ -1444,7 +1444,37 @@ tr {
       padding: 0;
   }
 } */
-
+// @media screen and (min-width:320px){
+//     #demo{
+//       padding-top:60px;
+//     }
+//     .pic{
+//       height: 200px;
+//     }
+//     .venobox.btn-trailer{
+//       top:18%;
+//       left:38%;
+//     }
+//     .prev-icon, .next-icon{
+//       top:60%;
+//     }
+//     #tool{
+//       display: none;
+//     }
+//     .navss .container{
+//       margin-top: 30px;
+//     }
+//     .nav.nav-pills.muc{
+//       flex-wrap: nowrap !important;
+//     }
+//     .dangChieu, .sapChieu{
+//       white-space: nowrap;
+//     }
+//     .hinh__anh .overlay{
+//       height: 300px;
+//       width: 100%;
+//     }
+// }
 @media screen and (max-width:736px) {
   .anh__demo {
       display: none;
@@ -1484,7 +1514,7 @@ tr {
   .menu__list {
       opacity: 1;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
   }
   .tool__content {
       display: none;

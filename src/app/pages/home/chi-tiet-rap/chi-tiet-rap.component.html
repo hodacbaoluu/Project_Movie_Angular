@@ -78,7 +78,7 @@
                           <div class="type-watch">
                             <h6>2D Digital</h6>
                             <ng-container *ngFor="let thongTin of phim.lstLichChieuTheoPhim, let stt=index">
-                              <a (click)="booking()" class="item btn"
+                              <a (click)="getMaLichChieu(thongTin.maLichChieu)" class="item btn"
                                 *ngIf="(getDay(thongTin.ngayChieuGioChieu|date:'yyyy/MM/dd'))==thu">
                                 <span>{{thongTin.ngayChieuGioChieu
                                   |date:" HH:mm"}}</span>
