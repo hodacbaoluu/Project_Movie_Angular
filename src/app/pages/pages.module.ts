@@ -14,6 +14,7 @@ import { BookingModule } from './booking/booking.module';
 
 
 
+
 @NgModule({
   declarations: [
     PagesComponent, SignInComponent, SignUpComponent, MovieDetailComponent

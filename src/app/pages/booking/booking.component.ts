@@ -29,17 +29,19 @@ export class BookingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getMaLichChieu()
+    this.getMaLichChieu();
     this.cinemaService.getDanhSachPhongVe(this.listMa.maLichChieu).subscribe((data) => {
       console.log(data);
       this.thongTinPhim.push(data);
       this.ListGhe = this.thongTinPhim[0].danhSachGhe;
       console.log(this.ListGhe);
     });
+
     this.authService.currentUser.subscribe((data) => {
       this.currenUser = data;
       this.token = this.currenUser.accessToken;
     });
+
   }
   getMaLichChieu() {
     this.activatedRoute.params.subscribe((data) => {
@@ -47,6 +49,7 @@ export class BookingComponent implements OnInit {
     })
   }
   chonGhe(value: any, tenGhe: any) {
+
     console.log(value, tenGhe);
     if (value) {
       this.danhSachGheDaDat.push(tenGhe);
@@ -80,6 +83,7 @@ export class BookingComponent implements OnInit {
     console.log(this.danhSachGheDaDat);
     console.log(this.datVe);
   }
+
 
   handleTime(event: any) {
     if (event.action === 'done') {
