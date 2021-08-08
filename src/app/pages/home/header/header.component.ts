@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('userLogin');
 
   }
+
   getCurrentUser() {
     this.authService.currentUser.subscribe((data) => {
       this.currentUser = data;
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
   }
   constructor(private authService: AuthService) { }
   currentUser: any = null;
+
   currentUser1: any;
   //tương đướng với componentDidMount
   ngOnInit(): void {
