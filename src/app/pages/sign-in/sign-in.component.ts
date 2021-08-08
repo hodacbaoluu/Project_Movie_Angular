@@ -15,10 +15,18 @@ export class SignInComponent implements OnInit {
   }
   handleLogin() {
     this.authService.loginApi(this.userLogin).subscribe((data) => {
-      localStorage.setItem("userLogin", JSON.stringify(data));//lưu xuống localStorage
-      //Lưu data vào AuthService
-      this.authService.setCurrentUser(data);
-      this.router.navigate(['/']);//chuyển trang theo đường dẫn
+      if (data.maLoaiNguoiDung == 'KhachHang') {
+        localStorage.setItem("userLogin", JSON.stringify(data));//lưu xuống localStorage
+        //Lưu data vào AuthService
+        this.authService.setCurrentUser(data);
+        this.router.navigate(['/']);//chuyển trang theo đường dẫn
+      }
+      else {
+        alert('Chuyển sang đăng nhập Admin');
+        setTimeout(() => {
+          this.router.navigate(['/login-admin'])
+        }, 500)
+      }
 
     })
   }

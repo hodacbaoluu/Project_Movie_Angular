@@ -2,4 +2,22 @@
   color: white;
   text-decoration: none;
 }
+.noBoder{
+  border: none;
+  background: transparent !important;
+  position: absolute;
+  top:40%;
+}
+// .modal-content{
+//   border: none;
+//   background: transparent;
+//   padding-top: 30px;
+// }
+// .modal-body{
+//   width: 150%;
+//   transform: translate(-17%, 0);
+// }
+// .modal-header{
+//   border: none;
+// }
 

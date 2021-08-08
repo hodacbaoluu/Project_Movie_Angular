@@ -67,7 +67,23 @@
 }
 .thuNgay.active span{
   color: red;
+
 }
+// .thuNgay{
+//   padding-right: 50px;
+// }
 .hide{
   display: none;
 }
+.ngayThu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  background: #f0f1f0;
+}
+// #myTabContent{
+//   position: relative;
+// }

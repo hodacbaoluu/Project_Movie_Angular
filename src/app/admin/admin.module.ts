@@ -13,6 +13,8 @@ import { HomeModule } from '../pages/home/home.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PagesModule } from '../pages/pages.module';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
 
 // import { AddUserComponent } from './add-user/add-user.component';
 
@@ -25,15 +27,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MovieManagerComponent,
     UserManagementComponent,
     AddUserComponent,
+    LoginAdminComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,HomeModule,
-    FormsModule,Ng2SearchPipeModule,NgxPaginationModule,
-    ReactiveFormsModule
+    AdminRoutingModule, HomeModule,
+    FormsModule, Ng2SearchPipeModule, NgxPaginationModule,
+    ReactiveFormsModule, PagesModule
 
 
   ],
-  exports:[AdminComponent]
+  exports: [AdminComponent]
 })
 export class AdminModule { }

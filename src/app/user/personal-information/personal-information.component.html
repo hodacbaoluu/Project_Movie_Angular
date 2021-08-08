@@ -11,27 +11,16 @@
     <div class="row">
       <div class="col-6">Mật Khẩu :</div>
       <div class="col-6" id="passwd">
-        <input
-          matInput
-          [type]="hide ? 'password' : 'text'"
-          [value]="userInfo.matKhau"
-          disabled
-        />
+        <input matInput [type]="hide ? 'password' : 'text'" [value]="userInfo.matKhau" disabled />
         <!-- <ng-template #hideSai>
         <input type="text" [value]="userInfo.matKhau" disabled>
       </ng-template>
       <button mat-icon-button matSuffix (click)="hide=!hide"><mat-icon class="material-icons">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button> -->
-        <button
-          class="icon"
-          mat-icon-button
-          matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
-        >
+        <button class="icon" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
           <mat-icon class="material-icons">{{
             hide ? "visibility_off" : "visibility"
-          }}</mat-icon>
+            }}</mat-icon>
         </button>
       </div>
     </div>
@@ -52,19 +41,9 @@
     </div>
 
     <!-- Button to Open the Modal -->
-    <button
-      type="button"
-      #btnCapNhat
-      [attr.data-taiKhoan]="userInfo.taiKhoan"
-      [attr.data-matKhau]="userInfo.matKhau"
-      [attr.data-hoTen]="userInfo.hoTen"
-      [attr.data-email]="userInfo.email"
-      [attr.data-soDT]="userInfo.soDT"
-      (click)="capNhat(btnCapNhat)"
-      class="btn btn-primary update"
-      data-toggle="modal"
-      data-target="#myModal"
-    >
+    <button type="button" #btnCapNhat [attr.data-taiKhoan]="userInfo.taiKhoan" [attr.data-matKhau]="userInfo.matKhau"
+      [attr.data-hoTen]="userInfo.hoTen" [attr.data-email]="userInfo.email" [attr.data-soDT]="userInfo.soDT"
+      (click)="capNhat(btnCapNhat)" class="btn btn-primary update" data-toggle="modal" data-target="#myModal">
       Cập Nhật Thông Tin
     </button>
 
@@ -87,165 +66,87 @@
               <form [formGroup]="formCapNhat" (ngSubmit)="handleCapNhat()">
                 <div class="form-group">
                   <label for="">Họ tên</label>
-                  <input
-                    type="text"
-                    formControlName="hoTen"
-                    name="hoTen"
-                    class="form-control"
-                    [pattern]="
+                  <input type="text" formControlName="hoTen" name="hoTen" class="form-control" [pattern]="
                       '^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ' +
                       'ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ' +
                       'ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$'
-                    "
-                    required
-                    minlength="6"
-                    maxlength="20"
-                  />
-                  <div
-                    *ngIf="hoTen?.errors && (hoTen?.dirty || hoTen?.touched)"
-                  >
+                    " required minlength="6" maxlength="20" />
+                  <div *ngIf="hoTen?.errors && (hoTen?.dirty || hoTen?.touched)">
                     <!-- kiểm tra rỗng -->
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="hoTen?.errors?.required"
-                    >
+                    <div class="alert alert-danger" *ngIf="hoTen?.errors?.required">
                       Vui lòng nhập tài khoản
                     </div>
 
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="hoTen?.errors?.pattern"
-                    >
+                    <div class="alert alert-danger" *ngIf="hoTen?.errors?.pattern">
                       Vui lòng nhập đúng kí tự chữ
                     </div>
                     <!-- kiểm tra độ dài -->
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="hoTen?.errors?.minlength"
-                    >
+                    <div class="alert alert-danger" *ngIf="hoTen?.errors?.minlength">
                       Vui lòng nhập trên 6 kí tự
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="">Email</label>
-                  <input
-                    type="email"
-                    formControlName="email"
-                    name="email"
-                    class="form-control"
-                    [pattern]="
+                  <input type="email" formControlName="email" name="email" class="form-control" [pattern]="
                       '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@' +
                       '[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'
-                    "
-                    required
-                  />
-                  <div
-                    *ngIf="email?.errors && (email?.touched || email?.dirty)"
-                  >
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="email?.errors?.required"
-                    >
+                    " required />
+                  <div *ngIf="email?.errors && (email?.touched || email?.dirty)">
+                    <div class="alert alert-danger" *ngIf="email?.errors?.required">
                       Vui lòng nhập email
                     </div>
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="email?.errors?.pattern"
-                    >
+                    <div class="alert alert-danger" *ngIf="email?.errors?.pattern">
                       Vui lòng nhập đúng định dạng email
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="">Số Điện Thoại</label>
-                  <input
-                    type="number"
-                    formControlName="soDT"
-                    name="soDT"
-                    class="form-control"
-                    minlength="10"
-                    required
-                  />
+                  <input type="number" formControlName="soDT" name="soDT" class="form-control" minlength="10"
+                    required />
                   <div *ngIf="soDT?.errors && (soDT?.touched || soDT?.dirty)">
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="soDT?.errors?.required"
-                    >
+                    <div class="alert alert-danger" *ngIf="soDT?.errors?.required">
                       Vui lòng nhập số điện thoại
                     </div>
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="soDT?.errors?.minlength"
-                    >
+                    <div class="alert alert-danger" *ngIf="soDT?.errors?.minlength">
                       Vui lòng nhập tối thiểu 10 số
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="">Tài Khoản</label>
-                  <input
-                    type="text"
-                    formControlName="taiKhoan"
-                    name="taiKhoan"
-                    class="form-control"
-                    minlength="6"
-                    maxlength="20"
-                    required
-                  />
-                  <div
-                    *ngIf="
+                  <input type="text" formControlName="taiKhoan" name="taiKhoan" class="form-control" minlength="6"
+                    maxlength="20" required />
+                  <div *ngIf="
                       taiKhoan?.errors && (taiKhoan?.dirty || taiKhoan?.touched)
-                    "
-                  >
+                    ">
                     <!-- kiểm tra rỗng -->
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="taiKhoan?.errors?.required"
-                    >
+                    <div class="alert alert-danger" *ngIf="taiKhoan?.errors?.required">
                       Vui lòng nhập tài khoản
                     </div>
 
                     <!-- kiểm tra độ dài -->
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="taiKhoan?.errors?.minlength"
-                    >
+                    <div class="alert alert-danger" *ngIf="taiKhoan?.errors?.minlength">
                       Vui lòng nhập tài khoản có từ 6 đến 20 kí tự
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="">Mật Khẩu</label>
-                  <input
-                    type="text"
-                    formControlName="matKhau"
-                    name="matKhau"
-                    class="form-control"
-                    [pattern]="
+                  <input type="text" formControlName="matKhau" name="matKhau" class="form-control" [pattern]="
                       '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{6,}$'
-                    "
-                    maxlength="20"
-                    required
-                  />
-                  <div
-                    *ngIf="
+                    " maxlength="20" required />
+                  <div *ngIf="
                       matKhau?.errors && (matKhau?.dirty || matKhau?.touched)
-                    "
-                  >
+                    ">
                     <!-- kiểm tra rỗng -->
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="matKhau?.errors?.required"
-                    >
+                    <div class="alert alert-danger" *ngIf="matKhau?.errors?.required">
                       Vui lòng nhập mật khẩu
                     </div>
 
                     <!-- kiểm tra độ dài -->
-                    <div
-                      class="alert alert-danger"
-                      *ngIf="matKhau?.errors?.pattern"
-                    >
+                    <div class="alert alert-danger" *ngIf="matKhau?.errors?.pattern">
                       Vui lòng nhập phải có ít nhất một in hoa, một kí tự đặt
                       biệt, một số, một chữ và ít nhất có 6 kí tự
                     </div>
@@ -253,26 +154,19 @@
                 </div>
                 <hr />
                 <ng-container *ngIf="formCapNhat.dirty; else Close">
-                  <a href="/user/info-user">
+                  <a href="/user">
                     <button type="button" class="btn btn-danger clos">
                       Close
                     </button>
                   </a>
                 </ng-container>
                 <ng-template #Close>
-                  <button
-                    type="button"
-                    class="btn btn-danger clos"
-                    data-dismiss="modal"
-                  >
+                  <button type="button" class="btn btn-danger clos" data-dismiss="modal">
                     Close
                   </button>
                 </ng-template>
-                <button
-                  class="btn btn-success update"
-                  type="submit"
-                  [disabled]="!formCapNhat.valid || !formCapNhat.dirty"
-                >
+                <button class="btn btn-success update" type="submit"
+                  [disabled]="!formCapNhat.valid || !formCapNhat.dirty">
                   Cập nhật
                 </button>
               </form>

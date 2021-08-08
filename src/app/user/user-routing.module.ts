@@ -7,12 +7,12 @@ import { UserComponent } from './user.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:UserComponent,
-    children:[
+    path: '',
+    component: UserComponent,
+    children: [
       {
-        path:'info-user',
-        component:InfoUserComponent,
+        path: '',
+        component: InfoUserComponent,
       }
     ]
   }

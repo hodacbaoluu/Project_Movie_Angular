@@ -40,6 +40,7 @@ export class AuthService {
         }),
         catchError((err) => {
           console.log(err);
+          alert('Tài khoản hoặc mật khẩu không đúng');
           return err;
         })
       );
