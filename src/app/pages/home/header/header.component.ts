@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService) { }
   currentUser: any = null;
 
-  currentUser1: any;
+  // currentUser1: any;
   //tương đướng với componentDidMount
   ngOnInit(): void {
     this.getCurrentUser();

@@ -26,7 +26,7 @@
       </div>
       <div class="isLogin col-md-6">
         <div class="accout">
-          <div *ngIf="currentUser1==null, else logIn">
+          <div *ngIf="currentUser==null, else logIn">
             <img class="admin" src="../../../../assets/img/avatar.png">
             <a routerLink="/sign-in"> Đăng Nhập</a>
           </div>
@@ -34,7 +34,7 @@
             <div class="nav-item dropdown">
               <a class="nav-link  " href="#" id="navbardrop" data-toggle="dropdown">
                 <img class="admin" src="../../../../assets/img/avatar.png">
-                <span class="diachi"> {{currentUser1.hoTen}}</span>
+                <span class="diachi"> {{currentUser.hoTen}}</span>
                 <img class="dropdown__icon" src="../../../../assets/img/dropdown-icon.png" alt="">
               </a>
               <div class="dropdown-menu selectScroll">
