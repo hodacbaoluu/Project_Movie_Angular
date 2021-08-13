@@ -1,36 +1,10 @@
-<!-- START carousel header -->
-<div id="demo" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-    <li data-target="#demo" data-slide-to="3"></li>
-    <li data-target="#demo" data-slide-to="4"></li>
-  </ul>
-
-  <!-- The slideshow -->
-  <div class="carousel-inner">
-    <div class="carousel-item active ">
-      <app-item-carousel [movie]="movieCarouselActive"></app-item-carousel>
-    </div>
-    <div class="carousel-item " *ngFor="let movie of movieCarousel">
+<div id="demo">
+  <div class="fade1">
+    <div class="hinh" *ngFor="let movie of movieCarousel">
       <app-item-carousel [movie]="movie"></app-item-carousel>
     </div>
-
-
-
   </div>
 
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="prev-icon"></span>
-  </a>
-
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="next-icon"></span>
-  </a>
-  <!-- backgroundUnder -->
   <div class="under"></div>
   <div id="tool">
     <div class="row tool__content">
@@ -58,16 +32,10 @@
             </a>
 
             <div class="dropdown-menu selectScroll">
-              <ng-container *ngFor="let tenRap of movieInfoList.lichChieu, let stt=index, let last=last">
-                <ng-container *ngIf="!last">
-                  <a class="dropdown-item"
-                    *ngIf="movieInfoList.lichChieu[stt].thongTinRap.tenCumRap !==movieInfoList.lichChieu[stt+1].thongTinRap.tenCumRap"
-                    (click)="handleRap(tenRap.thongTinRap.tenCumRap,tenRap.thongTinRap.maRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
-                </ng-container>
-                <ng-container *ngIf="last">
-                  <a class="dropdown-item"
-                    (click)="handleRap(tenRap.thongTinRap.tenCumRap,tenRap.thongTinRap.maRap)">{{tenRap.thongTinRap.tenCumRap}}</a>
-                </ng-container>
+              <ng-container *ngFor="let tenRap of getTenRap">
+
+                <a class="dropdown-item" (click)="handleRap(tenRap.tenCumRap,tenRap.maRap)">{{tenRap.tenCumRap}}</a>
+
               </ng-container>
             </div>
 
@@ -83,13 +51,11 @@
               <ng-template #ngayXem><span>{{day}}</span></ng-template>
             </a>
             <div class="dropdown-menu selectScroll">
-              <ng-container *ngFor="let day of movieInfoList.lichChieu, let stt=index, let last=last">
+              <ng-container *ngFor="let day of getDay, let stt=index, let last=last">
                 <!-- <app-narbar-phim [day]="day" [movieInfoList]="movieInfoList" [stt]="stt" [last]="last" [tenPhim]="tenPhim" [maPhim]="maPhim"></app-narbar-phim> -->
                 <ng-container *ngIf="(day.thongTinRap.tenCumRap==tenCumRap) &&(day.tenPhim===tenPhim) ">
                   <ng-container *ngIf="!last">
-                    <a class="dropdown-item"
-                      *ngIf="(movieInfoList.lichChieu[stt].ngayChieuGioChieu|date:'dd/MM/YYYY')!==(movieInfoList.lichChieu[stt+1].ngayChieuGioChieu|date:'dd/MM/YYYY')"
-                      (click)="handleDay(day.ngayChieuGioChieu)">
+                    <a class="dropdown-item" (click)="handleDay(day.ngayChieuGioChieu)">
                       <p class="day">{{day.ngayChieuGioChieu|date:'dd/MM/YYYY'}}</p>
                     </a>
                   </ng-container>
@@ -117,7 +83,7 @@
                 <ng-container *ngIf='day!=="Ngày xem"'>
                   <a class="dropdown-item"
                     *ngIf="(suatChieu.ngayChieuGioChieu|date:'dd/MM/YYYY')===(day|date:'dd/MM/YYYY') &&(suatChieu.thongTinRap.tenCumRap===tenCumRap)"
-                    (click)="handleSuatChieu(suatChieu.ngayChieuGioChieu)">
+                    (click)="handleSuatChieu(suatChieu.ngayChieuGioChieu,suatChieu.maLichChieu)">
                     {{suatChieu.ngayChieuGioChieu |date:'HH:mm:ss'}}
                   </a>
                 </ng-container>
@@ -128,7 +94,7 @@
         </div>
       </div>
       <div class="col-md-2">
-        <button class="btn">MUA VÉ NGAY</button>
+        <button class="btn" (click)="handleMuaVe()">MUA VÉ NGAY</button>
 
       </div>
 

@@ -23,6 +23,7 @@ import { ChiTietRapComponent } from './chi-tiet-rap/chi-tiet-rap.component';
 
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -36,15 +37,15 @@ import { ChiTietRapComponent } from './chi-tiet-rap/chi-tiet-rap.component';
     ItemPhimDangChieuComponent,
     ItemPhimSapChieuComponent,
     FooterComponent,
-    HeaderComponent,CinemaComplexBlockComponent, ItemCinemaComplexBlockComponent, ChiTietRapComponent,
+    HeaderComponent, CinemaComplexBlockComponent, ItemCinemaComplexBlockComponent, ChiTietRapComponent
 
   ],
   imports: [
- CommonModule,SlickCarouselModule,RouterModule
+    CommonModule, SlickCarouselModule, RouterModule
 
 
   ],
-  exports:[HomeComponent,
+  exports: [HomeComponent,
     LoaiPhimComponent,
     PhimDangChieuComponent,
     PhimSapChieuComponent,
@@ -54,6 +55,6 @@ import { ChiTietRapComponent } from './chi-tiet-rap/chi-tiet-rap.component';
     ItemCarouselComponent,
     ItemPhimDangChieuComponent,
     ItemPhimSapChieuComponent,
-    FooterComponent,HeaderComponent]
+    FooterComponent, HeaderComponent]
 })
 export class HomeModule { }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../core/service/movie/movie.service';
@@ -10,6 +10,8 @@ import { MovieService } from '../../core/service/movie/movie.service';
 })
 export class ItemPhimDangChieuComponent implements OnInit {
   @Input() phim: any;
+  @Output() eventURL = new EventEmitter<any>()
+  phim2: any;
   maPhim: number = 0;
   sao: any = [];
   ktra: boolean = false;
@@ -30,16 +32,33 @@ export class ItemPhimDangChieuComponent implements OnInit {
     }
 
   }
-  phatVideo() {
-    this.ktra = true;
-    console.log(this.ktra);
+  // phatVideo(maPhim: number) {
+  //   this.ktra = true;
+  //   this.maPhim = maPhim;
+  //   console.log(maPhim);
 
-  }
+  //   console.log(this.ktra);
+
+  // }
   dungVideo() {
     this.ktra = false;
     console.log(this.ktra);
 
   }
+  phatVideo() {
+    // this.movieService.getCarouselMovieApi(maPhim).subscribe((data) => {
+    //   this.phim2 = data;
+    //   console.log(this.phim2.trailer);
+
+
+
+    // })
+    this.eventURL.emit(this.phim)
+    this.ktra = true;
+    console.log(this.ktra);
+
+  }
+
   trailer(oldURL: string): SafeResourceUrl {
     if (oldURL) {
       oldURL = oldURL.replace("watch?v=", "embed/");
