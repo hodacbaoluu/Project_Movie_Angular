@@ -234,16 +234,20 @@ ul{
   border-radius: 20px;
 }
 
-.slick-prev,
-.slick-next {
+.slic-screen .slick-prev,
+.slic-screen .slick-next {
   display: none !important;
 }
+.slick-next,.slick-prev{
+  background: red !important;
+  border-radius:50% ;
 
+}
 
 /* START CSS LICH CHIEU */
 
 #lichchieu {
-  height: 900px;
+
   margin: 50px auto;
 }
 
@@ -331,7 +335,7 @@ ul{
 
 .info_movie {
   overflow: hidden;
-  height: 70px;
+  height: 100px;
   align-items: center;
   cursor: pointer;
   position: relative;
@@ -404,7 +408,7 @@ ul{
 }
 
 #myTabContent {
-  height: 600px;
+
   overflow: auto;
 }
 
@@ -447,7 +451,7 @@ ul{
 }
 
 #lichchieu .right {
-  height: 40px;
+  height: auto;
 }
 
 .type-watch a {
@@ -749,6 +753,9 @@ header:hover {
 .menu__list ul li a:hover {
   color: orangered;
 }
+.menu.row{
+  margin: 0;
+}
 
 .logo button {
   border: none;
@@ -1015,8 +1022,8 @@ span.diachi {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, #000, transparent 20%);
+  height: 30%;
+  background: linear-gradient(to top, #000, transparent 70%);
 }
 
 
@@ -1171,7 +1178,8 @@ a .play__icon {
 }
 
 .hinh__anh:hover .noi__dung {
-  display: none;
+  display: block;
+  opacity: 0;
   transition: 0.3s;
 }
 
@@ -1184,6 +1192,7 @@ a .play__icon {
   bottom: -18%;
   left: 0;
   opacity: 0;
+  z-index: 3;
   transition: all 0.3s;
 }
 
@@ -1409,20 +1418,28 @@ tr {
   display: flex;
 }
 
+@media screen and(max-width:1350px) {
+  #tool button {
+    font-size: 10px;
+  }
 
+}
 @media screen and (max-width:992px) {
   .tool__content {
-      display: none;
+      display: none !important;
   }
-  .hinh__anh {
-      width: 25%;
-  }
+  // .hinh__anh {
+  //     width: 25%;
+  // }
   .menu__list {
       opacity: 0;
   }
   #bo_phim_dang_chieu .carousel-control-prev,
   #bo_phim_dang_chieu .carousel-control-next {
       display: none;
+  }
+  .pic{
+    height: 550px;
   }
 }
 
@@ -1436,59 +1453,80 @@ tr {
   #lichchieu .nav-link {
       padding: 0px;
   }
+
 }
 
 
-/* @media screen and (max-width: 678px){
-  #lichchieu > .container{
+ @media screen and (max-width: 678px){
+  #lichchieu{
+      display: none !important;
+  }
+}
+@media screen and (max-width:480px){
+    #demo{
+      padding-top:60px;
+    }
+    .pic{
+      height: 200px!important;
+    }
+    .venobox.btn-trailer{
+      top:23%;
+      left:40%;
+    }
+    .prev-icon, .next-icon{
+      top:60%;
+    }
+    .hinh__anh:hover .noi__dung {
+      display: block;
+      transition: 0.3s;
+    }
+    // .hinh__anh{
+    //   width: 50% !important;
+    //   height: 200px;
+    // }
+    .carousel-item .row{
+      flex-wrap: nowrap;
+    }
+    .navss .container{
+      margin-top: 30px;
+    }
+    .nav.nav-pills.muc{
+      flex-wrap: nowrap !important;
+    }
+    .dangChieu, .sapChieu{
+      white-space: nowrap;
+    }
+    // .hinh__anh .overlay{
+    //   height: 333px;
+    //   width: 69%;
+    // }
+    .menu.row{
+      margin: 0;
       padding: 0;
+    }
+    .menu__list ul li{
+      margin: 7px;
+    }
+    .menu__list.col-md-6{
+      padding-left: 0;
+    }
+    .logo.navbar-brand.col-md-4{
+      width: 50%;
+      padding-left: 0;
+    }
+    .navbar-toggler.navbar-toggler-right{
+      margin-right: 20px;
+    }
+    #lichchieu {
+      display: none !important;
   }
-} */
-// @media screen and (min-width:320px){
-//     #demo{
-//       padding-top:60px;
-//     }
-//     .pic{
-//       height: 200px;
-//     }
-//     .venobox.btn-trailer{
-//       top:18%;
-//       left:38%;
-//     }
-//     .prev-icon, .next-icon{
-//       top:60%;
-//     }
-//     #tool{
-//       display: none;
-//     }
-//     .navss .container{
-//       margin-top: 30px;
-//     }
-//     .nav.nav-pills.muc{
-//       flex-wrap: nowrap !important;
-//     }
-//     .dangChieu, .sapChieu{
-//       white-space: nowrap;
-//     }
-//     .hinh__anh .overlay{
-//       height: 300px;
-//       width: 100%;
-//     }
-// }
+}
 @media screen and (max-width:736px) {
-  .anh__demo {
-      display: none;
-  }
   .navss .container {
       max-width: 100%;
   }
 }
 
-@media screen and (max-width: 480px) {
-  #lichchieu {
-      display: none !important;
-  }
-}
 
 @media screen and (max-width:575px) {
   #lichchieu #navdad>.nav-link {
@@ -1496,7 +1534,6 @@ tr {
   }
 }
 
-@media screen and (min-width:481px) {}
 
 @media screen and (max-width: 768px) {
   #lichchieu>.container {
@@ -1506,10 +1543,10 @@ tr {
       flex-wrap: nowrap;
   }
   #lichchieu .item .info_movie .right {
-      height: 60px;
+      height: auto;
   }
-  .logo {
-      width: 88%;
+  .logo.col-md-4 {
+      width: 0;
   }
   .menu__list {
       opacity: 1;
@@ -1519,9 +1556,13 @@ tr {
   .tool__content {
       display: none;
   }
-  .hinh__anh {
-      width: 25%;
+  .pic{
+    height: 460px;
   }
+  .khung{
+    padding-top: 100px !important;
+  }
+
 }
 
 @media screen and (max-width: 678px) {
@@ -1596,12 +1637,6 @@ tr {
   }
 } */
 
-@media screen and (max-width: 480px) {
-  #lichchieu {
-      display: none !important;
-  }
-}
-
 @media screen and (max-width:575px) {
   #lichchieu #navdad>.nav-link {
       margin-left: 2%;
@@ -1659,7 +1694,6 @@ tr {
   #lichchieu {
       border-style: unset;
       margin-bottom: 100px;
-      height: 1700px;
   }
   #lichchieu .nav,
   .row {
@@ -1710,7 +1744,7 @@ tr {
       flex-wrap: nowrap;
   }
   #lichchieu .item .info_movie .right {
-      height: 60px;
+      height: auto;
   }
   #footer .footer-size .footer-bot .text-footer {
       text-align: center;
@@ -1742,7 +1776,106 @@ tr {
   }
 }
 
+
+@media screen and(max-width:991px) {
+  // .slick-slide{
+  //   padding-left: 50px;
+  // }
+  .hinh__anh .overlay {
+    width: 150px;
+    height: 230px;
+  }
+  .hinh__anh .overlay .anh__demo {
+    width: 150px;
+    height: 230px;
+  }
+}
+@media screen and(max-width:767px) {
+  .hinh__anh .overlay {
+    width: 110px;
+    height: 180px;
+  }
+  .hinh__anh .overlay .anh__demo {
+    width: 110px;
+    height: 180px;
+  }
+  .overlay > button {
+    height: 17%;
+  }
+  .noi__dung{
+    width: 110px;
+  }
+  .overlay > button {
+    padding: 0 5px;
+  }
+}
+@media screen and(max-width:543px) {
+  .hinh__anh .overlay {
+    width: 80px;
+    height: 130px;
+  }
+  .hinh__anh .overlay .anh__demo {
+    width: 80px;
+    height: 130px;
+  }
+  // .overlay > button {
+  //   height: 17%;
+  // }
+  .noi__dung{
+    width: 80px;
+  }
+  .overlay > button {
+    padding: 0 5px;
+  }
+}
+@media screen and(max-width:500px) {
+  .hinh__anh .overlay {
+    width: 60px;
+    height: 90px;
+  }
+  .hinh__anh .overlay .anh__demo {
+    width: 60px;
+    height: 90px;
+  }
+  // .overlay > button {
+  //   height: 17%;
+  // }
+  .noi__dung{
+    width: 60px;
+  }
+  .overlay > button {
+    padding: 0 5px;
+    top: 93px;
+    font-size: 10px;
+    height: 26%;
+  }
+  ._rate p:nth-child(2) > img{
+    width: 3px;
+    height: 3px;
+  }
+  ._rate{
+    right:0;
+    top:0;
+    padding: 1px 2px 0px 0;
+  }
+  ._rate p:nth-child(1){
+    font-size: 10px;
+  }
+  span.symbol{
+    display: none;
+  }
+  p.trich {
+    font-size: 12px;
+  }
+  p.hours{
+    font-size: 9px;
+  }
+  .noi__dung{
+    margin: 0;
+  }
+}
 @media screen and (max-width: 992px) {
+
   #wrapHome .left-homeApp {
       text-align: center !important;
       margin: auto;

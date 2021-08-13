@@ -7,37 +7,37 @@
     <div class="backgroundBlack"></div>
     <div class="container">
       <div class="row">
-        <div class="col-4"><img class="hinhChinh" [src]="infoMovie.hinhAnh"></div>
-        <div class="col-8">
+        <div class="col-md-4 col-lg-4"><img class="hinhChinh" [src]="infoMovie.hinhAnh"></div>
+        <div class="col-md-8 col-lg-8">
           <div class="tenPhim">
             <h1>{{infoMovie.tenPhim}}</h1>
           </div>
           <div class="moTa">
             <div class="row">
-              <span class="title col-2">MÔ TẢ: </span>
-              <span class="col-10">{{infoMovie.moTa}}</span>
+              <span class="title col-md-3">MÔ TẢ: </span>
+              <span class="col-md-9">{{infoMovie.moTa}}</span>
             </div>
 
           </div>
           <div class="ngayKhoiChieu">
             <div class="row">
-              <span class="title col-2">
+              <span class="title col-3">
                 NGÀY CHIẾU:
               </span>
-              <span class="col-10">{{infoMovie.ngayKhoiChieu | date:"dd-MM-yyyy"}}</span>
+              <span class="col-9">{{infoMovie.ngayKhoiChieu | date:"dd-MM-yyyy"}}</span>
             </div>
 
           </div>
           <div class="gioKhoiChieu">
             <div class="row">
-              <span class="title col-2">GIỜ CHIẾU: </span>
-              <span class="col-10">{{infoMovie.ngayKhoiChieu | date:"HH:mm:SS"}}</span>
+              <span class="title col-3">GIỜ CHIẾU: </span>
+              <span class="col-9">{{infoMovie.ngayKhoiChieu | date:"HH:mm:SS"}}</span>
             </div>
 
           </div>
           <div class="danhGia">
             <div class="row">
-              <span class="title col-2">ĐÁNH GIÁ: </span>
+              <span class="title col-3">ĐÁNH GIÁ: </span>
               <span>
                 <ng-container *ngFor="let sao of sao">
                   <img *ngIf="sao.link!=null" [src]='sao.link' alt="">
@@ -93,7 +93,7 @@
     <div class="container">
       <h1 class="tieuDe">Lịch Chiếu Phim</h1>
       <div class="row">
-        <div class="nav flex-column nav-pills col-sm-1" id="navdad" role="tablist" aria-orientation="vertical">
+        <div class="nav flex-column nav-pills col-1" id="navdad" role="tablist" aria-orientation="vertical">
           <ng-container *ngFor="let maHT of getTenCumRap, let stt=index">
             <ng-container *ngFor="let ma of cinema">
               <a *ngIf="maHT.maHeThongRap==ma.maHeThongRap" class="nav-link" (click)="getStt(stt,maHT.maHeThongRap)"

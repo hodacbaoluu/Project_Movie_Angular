@@ -1,13 +1,16 @@
 <div class="overlay">
   <img class="anh__demo" [style.background-image]="'url(\''+phim.hinhAnh+'\')'" alt="">
   <div class="hoverImg"></div>
-  <!-- Button trigger modal -->
-  <button type="button" (click)="phatVideo()" class="noBoder" data-toggle="modal" data-target="#modelId">
+  <a [href]='phim.trailer'>
     <img class="play__icon" src="../../../../assets/img/play-video.png" alt="">
-  </button>
+  </a>
+  <!-- Button trigger modal -->
+  <!-- <button type="button" (click)="phatVideo(phim.maPhim)" class="noBoder" data-toggle="modal" data-target="#modelId">
+    <img class="play__icon" src="../../../../assets/img/play-video.png" alt="">
+  </button> -->
 
   <!-- Modal -->
-  <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true"
+  <!-- <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true"
     (click)="dungVideo()">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -18,15 +21,16 @@
         </div>
         <div class="modal-body">
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe *ngIf="ktra==true, else link" class="embed-responsive-item" [src]="trailer(phim.trailer)"
-              allowfullscreen></iframe>
-            <ng-template #link> <iframe src=""></iframe></ng-template>
+            <iframe [src]='trailer(phim.trailer)' allowFullscreen></iframe>
+
           </div>
         </div>
 
       </div>
     </div>
-  </div>
+  </div> -->
+
+
   <div class="_rate">
     <p>{{phim.danhGia}}</p>
     <p>
