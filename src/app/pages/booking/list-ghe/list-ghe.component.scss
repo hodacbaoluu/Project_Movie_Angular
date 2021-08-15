@@ -1,4 +1,40 @@
-button{
+button {
     width: 40px;
-    padding: 5px 0;
+    padding: 5px;
 }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    button {
+        width: 20px;
+        padding: 1px;
+        font-size: 10px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 765px) {
+    button {
+        width: 20px;
+        padding: 1px;
+        height: 20px;
+        font-size: 10px;
+        margin: -10px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+    button {
+        width: 15px;
+        padding: 0;
+        height: 15px;
+        font-size: 8px;
+        margin: -12px;
+    }
+}
+/* 
+width: 15px;
+    padding: 0;
+    height: 15px;
+    font-size: 8px;
+    margin: -12px;
+*/
