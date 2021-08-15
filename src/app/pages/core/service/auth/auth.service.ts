@@ -139,7 +139,7 @@ export class AuthService {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: "Bạn chưa đăng nhập",
+              text: err.error,
             });
           } else {
             Swal.fire('Good job!', 'Đã Xóa Người Dùng', 'success');
