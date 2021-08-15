@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
 
   }
 
+
   getCurrentUser() {
     this.authService.currentUser.subscribe((data) => {
       this.currentUser = data;
@@ -24,7 +25,8 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService) { }
   currentUser: any = null;
 
-  currentUser1: any;
+
+  // currentUser1: any;
   //tương đướng với componentDidMount
   ngOnInit(): void {
     this.getCurrentUser();
