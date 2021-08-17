@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 
-
 * {
   padding: 0;
   margin: 0;
@@ -9,9 +8,8 @@
   outline: none !important;
 }
 
-
 /* newBlock */
-ul{
+ul {
   margin-bottom: 0 !important;
 }
 
@@ -149,7 +147,6 @@ ul{
   width: 50px;
 }
 
-
 /* End newBlock
 /* wrapHome */
 
@@ -158,8 +155,6 @@ ul{
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-
 
 #wrapHome .homeApp {
   padding: 120px 0 88px 0;
@@ -242,7 +237,9 @@ ul{
   background: red !important;
   border-radius:50% ;
 
+
 }
+
 
 /* START CSS LICH CHIEU */
 
@@ -273,7 +270,7 @@ ul{
   border: unset;
 }
 
-#lichchieu>.container>.row>.nav {
+#lichchieu > .container > .row > .nav {
   padding: 0;
   align-items: center;
   border-right: 1px #f0f0f0 solid;
@@ -301,11 +298,11 @@ ul{
   position: relative;
 }
 
-#lichchieu>.container>.row .nav .nav-link {
+#lichchieu > .container > .row .nav .nav-link {
   opacity: 0.5;
 }
 
-#lichchieu>.container>.row .nav .active {
+#lichchieu > .container > .row .nav .active {
   opacity: 1;
 }
 
@@ -329,7 +326,7 @@ ul{
   padding-right: 0;
 }
 
-#lichchieu>.container>.row {
+#lichchieu > .container > .row {
   border: 1px #f0f0f0 solid;
 }
 
@@ -376,7 +373,7 @@ ul{
 }
 
 .ddc {
-  color: #9c9c9c
+  color: #9c9c9c;
 }
 
 .mega {
@@ -391,12 +388,12 @@ ul{
   color: #ca4137;
 }
 
-#lichchieu .tab-pane>.item {
+#lichchieu .tab-pane > .item {
   position: relative;
   padding-bottom: 20px;
 }
 
-#lichchieu .tab-pane>.item::after {
+#lichchieu .tab-pane > .item::after {
   display: block;
   content: "";
   position: absolute;
@@ -470,7 +467,6 @@ ul{
   color: #fb4226;
 }
 
-
 /* END CSS LICH CHIEU */
 
 .selectScroll {
@@ -481,7 +477,6 @@ ul{
 .carousel-inner {
   padding-top: 0;
 }
-
 
 /* footer */
 
@@ -586,7 +581,6 @@ ul{
 #footer .footer-bot .img-footer .bct-img {
   width: 130px;
 }
-
 
 /* newBlock */
 
@@ -699,7 +693,6 @@ ul{
   margin-bottom: 10px;
 }
 
-
 /* end newBlock */
 
 .clear-both {
@@ -714,13 +707,13 @@ header {
   position: fixed;
   display: block;
   z-index: 999999;
-  background: rgba(255, 255, 255, .95);
+  background: rgba(255, 255, 255, 0.95);
   width: 100%;
   transition: all 0.3s;
 }
 
 .menu {
-  box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   padding: 0;
 }
 
@@ -770,7 +763,6 @@ header:hover {
   background-color: white;
 }
 
-
 /* dropdown */
 
 img.admin {
@@ -789,7 +781,7 @@ img.dropdown__icon {
 }
 
 .dropdown-menu {
-  transform: none!important;
+  transform: none !important;
   margin: 33px 0 0 -17px;
   top: 50px !important;
   left: -6% !important;
@@ -817,8 +809,8 @@ img.xuat {
 }
 
 .list__dropdown a.dropdown-toggle {
-  color: transparent!important;
-  margin: 10px 10px 10px 0!important;
+  color: transparent !important;
+  margin: 10px 10px 10px 0 !important;
 }
 
 .phim::after,
@@ -859,9 +851,7 @@ img.xuat {
   color: #d8d8d8 !important;
 }
 
-
 /* section */
-
 
 /* slick */
 
@@ -872,7 +862,7 @@ img.xuat {
 
 .pic {
   width: 100%;
- height: 750px;
+  height: 750px;
 }
 
 #demo ul {
@@ -910,7 +900,7 @@ img.xuat {
   width: 50px;
   height: 100px;
   z-index: 2;
-  opacity: .5;
+  opacity: 0.5;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -989,7 +979,7 @@ span.diachi {
   width: 70%;
   border: 2px transparent solid;
   border-radius: 0.25rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   left: 50%;
   transform: translateX(-50%);
   bottom: -6%;
@@ -997,7 +987,7 @@ span.diachi {
   z-index: 9999;
 }
 //Khoảng cách từ header đến trang nội dung
-.noiDung{
+.noiDung {
   padding-top: 6%;
 }
 #tool .list__tool {
@@ -1026,12 +1016,11 @@ span.diachi {
   background: linear-gradient(to top, #000, transparent 70%);
 }
 
-
 /* Nav pill */
 
 .muc {
-  display: flex!important;
-  justify-content: center!important;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .dangChieu {
@@ -1057,8 +1046,8 @@ span.diachi {
 }
 
 .navss .container ul li a.active {
-  color: #fa5238!important;
-  background-color: transparent!important;
+  color: #fa5238 !important;
+  background-color: transparent !important;
   font-size: 28px;
 }
 
@@ -1073,7 +1062,7 @@ span.diachi {
   right: 10px;
   border: 2px #1f2e46 solid;
   border-radius: 10%;
-  background: rgba(12, 27, 54, .8);
+  background: rgba(12, 27, 54, 0.8);
   color: white;
   padding: 6px 3px 3px 0;
 }
@@ -1089,7 +1078,7 @@ span.diachi {
   margin: 0;
 }
 
-._rate p:nth-child(2)>img {
+._rate p:nth-child(2) > img {
   width: 8px;
   height: 8px;
 }
@@ -1183,7 +1172,7 @@ a .play__icon {
   transition: 0.3s;
 }
 
-.overlay>button {
+.overlay > button {
   position: absolute;
   background: linear-gradient(to left, #fb4226, #ce3017 100%);
   color: white !important;
@@ -1196,11 +1185,11 @@ a .play__icon {
   transition: all 0.3s;
 }
 
-.hinh__anh:hover .overlay>button {
+.hinh__anh:hover .overlay > button {
   opacity: 1;
 }
 
-.hinh__anh .overlay>button:hover {
+.hinh__anh .overlay > button:hover {
   background: #fb4226;
 }
 
@@ -1224,7 +1213,7 @@ a .play__icon {
   font-size: 16px;
   border: 2px #1f2e46 solid;
   border-radius: 10%;
-  background: rgba(12, 27, 54, .8);
+  background: rgba(12, 27, 54, 0.8);
   color: white;
 }
 
@@ -1253,13 +1242,13 @@ a .play__icon {
 // start admim--css
 
 .admin__header {
-  background-color: rgba(255,255,255,.95);
-  height:60px;
+  background-color: rgba(255, 255, 255, 0.95);
+  height: 60px;
   box-shadow: 0 0 15px rgb(0 0 0 / 30%);
   position: relative;
 }
 
-.admin__header .admin__img{
+.admin__header .admin__img {
   width: 50px;
   position: absolute;
   top: 50%;
@@ -1267,7 +1256,7 @@ a .play__icon {
   left: 20px;
 }
 
-.admin__sidebar li{
+.admin__sidebar li {
   margin-bottom: 2rem;
 }
 
@@ -1284,7 +1273,7 @@ a .play__icon {
   color: white;
 }
 
-.admin__sidebar ul li a{
+.admin__sidebar ul li a {
   text-decoration: none;
   color: #fb4226;
   border: 1px solid black;
@@ -1294,20 +1283,20 @@ a .play__icon {
   border-radius: 25px;
   padding: 10px 20px;
   font-weight: bold;
-  transition: all 0.7s ;
+  transition: all 0.7s;
 }
 
-.admin__sidebar ul{
-  list-style:  none;
+.admin__sidebar ul {
+  list-style: none;
   padding: 0 10px;
 }
 
-.admin__content{
+.admin__content {
   padding: 2rem 2rem;
   margin-top: 60px;
 }
 
-.admin__content .admin__add-movie{
+.admin__content .admin__add-movie {
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -1319,7 +1308,7 @@ a .play__icon {
   box-sizing: content-box;
 }
 
-.admin__content .admin__add-movie a{
+.admin__content .admin__add-movie a {
   text-align: center;
   display: inline;
   margin: 0 40%;
@@ -1334,20 +1323,19 @@ a .play__icon {
   transition: all 0.7s;
 }
 
-.admin__content .admin__add-movie a:hover{
+.admin__content .admin__add-movie a:hover {
   background-color: white;
   color: #fb4226;
   border: 1px solid black;
 }
 
-.admin__content .admin__add-movie .admin__add-movie--find input{
-  margin-right:  20px;
+.admin__content .admin__add-movie .admin__add-movie--find input {
+  margin-right: 20px;
   width: 80%;
   outline: none;
-
 }
 
-.admin__content .admin__add-movie .admin__add-movie--find{
+.admin__content .admin__add-movie .admin__add-movie--find {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1385,38 +1373,39 @@ tr {
 }
 
 .table__list {
-  height: 370px;
-    overflow-y: auto;
+  height: 960px;
+  overflow-y: auto;
 }
 
-.admin__moTa{
+.admin__moTa {
   display: flex;
   flex-direction: column;
   margin: 10px 0;
 }
 
-.buton__add{
+.buton__add {
   margin-right: 10px;
 }
 
-.admin__input{
+.admin__input {
   margin-bottom: 10px;
 }
 
-.admin__button{
+.admin__button {
   display: flex;
   justify-content: flex-end;
   margin-top: 2rem;
 }
 
-.admin__phanTrang{
+.admin__phanTrang {
   margin-top: 10px;
 }
 
-.admin__phanTrang ul{
+.admin__phanTrang ul {
   list-style: none;
   display: flex;
 }
+
 
 @media screen and(max-width:1350px) {
   #tool button {
@@ -1432,30 +1421,28 @@ tr {
   //     width: 25%;
   // }
   .menu__list {
-      opacity: 0;
+    opacity: 0;
   }
   #bo_phim_dang_chieu .carousel-control-prev,
   #bo_phim_dang_chieu .carousel-control-next {
-      display: none;
+    display: none;
   }
   .pic{
     height: 550px;
   }
 }
 
-
 /* reponsive */
 
 @media screen and (min-width: 940px) {
-  #lichchieu>.container {
-      max-width: 940px;
+  #lichchieu > .container {
+    max-width: 940px;
   }
   #lichchieu .nav-link {
-      padding: 0px;
+    padding: 0px;
   }
 
 }
-
 
  @media screen and (max-width: 678px){
   #lichchieu{
@@ -1523,39 +1510,44 @@ tr {
 }
 @media screen and (max-width:736px) {
   .navss .container {
-      max-width: 100%;
+    max-width: 100%;
   }
 }
 
 
-@media screen and (max-width:575px) {
-  #lichchieu #navdad>.nav-link {
-      margin-left: 2%;
+
+@media screen and (max-width: 575px) {
+  #lichchieu #navdad > .nav-link {
+    margin-left: 2%;
   }
 }
+
 
 
 @media screen and (max-width: 768px) {
-  #lichchieu>.container {
-      max-width: 100%;
+  #lichchieu > .container {
+    max-width: 100%;
   }
   #lichchieu .row {
-      flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
   #lichchieu .item .info_movie .right {
+
       height: auto;
   }
   .logo.col-md-4 {
       width: 0;
+
   }
   .menu__list {
-      opacity: 1;
-      display: flex;
-      justify-content: center;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
   }
   .tool__content {
-      display: none;
+    display: none;
   }
+
   .pic{
     height: 460px;
   }
@@ -1567,33 +1559,33 @@ tr {
 
 @media screen and (max-width: 678px) {
   #lichchieu {
-      border-style: unset;
+    border-style: unset;
   }
   #lichchieu .nav,
   .row {
-      display: block;
-      margin: 10px 0px;
+    display: block;
+    margin: 10px 0px;
   }
   #lichchieu .container {
-      max-width: 90%;
+    max-width: 90%;
   }
   .nav-link {
-      margin-left: -8%;
+    margin-left: -8%;
   }
   #lichchieu .container .row .row .nav-link .row.align-items-center {
-      display: flex;
+    display: flex;
   }
   #lichchieu .row.align-items-center {
-      display: flex;
+    display: flex;
   }
   #lichchieu #navdad {
-      margin-left: 10%;
+    margin-left: 10%;
   }
   #lichchieu #myTabContent {
-      margin-left: -7%;
+    margin-left: -7%;
   }
   #lichchieu #navdad {
-      margin-left: 0%;
+    margin-left: 0%;
   }
   /* #lichchieu .row .row #myTabContent .item{
       margin-left:-10%;
@@ -1606,30 +1598,28 @@ tr {
   } */
 }
 
-
 /* reponsive chồng */
 
 @media screen and (min-width: 940px) {
-  #lichchieu>.container {
-      max-width: 940px;
+  #lichchieu > .container {
+    max-width: 940px;
   }
   #lichchieu .nav-link {
-      padding: 0px;
+    padding: 0px;
   }
 }
 
 @media screen and (max-width: 392px) {
   #newBlock .newBlock-content .news-top h3 {
-      line-height: 22px;
+    line-height: 22px;
   }
   #newBlock .newBlock-content .news-top p {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-align: justify;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: justify;
   }
 }
-
 
 /* @media screen and (max-width: 678px){
   #lichchieu > .container{
@@ -1643,50 +1633,50 @@ tr {
   }
 }
 
-@media screen and (min-width:577px) {
+@media screen and (min-width: 577px) {
   #newBlock .tab-content .tab-pane #siunhan {
-      height: auto;
+    height: auto;
   }
   #newBlock .newBlock-content .news-bot .content-newsbot .newsbot-small {
-      display: flex;
-      flex-wrap: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
   }
 }
 
 @media screen and (max-width: 576px) {
   #newBlock .tab-content .tab-pane #siunhan {
-      height: auto;
+    height: auto;
   }
   #newBlock .newBlock-content .news-bot .content-newsbot .newsbot-small {
-      display: flex;
-      flex-wrap: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
   }
 }
 
 @media screen and (min-width: 578px) {
   #newBlock .tab-content .tab-pane #siunhan {
-      height: auto;
+    height: auto;
   }
-  #newBlock .tab-content .tab-pane #siunhan .cardTable .tong .news-top>.row {
-      display: flex;
-      flex-wrap: nowrap;
+  #newBlock .tab-content .tab-pane #siunhan .cardTable .tong .news-top > .row {
+    display: flex;
+    flex-wrap: nowrap;
   }
-  #newBlock .tab-content .tab-pane #siunhan .cardTable .tong .news-bot>.row {
-      display: flex;
-      flex-wrap: nowrap;
+  #newBlock .tab-content .tab-pane #siunhan .cardTable .tong .news-bot > .row {
+    display: flex;
+    flex-wrap: nowrap;
   }
   #newBlock .newBlock-content .news-bot .content-newsbot .newsbot-small {
-      display: flex;
-      flex-wrap: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
   }
   #newBlock .newBlock-content .news-top h3 {
-      line-height: 22px;
+    line-height: 22px;
   }
   #newBlock .newBlock-content .news-top p {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-align: justify;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: justify;
   }
 }
 
@@ -1697,33 +1687,33 @@ tr {
   }
   #lichchieu .nav,
   .row {
-      display: block;
-      margin: 10px 0px;
+    display: block;
+    margin: 10px 0px;
   }
   #lichchieu .container {
-      max-width: 90%;
+    max-width: 90%;
   }
   .nav-link {
-      margin-left: -8%;
+    margin-left: -8%;
   }
   #lichchieu .container .row .row .nav-link .row.align-items-center {
-      display: flex;
+    display: flex;
   }
   #lichchieu .row.align-items-center {
-      display: flex;
+    display: flex;
   }
   #lichchieu #navdad {
-      margin-left: 10%;
+    margin-left: 10%;
   }
   #lichchieu #myTabContent {
-      margin-left: -7%;
+    margin-left: -7%;
   }
   #lichchieu #navdad {
-      margin-left: 0%;
+    margin-left: 0%;
   }
   #newBlock .maxWidth ul {
-      flex-wrap: nowrap;
-      display: flex;
+    flex-wrap: nowrap;
+    display: flex;
   }
   /* #lichchieu .row .row #myTabContent .item{
       margin-left:-10%;
@@ -1737,42 +1727,42 @@ tr {
 }
 
 @media screen and (max-width: 768px) {
-  #lichchieu>.container {
-      max-width: 100%;
+  #lichchieu > .container {
+    max-width: 100%;
   }
   #lichchieu .row {
-      flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
   #lichchieu .item .info_movie .right {
       height: auto;
   }
   #footer .footer-size .footer-bot .text-footer {
-      text-align: center;
-      margin: auto;
+    text-align: center;
+    margin: auto;
   }
   #footer .footer-size .footer-bot .row {
-      display: block;
+    display: block;
   }
   #newBlock .newBlock-content {
-      max-width: 100%;
+    max-width: 100%;
   }
-  #footer .footer-size .footer-top>.row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+  #footer .footer-size .footer-top > .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   #footer .footer-size .footer-top .tix .tix-text a {
-      white-space: nowrap;
-      margin-right: 10px;
+    white-space: nowrap;
+    margin-right: 10px;
   }
   #footer .footer-size .footer-top .mobile .icon {
-      margin-left: 25%;
+    margin-left: 25%;
   }
 }
 
-@media screen and (max-width:868px) {
+@media screen and (max-width: 868px) {
   #footer .footer-top .tix-text:last-child {
-      display: block;
+    display: block;
   }
 }
 
@@ -1879,40 +1869,223 @@ tr {
 @media screen and (max-width: 992px) {
 
   #wrapHome .left-homeApp {
-      text-align: center !important;
-      margin: auto;
+    text-align: center !important;
+    margin: auto;
   }
   #wrapHome .right-homeApp {
-      margin: auto;
+    margin: auto;
   }
   #footer .footer-size .footer-top .doiTac {
-      display: none;
+    display: none;
   }
   #footer .footer-size .footer-top .mobile .icon:first-child {
-      display: none;
+    display: none;
   }
   #footer .footer-size .footer-top .mobile .icon .textform {
-      display: none;
+    display: none;
   }
   #footer .footer-size .footer-top .tix .textform {
-      display: none;
+    display: none;
   }
   #footer .footer-size .footer-top .tix .tix-text:first-child {
-      display: none;
+    display: none;
   }
   #footer .footer-size .footer-bot .text-footer {
-      text-align: center;
+    text-align: center;
   }
   #footer .footer-size .footer-bot .img-footer {
-      text-align: center;
-      margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
   }
   #footer .footer-top .tix-text:last-child {
-      display: flex;
+    display: flex;
   }
   #footer .footer-top .tix-text:last-child a:first-child {
-      margin-right: 10px;
-  }}
+    margin-right: 10px;
+  }
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-width: 0 !important;
+}
+
+// Start Reponsive ADMIN
+
+@media (min-width: 1660px) and (max-width: 1920px) {
+  .table__list {
+    height: 940px;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+  #PhongVe .row > .col-xl-4 {
+    flex: none;
+    max-width: 1153px;
+  }
+  #PhongVe .row > .col-xl-8 {
+    flex: none;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  #PhongVe .thongTin .phongChieu .gheXemPhim {
+    width: 950px;
+    height: 560px;
+    margin: 0 auto;
+    padding-left: 30px;
+  }
+  // #PhongVe .thongTin{
+  //   width: 950px;
+  // }
+  #PhongVe .muaVe {
+    width: 950px;
+  }
+
+  #PhongVe .row > .col-xl-4 {
+    flex: none;
+    // max-width: 1153px;
+  }
+  #PhongVe .row > .col-xl-8 {
+    flex: none;
+    max-width: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #PhongVe .thongTin .phongChieu .gheXemPhim {
+    width: 720px;
+    height: 350px;
+    padding: 0;
+  }
+  #PhongVe .thongTin .phongChieu {
+    width: 720px;
+    margin: 0 auto;
+  }
+  #PhongVe .muaVe {
+    width: 720px;
+  }
+  #PhongVe .row > .col-xl-4 {
+    flex: none;
+    max-width: none;
+    margin-left: 40px;
+  }
+  #PhongVe .row > .col-xl-8 {
+    flex: none;
+    max-width: none;
+  }
+
+  .admin__content{
+    padding: 2rem 2rem;
+    margin-top: 0px;
+  }
+  #admin__header .row > .col-2{
+    flex: none;
+    max-width: 100%;
+  }
+  #admin__header .row > .col-10{
+    flex: none;
+    max-width: 100%;
+  }
+  .table__list {
+    height: 600px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 765px) {
+  #PhongVe {
+    padding: 150px 0 !important;
+  }
+  #PhongVe .thongTin .phongChieu .gheXemPhim {
+    width: 420px;
+    height: 310px;
+    margin: 0 9px;
+    padding: 0;
+  }
+  #PhongVe .thongTin .phongChieu {
+    width: 420px;
+    margin: 0 auto;
+  }
+  #PhongVe .row > .col-xl-4 {
+    flex: none;
+    max-width: none;
+    // margin-left: 40px;
+  }
+  #PhongVe .row > .col-xl-8 {
+    flex: none;
+    max-width: none;
+  }
+  #PhongVe .thongTin {
+    padding: 0 35px;
+  }
+  #footer .row {
+    margin: 0;
+  }
+
+  .admin__content{
+    padding: 2rem 2rem;
+    margin-top: 0px;
+  }
+  #admin__header .row > .col-2{
+    flex: none;
+    max-width: 100%;
+  }
+  #admin__header .row > .col-10{
+    flex: none;
+    max-width: 100%;
+  }
+  .table__list {
+    height: 600px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+
+  #PhongVe {
+    padding: 150px 0 !important;
+  }
+  #PhongVe .thongTin .phongChieu .gheXemPhim {
+    width: 320px;
+    height: 250px;
+    margin: 0 2px;
+    // padding: 0 0 0 10px;
+  }
+
+  #PhongVe .thongTin .phongChieu{
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  #PhongVe .thongTin {
+    padding: 0 5px;
+  }
+  #footer .row {
+    margin: 0;
+  }
+
+  .admin__content{
+    padding: 2rem 0;
+    margin-top: 0px;
+  }
+  #admin__header .row > .col-2{
+    flex: none;
+    max-width: 100%;
+  }
+  #admin__header .row > .col-10{
+    flex: none;
+    max-width: 100%;
+  }
+  .table__list {
+    height: 600px;
+  }
+  .admin__content .admin__add-movie a{
+    margin: 0;
+  }
+}

@@ -97,7 +97,7 @@ export class UserManagementComponent implements OnInit {
       email: new FormControl(null),
       soDT: new FormControl(null),
       maNhom: new FormControl('GP01'),
-      maLoaiNguoiDung: new FormControl('QuanTri'),
+      maLoaiNguoiDung: new FormControl('KhachHang'),
     });
   }
 }

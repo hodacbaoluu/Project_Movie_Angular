@@ -22,8 +22,9 @@ export class PhimDangChieuComponent implements OnInit {
       this.danhSachPhimDangChieu = data;
     })
   }
-  slick() {
-    if (this.danhSachPhimDangChieu) {
+  ngOnInit(): void {
+    this.getNameMovie();
+    setTimeout(() => {
       $('.lazy').slick({
         lazyLoad: 'ondemand',
         slidesToShow: 4,
@@ -81,69 +82,10 @@ export class PhimDangChieuComponent implements OnInit {
           },
         ]
       });
-    }
-  }
-
-  ngOnInit(): void {
-    this.getNameMovie();
-    setTimeout(() => {
-      this.slick()
     }, 2000)
 
-
-    //   setTimeout(() => {
-    //     $('.lazy').slick({
-    //       lazyLoad: 'ondemand',
-    //       slidesToShow: 4,
-    //       slidesToScroll: 4,
-    //       rows: 2,
-    //       responsive: [
-    //         {
-    //           breakpoint: 1200,
-    //           settings: {
-    //             rows: 2,
-    //             slidesToShow: 3,
-    //             slidesToScroll: 3,
-
-    //           }
-    //         },
-    //         {
-    //           breakpoint: 992,
-    //           settings: {
-    //             rows: 1,
-    //             slidesToShow: 4,
-    //             slidesToScroll: 3,
-
-    //           }
-    //         },
-
-    //         {
-    //           breakpoint: 768,
-    //           settings: {
-
-    //             rows: 1,
-    //             slidesToShow: 4,
-    //             slidesToScroll: 3,
-    //           }
-
-    //         },
-    //         {
-    //           breakpoint: 560,
-    //           settings: {
-    //             rows: 1,
-    //             arrows: false,
-    //             slidesToShow: 5,
-    //             slidesToScroll: 4,
-
-    //           }
-    //         },
-    //       ]
-    //     });
-
-    //   }, 2000)
   }
-
-
-
-
 }
+
+
+
