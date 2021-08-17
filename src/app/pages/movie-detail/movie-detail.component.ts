@@ -1,11 +1,8 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CinemaService } from '../core/service/cinema/cinema.service';
 import { MovieService } from '../core/service/movie/movie.service';
-
-import { ShareModelVideoService } from '../core/share/share-model-video.service';
-
 
 @Component({
   selector: 'app-movie-detail',
@@ -15,7 +12,7 @@ import { ShareModelVideoService } from '../core/share/share-model-video.service'
 export class MovieDetailComponent implements OnInit {
 
 
-  constructor(private movieService: MovieService, private activatedRoute: ActivatedRoute, private sanitized: DomSanitizer, private router: Router, private cinemaService: CinemaService, private shareModelVideoService: ShareModelVideoService) { }
+  constructor(private movieService: MovieService, private activatedRoute: ActivatedRoute, private sanitized: DomSanitizer, private router: Router, private cinemaService: CinemaService) { }
   maPhim: any;
   infoMovie: any;
   lichChieuMovie: any;
@@ -29,7 +26,6 @@ export class MovieDetailComponent implements OnInit {
   maLichChieu: number = 0;
   sao: any = [];
   ktra: boolean = false;
-  clip: string = "";
   thuNgay: any = [
     {
       id: 0,
@@ -108,7 +104,6 @@ export class MovieDetailComponent implements OnInit {
   index: number = 0;
   s2Index: number = 0;
   sIndex: number = 0;
-  public trailer: any
   getMaPhim() {
     this.activatedRoute.params.subscribe((params) => {
       this.maPhim = params.maPhim;
@@ -211,12 +206,12 @@ export class MovieDetailComponent implements OnInit {
     this.s2Index = stt;
     this.maHeThongRap = maHeThongRap;
   }
-  // trailer(oldURL: string): SafeResourceUrl {
-  //   if (oldURL) {
-  //     oldURL = oldURL.replace("watch?v=", "embed/");
-  //   }
-  //   return this.sanitized.bypassSecurityTrustResourceUrl(oldURL);
-  // }
+  trailer(oldURL: string): SafeResourceUrl {
+    if (oldURL) {
+      oldURL = oldURL.replace("watcádasyuhdgasuidgh?v=", "embed/");
+    }
+    return this.sanitized.bypassSecurityTrustResourceUrl(oldURL);
+  }
   getSao() {
     let s = 0;
     for (let i = 1; i <= this.infoMovie.danhGia / 2; i++) {
@@ -236,26 +231,12 @@ export class MovieDetailComponent implements OnInit {
     this.ktra = false;
   }
 
-  showModalTrailer() {
-    this.shareModelVideoService.shareModal.subscribe((data) => {
-      this.trailer = data + "?autoplay=1";
-    })
-  }
-
   ngOnInit(): void {
     this.getMaPhim();
     this.getInfoMovieAPI();
     this.getCinemaApi();
-    // new ModalVideo('.js-modal-btn');
-
-
-
-
-
-
 
     // this.getMaCumRap();
   }
 
 }
-

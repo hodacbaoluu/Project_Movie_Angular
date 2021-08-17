@@ -68,7 +68,7 @@
 
                   <div class="modal-body">
                     <div class="embed-responsive embed-responsive-16by9">
-                      <iframe width="560" height="315" [src]="trailer(clip)" title="YouTube video player"
+                      <iframe width="560" height="315" [src]="trailer(infoMovie.trailer)" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
@@ -139,8 +139,7 @@
                             <button (click)="getMaLichChieu(item.maLichChieu)" class="btn btn-success"
                               *ngIf="(item.thongTinRap.tenCumRap==rap.tenCumRap) &&(item.ngayChieuGioChieu |date:'dd')==ngay.ngay, else hiddenDay">
                               <span>{{item.ngayChieuGioChieu
-                                |
-                                date:'HH:mm'}}</span>
+                                |date:'HH:mm'}}</span>
 
                             </button>
                             <ng-template #hiddenDay>
