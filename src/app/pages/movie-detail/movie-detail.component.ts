@@ -3,7 +3,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CinemaService } from '../core/service/cinema/cinema.service';
 import { MovieService } from '../core/service/movie/movie.service';
-
+// import ModalVideo from 'modal-video';
+declare var $: any;
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
@@ -26,6 +27,7 @@ export class MovieDetailComponent implements OnInit {
   maLichChieu: number = 0;
   sao: any = [];
   ktra: boolean = false;
+  clip: string = "";
   thuNgay: any = [
     {
       id: 0,
@@ -155,6 +157,7 @@ export class MovieDetailComponent implements OnInit {
   getInfoMovieAPI() {
     this.movieService.getCarouselMovieApi(this.maPhim).subscribe((data) => {
       this.infoMovie = data;
+      this.clip = this.infoMovie.trailer;
       this.getSao();
       this.lichChieuMovie = this.infoMovie.lichChieu;
       console.log(this.lichChieuMovie);
@@ -235,6 +238,13 @@ export class MovieDetailComponent implements OnInit {
     this.getMaPhim();
     this.getInfoMovieAPI();
     this.getCinemaApi();
+    // new ModalVideo('.js-modal-btn');
+
+
+    $(".js-modal-btn").modalVideo({ channel: 'vimeo' });
+
+
+
 
     // this.getMaCumRap();
   }

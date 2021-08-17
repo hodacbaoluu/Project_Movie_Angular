@@ -1,9 +1,14 @@
-<app-header></app-header>
-<app-carousel-phim></app-carousel-phim>
-<div class="container">
-  <app-loai-phim></app-loai-phim>
-</div>
-<app-cinema-complex-block id="cumRap"></app-cinema-complex-block>
-<app-news-block id="tinTuc"></app-news-block>
-<app-block-app id="ungDung"></app-block-app>
-<app-footer></app-footer>
+<ng-container *ngIf="!loading , else Loading">
+  <app-header></app-header>
+  <app-carousel-phim [movieCarousel]="movieCarousel"></app-carousel-phim>
+  <div class="container">
+    <app-loai-phim></app-loai-phim>
+  </div>
+  <app-cinema-complex-block id="cumRap"></app-cinema-complex-block>
+  <app-news-block id="tinTuc"></app-news-block>
+  <app-block-app id="ungDung"></app-block-app>
+  <app-footer></app-footer>
+</ng-container>
+<ng-template #Loading>
+  <div class="spinner-border"></div>
+</ng-template>

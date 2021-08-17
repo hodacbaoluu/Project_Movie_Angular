@@ -39,15 +39,21 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/slick-carousel/slick/slick.scss",
               "./node_modules/slick-carousel/slick/slick-theme.scss",
-              "./node_modules/material-design-icons/iconfont/material-icons.css"
+              "./node_modules/material-design-icons/iconfont/material-icons.css",
+              "./node_modules/modal-video/scss/modal-video.scss"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/popper.js/dist/umd/popper.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "./node_modules/jquery/dist/jquery.min.js",
+
+              "./node_modules/modal-video/js/jquery-modal-video.js",
+              "./node_modules/modal-video/js/modal-video.js",
+
               "./node_modules/slick-carousel/slick/slick.js",
               "./node_modules/sweetalert2/dist/sweetalert2.all.min.js"
+
             ]
           },
           "configurations": {

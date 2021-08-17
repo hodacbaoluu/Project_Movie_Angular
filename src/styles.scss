@@ -1809,45 +1809,45 @@ tr {
     padding: 0 5px;
   }
 }
+// @media screen and(max-width:543px) {
+//   .hinh__anh .overlay {
+//     width: 80px;
+//     height: 130px;
+//   }
+//   .hinh__anh .overlay .anh__demo {
+//     width: 80px;
+//     height: 130px;
+//   }
+//   // .overlay > button {
+//   //   height: 17%;
+//   // }
+//   .noi__dung{
+//     width: 80px;
+//   }
+//   .overlay > button {
+//     padding: 0 5px;
+//   }
+// }
 @media screen and(max-width:543px) {
   .hinh__anh .overlay {
-    width: 80px;
-    height: 130px;
+    width: 120px;
+    height: 200px;
   }
   .hinh__anh .overlay .anh__demo {
-    width: 80px;
-    height: 130px;
+    width: 120px;
+    height: 200px;
   }
   // .overlay > button {
   //   height: 17%;
   // }
   .noi__dung{
-    width: 80px;
+    width: 110px;
   }
   .overlay > button {
-    padding: 0 5px;
-  }
-}
-@media screen and(max-width:500px) {
-  .hinh__anh .overlay {
-    width: 60px;
-    height: 90px;
-  }
-  .hinh__anh .overlay .anh__demo {
-    width: 60px;
-    height: 90px;
-  }
-  // .overlay > button {
-  //   height: 17%;
-  // }
-  .noi__dung{
-    width: 60px;
-  }
-  .overlay > button {
-    padding: 0 5px;
-    top: 93px;
-    font-size: 10px;
-    height: 26%;
+
+    top: 205px;
+    font-size: 16px;
+    height:30px;
   }
   ._rate p:nth-child(2) > img{
     width: 3px;
@@ -1865,10 +1865,12 @@ tr {
     display: none;
   }
   p.trich {
-    font-size: 12px;
+    font-size: 16px;
+    text-align: center;
   }
   p.hours{
     font-size: 9px;
+    text-align: center;
   }
   .noi__dung{
     margin: 0;

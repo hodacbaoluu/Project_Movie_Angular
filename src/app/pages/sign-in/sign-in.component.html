@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="bgLogin">
 
-  <form #formDangNhap='ngForm' (ngSubmit)='handleLogin()'>
+  <form #formDangNhap='ngForm' class="form" (ngSubmit)='handleLogin()'>
     <div class="imgcontainer">
       <img src="../../../assets/img/web-logo.png" alt="Avatar" class="avatar">
     </div>
@@ -35,5 +35,7 @@
     <div class="loginAdmin">
       <a routerLink='/login-admin'>Đăng nhập Admin</a>
     </div>
+
   </form>
+
 </div>

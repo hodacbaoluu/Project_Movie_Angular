@@ -22,13 +22,8 @@ export class PhimDangChieuComponent implements OnInit {
       this.danhSachPhimDangChieu = data;
     })
   }
-
-  ngOnInit(): void {
-    this.getNameMovie();
-
-
-
-    setTimeout(() => {
+  slick() {
+    if (this.danhSachPhimDangChieu) {
       $('.lazy').slick({
         lazyLoad: 'ondemand',
         slidesToShow: 4,
@@ -55,11 +50,11 @@ export class PhimDangChieuComponent implements OnInit {
           },
 
           {
-            breakpoint: 768,
+            breakpoint: 784,
             settings: {
 
               rows: 1,
-              slidesToShow: 4,
+              slidesToShow: 3,
               slidesToScroll: 3,
             }
 
@@ -69,15 +64,83 @@ export class PhimDangChieuComponent implements OnInit {
             settings: {
               rows: 1,
               arrows: false,
-              slidesToShow: 5,
-              slidesToScroll: 4,
+              slidesToShow: 3,
+              slidesToScroll: 2,
+
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              rows: 1,
+              arrows: false,
+              slidesToShow: 2,
+              slidesToScroll: 2,
 
             }
           },
         ]
       });
+    }
+  }
 
+  ngOnInit(): void {
+    this.getNameMovie();
+    setTimeout(() => {
+      this.slick()
     }, 2000)
+
+
+    //   setTimeout(() => {
+    //     $('.lazy').slick({
+    //       lazyLoad: 'ondemand',
+    //       slidesToShow: 4,
+    //       slidesToScroll: 4,
+    //       rows: 2,
+    //       responsive: [
+    //         {
+    //           breakpoint: 1200,
+    //           settings: {
+    //             rows: 2,
+    //             slidesToShow: 3,
+    //             slidesToScroll: 3,
+
+    //           }
+    //         },
+    //         {
+    //           breakpoint: 992,
+    //           settings: {
+    //             rows: 1,
+    //             slidesToShow: 4,
+    //             slidesToScroll: 3,
+
+    //           }
+    //         },
+
+    //         {
+    //           breakpoint: 768,
+    //           settings: {
+
+    //             rows: 1,
+    //             slidesToShow: 4,
+    //             slidesToScroll: 3,
+    //           }
+
+    //         },
+    //         {
+    //           breakpoint: 560,
+    //           settings: {
+    //             rows: 1,
+    //             arrows: false,
+    //             slidesToShow: 5,
+    //             slidesToScroll: 4,
+
+    //           }
+    //         },
+    //       ]
+    //     });
+
+    //   }, 2000)
   }
 
 

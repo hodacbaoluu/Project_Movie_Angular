@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MovieService } from '../../core/service/movie/movie.service';
 declare var $: any;
@@ -7,7 +7,7 @@ declare var $: any;
   templateUrl: './carousel-phim.component.html',
   styleUrls: ['./carousel-phim.component.scss']
 })
-export class CarouselPhimComponent implements OnInit {
+export class CarouselPhimComponent implements OnInit, AfterViewInit {
   danhSachPhim: any;
   tenPhim: string = "Phim";
   maPhim: number = 0;
@@ -63,8 +63,9 @@ export class CarouselPhimComponent implements OnInit {
     }
   }
   constructor(private movieService: MovieService, private router: Router) { }
+  @Input() movieCarousel: any;
   movieList: any = [];
-  movieCarousel: any = [];
+  // movieCarousel: any = [];
   movieCarouselActive: any = [];
   movieInfoList: any = [];
 
@@ -75,14 +76,14 @@ export class CarouselPhimComponent implements OnInit {
       this.movieList = data;
     })
   }
-  getCarouselMovie() {
-    for (const maPhim of this.listMaPhim) {
-      this.movieService.getCarouselMovieApi(maPhim).subscribe((data) => {
-        this.list.push(data);
-      })
-    }
-    this.movieCarousel = this.list;
-  }
+  // getCarouselMovie() {
+  //   for (const maPhim of this.listMaPhim) {
+  //     this.movieService.getCarouselMovieApi(maPhim).subscribe((data) => {
+  //       this.list.push(data);
+  //     })
+  //   }
+  //   this.movieCarousel = this.list;
+  // }
 
   getNameMovie() {
     this.movieService.getListMovieApi(this.maNhom).subscribe((data) => {
@@ -114,7 +115,7 @@ export class CarouselPhimComponent implements OnInit {
     })
   }
   ngOnInit(): void {
-    this.getCarouselMovie();
+    // this.getCarouselMovie();
     // this.getInfoMovie();
     this.getListMovie();
     this.getNameMovie();
@@ -131,6 +132,20 @@ export class CarouselPhimComponent implements OnInit {
     }, 2000)
 
 
+  }
+  ngAfterViewInit(): void {
+    // this.getCarouselMovie();
+    // this.getListMovie();
+    // this.getNameMovie();
+    // $('.fade1').slick({
+    //   arrows: false,
+    //   infinite: true,
+    //   speed: 500,
+    //   fade: true,
+    //   autoplay: true,
+    //   autoplaySpeed: 5000,
+    //   cssEase: 'linear'
+    // });
   }
 
 }
