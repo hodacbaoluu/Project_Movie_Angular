@@ -1,5 +1,13 @@
-
 <img class="pic" [src]="movie.hinhAnh" alt="">
-          <a class="venobox btn-trailer" [href]="movie.trailer" data-vbtype="video">
-              <img src="../../../../assets/img/play-video.png" alt="">
-          </a>
+
+<!-- Button trigger modal -->
+
+
+<a class="venobox btn-trailer" data-vbtype="video" data-toggle="modal" (click)="phatVideo(movie.trailer)"
+  data-target="#modelId">
+  <img src="../../../../assets/img/play-video.png" alt="">
+</a>
+
+
+
+<!-- Modal -->
