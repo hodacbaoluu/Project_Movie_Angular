@@ -1,60 +1,73 @@
-<app-header></app-header>
-<div id="PhongVe" *ngFor="let thongTin of thongTinPhim">
-  <div class="row">
-    <div class="thongTin col-xl-8">
-      <div class="thongTinPhongVe ">
-        <div class="chiTietPhongVe">
-          <img
-            src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"
-            alt=""
-            width="50px"
-            height="50px"
-          />
-          <p>
-            {{ thongTin.thongTinPhim.tenCumRap }} <br />
-            {{ thongTin.thongTinPhim.ngayChieu }} -
-            {{ thongTin.thongTinPhim.gioChieu }} -
-            {{ thongTin.thongTinPhim.tenRap }}
-          </p>
+<ng-container *ngIf="thongTinPhimDangChon; else loading">
+  <app-header></app-header>
+
+  <div id="PhongVe">
+    <div class="row">
+      <div class="thongTin col-xl-8">
+        <div class="thongTinPhongVe">
+          <div class="chiTietPhongVe">
+            <img
+              src="https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"
+              alt=""
+              width="50px"
+              height="50px"
+            />
+            <p>
+              {{ thongTinPhimDangChon.thongTinPhim.tenCumRap }} <br />
+              {{ thongTinPhimDangChon.thongTinPhim.ngayChieu }} -
+              {{ thongTinPhimDangChon.thongTinPhim.gioChieu }} -
+              {{ thongTinPhimDangChon.thongTinPhim.tenRap }}
+            </p>
+          </div>
+          <div class="time">
+            <h6>Thời Gian</h6>
+            <p>
+              <countdown
+                [config]="{ leftTime: 300, format: 'm:ss' }"
+                (event)="handleTime($event)"
+              ></countdown>
+            </p>
+          </div>
         </div>
-        <div class="time">
-          <h6>Thời Gian</h6>
-          <p>
-            <countdown
-              [config]="{ leftTime: 300, format: 'm:ss' }"
-              (event)="handleTime($event)"
-            ></countdown>
-          </p>
+        <div class="phongChieu">
+          <div id="trapezium">
+            <p>Màn Hình</p>
+          </div>
+          <div class="gheXemPhim">
+            <app-list-ghe
+              *ngFor="let ghe of ListGhe"
+              [ghe]="ghe"
+              (emitStatus)="chonGhe($event, ghe)"
+            ></app-list-ghe>
+          </div>
         </div>
       </div>
-      <div class="phongChieu">
-        <div id="trapezium">
-          <p>Màn Hình</p>
-        </div>
-        <div class="gheXemPhim">
-          <app-list-ghe
-            *ngFor="let ghe of ListGhe"
-            [ghe]="ghe"
-            (emitStatus)="chonGhe($event, ghe)"
-          ></app-list-ghe>
-        </div>
+      <div class="muaVe col-xl-4 container">
+        <p>TỔNG TIỀN : {{ tongTien }} VND</p>
+        <p>
+          Phim : {{ thongTinPhimDangChon.thongTinPhim.tenPhim }} <br />
+          Tên Rạp : {{ thongTinPhimDangChon.thongTinPhim.tenRap }} <br />
+          Thời Gian chiếu : {{ thongTinPhimDangChon.thongTinPhim.gioChieu }}
+        </p>
+        <p *ngFor="let ghe of danhSachGheDaDat">
+          <span
+            >Ghế: {{ ghe.tenGhe }} - Giá: {{ ghe.giaVe }} - Loại ghế:
+            {{ ghe.loaiGhe }}
+          </span>
+        </p>
+        <button
+          class="btn btn-warning"
+          (click)="datMuaGhe()"
+          [disabled]="tongTien == 0"
+        >
+          Đặt Mua
+        </button>
       </div>
-    </div>
-    <div class="muaVe col-xl-4 container">
-      <p>TỔNG TIỀN : {{ tongTien }} VND</p>
-      <p>
-        Phim : {{ thongTin.thongTinPhim.tenPhim }} <br />
-        Tên Rạp : {{ thongTin.thongTinPhim.tenRap }} <br />
-        Thời Gian chiếu : {{ thongTin.thongTinPhim.gioChieu }}
-      </p>
-      <p *ngFor="let ghe of danhSachGheDaDat">
-        <span
-          >Ghế: {{ ghe.tenGhe }} - Giá: {{ ghe.giaVe }} - Loại ghế:
-          {{ ghe.loaiGhe }}
-        </span>
-      </p>
-      <button class="btn btn-warning" (click)="datMuaGhe()">Đặt Mua</button>
     </div>
   </div>
-</div>
-<app-footer></app-footer>
+  <app-footer></app-footer
+></ng-container>
+
+<ng-template #loading>
+  <div class="spinner-border"></div>
+</ng-template>

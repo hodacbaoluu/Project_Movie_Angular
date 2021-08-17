@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BookingComponent implements OnInit {
   ListGhe: any = [];
-  thongTinPhim: any = [];
+  thongTinPhimDangChon: any;
   tenGhe?: string;
   tongTien: number = 0;
   danhSachGheDaDat: any = [];
@@ -32,8 +32,8 @@ export class BookingComponent implements OnInit {
     this.getMaLichChieu();
     this.cinemaService.getDanhSachPhongVe(this.listMa.maLichChieu).subscribe((data) => {
       console.log(data);
-      this.thongTinPhim.push(data);
-      this.ListGhe = this.thongTinPhim[0].danhSachGhe;
+      this.thongTinPhimDangChon = data;
+      this.ListGhe = this.thongTinPhimDangChon.danhSachGhe;
       console.log(this.ListGhe);
     });
 
