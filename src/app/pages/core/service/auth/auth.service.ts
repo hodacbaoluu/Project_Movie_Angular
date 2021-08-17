@@ -170,12 +170,13 @@ export class AuthService {
         }),
         catchError((err) => {
           console.log(err);
-          if (err.status == 500) {
+          if (err.status == 401) {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: err.error,
+              text: err.statusText,
             });
+            this.router.navigate(['/sign-in'])
           } else {
             Swal.fire('Good job!', 'Đã Đặt Vé Thành Công', 'success');
             this.router.navigate(['/'])

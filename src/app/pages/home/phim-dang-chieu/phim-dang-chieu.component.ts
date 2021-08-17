@@ -28,7 +28,7 @@ export class PhimDangChieuComponent implements OnInit {
 
 
 
-    setTimeout(() => {
+    // setTimeout(() => {
       $('.lazy').slick({
         lazyLoad: 'ondemand',
         slidesToShow: 4,
@@ -77,7 +77,7 @@ export class PhimDangChieuComponent implements OnInit {
         ]
       });
 
-    }, 2000)
+    // }, 3000)
   }
 
 

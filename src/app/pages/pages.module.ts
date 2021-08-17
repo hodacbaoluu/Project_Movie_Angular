@@ -20,7 +20,7 @@ import { BookingModule } from './booking/booking.module';
     PagesComponent, SignInComponent, SignUpComponent, MovieDetailComponent
   ],
   imports: [
-    CommonModule, PagesRoutingModule, FormsModule, HomeModule, ReactiveFormsModule, RouterModule, BookingModule
+    CommonModule, PagesRoutingModule, FormsModule, HomeModule, ReactiveFormsModule, RouterModule, BookingModule, 
 
   ],
   exports: [PagesComponent, SignInComponent, SignUpComponent]
