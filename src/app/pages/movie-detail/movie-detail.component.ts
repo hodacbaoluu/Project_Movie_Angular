@@ -3,7 +3,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CinemaService } from '../core/service/cinema/cinema.service';
 import { MovieService } from '../core/service/movie/movie.service';
-
+// import ModalVideo from 'modal-video';
+declare var $: any;
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
@@ -206,10 +207,8 @@ export class MovieDetailComponent implements OnInit {
     this.s2Index = stt;
     this.maHeThongRap = maHeThongRap;
   }
-  trailer(oldURL: string): SafeResourceUrl {
-    if (oldURL) {
-      oldURL = oldURL.replace("watcádasyuhdgasuidgh?v=", "embed/");
-    }
+  trailer(oldURL: string) {
+
     return this.sanitized.bypassSecurityTrustResourceUrl(oldURL);
   }
   getSao() {
@@ -235,8 +234,16 @@ export class MovieDetailComponent implements OnInit {
     this.getMaPhim();
     this.getInfoMovieAPI();
     this.getCinemaApi();
+    // new ModalVideo('.js-modal-btn');
+
+
+    $(".js-modal-btn").modalVideo({ channel: 'vimeo' });
+
+
+
 
     // this.getMaCumRap();
   }
 
 }
+

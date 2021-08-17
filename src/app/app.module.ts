@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AdminModule } from './admin/admin.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SafePipeModule } from 'safe-pipe';
 
 
 // import { SlickCarouselComponent, SlickCarouselModule, } from 'ngx-slick-carousel';
@@ -20,11 +21,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
   declarations: [AppComponent],
   imports: [
+    SafePipeModule,
     BrowserModule,
     AppRoutingModule,
     PagesModule,
     HttpClientModule,
-
     UserModule,
     BrowserAnimationsModule, MatIconModule, AdminModule
   ],

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../core/service/movie/movie.service';
@@ -10,15 +10,18 @@ import { MovieService } from '../../core/service/movie/movie.service';
 })
 export class ItemPhimDangChieuComponent implements OnInit {
   @Input() phim: any;
-  @Output() eventURL = new EventEmitter<any>()
+  @Input() ktraexit: any;
+  @Output() countChanged = new EventEmitter();
+  @Output() existVideo = new EventEmitter();
   phim2: any;
   maPhim: number = 0;
   sao: any = [];
   ktra: boolean = false;
+  clip?: string;
   constructor(private router: Router, private movieService: MovieService, private sanitized: DomSanitizer) { }
   layMaPhim(maPhim: number) {
     this.maPhim = maPhim;
-    this.router.navigate([`/movie-detail/${maPhim}`]);
+
 
   }
   getSao() {
@@ -40,30 +43,27 @@ export class ItemPhimDangChieuComponent implements OnInit {
   //   console.log(this.ktra);
 
   // }
-  dungVideo() {
-    this.ktra = false;
-    console.log(this.ktra);
-
-  }
   phatVideo() {
-    // this.movieService.getCarouselMovieApi(maPhim).subscribe((data) => {
-    //   this.phim2 = data;
-    //   console.log(this.phim2.trailer);
+    if (this.ktraexit != true) {
 
 
+      this.ktra = true;
+      this.existVideo.emit(this.ktra);
+    }
 
-    // })
-    this.eventURL.emit(this.phim)
-    this.ktra = true;
-    console.log(this.ktra);
+    this.countChanged.emit(this.phim.trailer);
+  }
+  getTrailer() {
+    console.log(this.clip);
 
   }
 
-  trailer(oldURL: string): SafeResourceUrl {
-    if (oldURL) {
-      oldURL = oldURL.replace("watch?v=", "embed/");
-    }
+
+  trailer(oldURL: string) {
+
     return this.sanitized.bypassSecurityTrustResourceUrl(oldURL);
+
+
   }
 
   ngOnInit(): void {
