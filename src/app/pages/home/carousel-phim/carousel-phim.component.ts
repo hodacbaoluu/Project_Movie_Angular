@@ -21,6 +21,8 @@ export class CarouselPhimComponent implements OnInit, AfterViewInit {
   getDay: any;
   listThongTin: any = [];
   listDay: any = [];
+  ktra: boolean = true;
+  clip: any;
   handlePhim(tenPhim: string, maPhim: number) {
     this.listDay = [];
     this.listThongTin = [];
@@ -113,6 +115,17 @@ export class CarouselPhimComponent implements OnInit, AfterViewInit {
 
 
     })
+  }
+  dongVideo() {
+    this.ktra = false;
+  }
+  getTrailer(trailer: any) {
+    this.clip = trailer;
+  }
+  exitVideo(ktra: boolean) {
+    this.ktra = ktra;
+    console.log(this.ktra);
+
   }
   ngOnInit(): void {
     // this.getCarouselMovie();

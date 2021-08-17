@@ -4,10 +4,9 @@
   <!-- <a [href]='phim.trailer'>
     <img class="play__icon" src="../../../../assets/img/play-video.png" alt="">
   </a> -->
-  <button type="button" (click)="phatVideo()" class="btn btn-primary btn-lg xemTrailer" data-toggle="modal"
-    data-target="#modelId">
+  <a (click)="phatVideo()" data-toggle="modal" data-target="#modelId">
     <img class="play__icon" src="../../../../assets/img/play-video.png" alt="">
-  </button>
+  </a>
 
   <!-- Modal -->
 
@@ -26,7 +25,7 @@
     </p>
   </div>
 
-  <button class="btn" (click)="layMaPhim(phim.maPhim)"> <a [href]='"/movie-detail/"+maPhim'> MUA VÉ</a> </button>
+  <button class="btn" (click)="layMaPhim(phim.maPhim)"> MUA VÉ</button>
 
 </div>
 <div class="noi__dung">

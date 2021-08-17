@@ -21,7 +21,7 @@ export class ItemPhimDangChieuComponent implements OnInit {
   constructor(private router: Router, private movieService: MovieService, private sanitized: DomSanitizer) { }
   layMaPhim(maPhim: number) {
     this.maPhim = maPhim;
-
+    this.router.navigate([`/movie-detail/${maPhim}`])
 
   }
   getSao() {
