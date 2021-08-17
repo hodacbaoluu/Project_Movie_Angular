@@ -19,6 +19,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { RouterModule } from '@angular/router';
 import { ItemCinemaComplexBlockComponent } from './item-cinema-complex-block/item-cinema-complex-block.component';
 import { ChiTietRapComponent } from './chi-tiet-rap/chi-tiet-rap.component';
+import { SafePipeModule } from 'safe-pipe';
 
 
 
@@ -41,7 +42,7 @@ import { ChiTietRapComponent } from './chi-tiet-rap/chi-tiet-rap.component';
 
   ],
   imports: [
-    CommonModule, SlickCarouselModule, RouterModule
+    CommonModule, SlickCarouselModule, RouterModule, SafePipeModule
 
 
   ],

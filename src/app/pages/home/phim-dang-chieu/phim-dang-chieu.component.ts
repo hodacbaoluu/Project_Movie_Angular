@@ -1,5 +1,7 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MovieService } from '../../core/service/movie/movie.service';
+import { ItemPhimDangChieuComponent } from '../item-phim-dang-chieu/item-phim-dang-chieu.component';
 declare var $: any;
 @Component({
   selector: 'app-phim-dang-chieu',
@@ -8,19 +10,34 @@ declare var $: any;
 })
 export class PhimDangChieuComponent implements OnInit {
 
-  constructor(private phimDangChieuService: MovieService) { }
+  constructor(private phimDangChieuService: MovieService, private sanitized: DomSanitizer) { }
   danhSachPhimDangChieu: any = [];
   maNhom: number = 6;
-  getTrailer(phim: any) {
-    const index = this.danhSachPhimDangChieu.findIndex((item: any) => { return item.maPhim = phim.maPhim });
-    if (index !== -1) {
-      this.danhSachPhimDangChieu[index].trailer = phim.trailer;
-    }
-  }
+  clip: any;
+  ktra: boolean = true;
   getNameMovie() {
     this.phimDangChieuService.getListMovieApi(this.maNhom).subscribe((data) => {
       this.danhSachPhimDangChieu = data;
     })
+  }
+  countChangedHandler(trailer: any) {
+    this.clip = trailer;
+    // this.clip = this.sanitized.bypassSecurityTrustResourceUrl(trailer);
+    console.log(this.clip);
+
+  }
+  exitVideo(ktra: boolean) {
+    this.ktra = ktra;
+    console.log('exit' + this.ktra);
+
+  }
+  trailer(oldURL: string) {
+    return this.sanitized.bypassSecurityTrustResourceUrl(oldURL);
+  }
+  dongVideo() {
+    this.ktra = false;
+    console.log(this.ktra);
+
   }
   ngOnInit(): void {
     this.getNameMovie();

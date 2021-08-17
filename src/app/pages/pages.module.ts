@@ -10,17 +10,24 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { BookingModule } from './booking/booking.module';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { PortalModule } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { A11yModule } from '@angular/cdk/a11y';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SafePipeModule } from 'safe-pipe';
 
 
 
 
 
 @NgModule({
+
   declarations: [
     PagesComponent, SignInComponent, SignUpComponent, MovieDetailComponent
   ],
   imports: [
-    CommonModule, PagesRoutingModule, FormsModule, HomeModule, ReactiveFormsModule, RouterModule, BookingModule, 
+    CommonModule, PagesRoutingModule, FormsModule, HomeModule, ReactiveFormsModule, RouterModule, BookingModule, SafePipeModule
 
   ],
   exports: [PagesComponent, SignInComponent, SignUpComponent]
