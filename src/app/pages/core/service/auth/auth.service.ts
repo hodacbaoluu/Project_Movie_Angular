@@ -57,6 +57,13 @@ export class AuthService {
         }),
         catchError((err) => {
           console.log(err);
+          if(err.status === 500){
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: err.error,
+            })
+          }
           return err;
         })
       );

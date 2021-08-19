@@ -28,7 +28,7 @@ export class CarouselPhimComponent implements OnInit, AfterViewInit {
     this.listThongTin = [];
     this.tenPhim = tenPhim;
     this.maPhim = maPhim;
-    console.log(maPhim);
+    // console.log(maPhim);
     this.tenCumRap = "Rạp";
     this.day = "Ngày xem";
     this.suatChieu = "Suất chiếu"
@@ -57,7 +57,7 @@ export class CarouselPhimComponent implements OnInit, AfterViewInit {
     this.suatChieu = suatChieu;
     // console.log(suatChieu);
     this.maLichChieu = maLichChieu;
-    console.log(maLichChieu);
+    // console.log(maLichChieu);
   }
   handleMuaVe() {
     if (this.maLichChieu != '') {
@@ -71,7 +71,7 @@ export class CarouselPhimComponent implements OnInit, AfterViewInit {
   movieCarouselActive: any = [];
   movieInfoList: any = [];
 
-  listMaPhim: any[] = [1329, 3394, 4428, 4332, 1374];
+  listMaPhim: any[] = [7589, 3394, 4428, 4332, 1374];
   list: any[] = [];
   getListMovie() {
     this.movieService.getListMovieApi(this.maNhom).subscribe((data) => {
@@ -124,7 +124,7 @@ export class CarouselPhimComponent implements OnInit, AfterViewInit {
   }
   exitVideo(ktra: boolean) {
     this.ktra = ktra;
-    console.log(this.ktra);
+    // console.log(this.ktra);
 
   }
   ngOnInit(): void {
@@ -142,7 +142,7 @@ export class CarouselPhimComponent implements OnInit, AfterViewInit {
         autoplaySpeed: 5000,
         cssEase: 'linear'
       });
-    }, 2000)
+    }, 500)
 
 
   }

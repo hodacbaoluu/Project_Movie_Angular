@@ -47,8 +47,8 @@ export class AddMovieComponent implements OnInit {
   // ----------------------------------------------------------------------------------------------------------
 
   handleAddMovie(value: MovieResult, fileImg: any) {
-    console.log(value);
-    console.log(fileImg[0]);
+    // console.log(value);
+    // console.log(fileImg[0]);
 
     value.hinhAnh = fileImg[0].name;
     this.movieService.addMovieApi(value, this.token).subscribe((data) => {

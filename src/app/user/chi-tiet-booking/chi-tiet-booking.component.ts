@@ -18,6 +18,7 @@ export class ChiTietBookingComponent implements OnInit {
   listTenRap: any;
   hinhPhim: string = "";
   tenPhim: string = "";
+  ngayKhoiChieu: string = "";
   getListRap() {
     for (let chiTietDat of this.booking.danhSachGhe) {
       this.listRap = chiTietDat.maHeThongRap;
@@ -45,9 +46,8 @@ export class ChiTietBookingComponent implements OnInit {
     this.movieService.getListNameMovieAPI('GP06', this.booking.tenPhim).subscribe((data) => {
       data.map((value: any) => {
         this.hinhPhim = value.hinhAnh;
-
+        this.ngayKhoiChieu = value.ngayKhoiChieu;
       })
-
     })
   }
 

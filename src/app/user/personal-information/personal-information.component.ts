@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/pages/core/service/auth/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-personal-information',
@@ -14,6 +15,7 @@ export class PersonalInformationComponent implements OnInit {
 
   user: any = {
     taiKhoan: this.authService.getCurrentUser().taiKhoan,
+    ma: this.authService.getCurrentUser().maLoaiNguoiDung,
   };
   userInfo: any = {};
 
@@ -24,6 +26,7 @@ export class PersonalInformationComponent implements OnInit {
     let email = thamSo.getAttribute('data-email');
     let soDT = thamSo.getAttribute('data-soDT');
 
+
     this.formCapNhat?.setValue({
       hoTen: hoTen,
       email: email,
@@ -31,17 +34,24 @@ export class PersonalInformationComponent implements OnInit {
       taiKhoan: taiKhoan,
       matKhau: matKhau,
       maNhom: "GP06",
-      maLoaiNguoiDung: "KhachHang",
+      maLoaiNguoiDung: this.user.ma,
 
     })
 
   }
   handleCapNhat() {
-    console.log(this.formCapNhat?.value);
+    // console.log(this.formCapNhat?.value);
     this.authService.updateInfoAPI(this.formCapNhat?.value, this.token).subscribe((data) => {
       this.authService.setCurrentUser(this.formCapNhat?.value);
-      alert('Cập nhật thành công 🤩');
-
+      Swal.fire(
+        'Good job!',
+        'Cập nhật thành công!',
+        'success'
+      )
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000)
+      
       this.router.navigate(['/user']);
     })
 
@@ -75,7 +85,8 @@ export class PersonalInformationComponent implements OnInit {
 
       this.token = this.currenUser.accessToken;
     })
-    console.log(this.token);
+    // console.log(this.token);
+    console.log(this.user.ma)
 
 
 

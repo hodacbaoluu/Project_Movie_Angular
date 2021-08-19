@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AuthService } from '../core/service/auth/auth.service';
 
 @Component({
@@ -25,9 +26,13 @@ export class SignUpComponent implements OnInit {
   }
 
   handleSignUp(){
-    console.log(this.formDangKy?.value);
+    // console.log(this.formDangKy?.value);
     this.authService.signUpApi(this.formDangKy?.value).subscribe((data)=>{
-      alert('Đăng ký thành công 😎');
+      Swal.fire(
+        'Good job!',
+        'Đăng kí thành công !',
+        'success'
+      )
       this.router.navigate(['/sign-in']);
       this.formDangKy?.reset();
     })
@@ -40,8 +45,8 @@ export class SignUpComponent implements OnInit {
       matKhau: new FormControl(null, Validators.required),
       email: new FormControl(null, Validators.required),
       soDt: new FormControl(null, Validators.required),
-      maNhom:new FormControl(null, Validators.required),
-      maLoaiNguoiDung: new FormControl(null),
+      maNhom:new FormControl("GP06"),
+      maLoaiNguoiDung: new FormControl("khachHang"),
       hoTen: new FormControl(null, Validators.required)
     })
   }

@@ -88,7 +88,7 @@ export class CinemaComplexBlockComponent implements OnInit {
       data.map((value: any) => {
         lstLichChieu.push(value);
         this.listLichChieu = lstLichChieu[0].lstCumRap;
-        console.log(this.listLichChieu);
+        // console.log(this.listLichChieu);
 
 
       })

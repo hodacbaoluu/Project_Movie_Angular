@@ -44,7 +44,7 @@ export class UserManagementComponent implements OnInit {
     });
   }
   handleUpdataUser() {
-    console.log(this.formUpdateUser?.value);
+    // console.log(this.formUpdateUser?.value);
     this.authService
       .updateInfoAPI(this.formUpdateUser?.value, this.token)
       .subscribe((data) => {
@@ -60,7 +60,7 @@ export class UserManagementComponent implements OnInit {
   handleDeleteUser(taiKhoan: any) {
     this.authService.deleteUserAdmin(taiKhoan, this.token).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
       },
     );
   }
@@ -73,7 +73,7 @@ export class UserManagementComponent implements OnInit {
   getListUser() {
     this.movieService.getPagingUser().subscribe((data) => {
       //cái này đúng rồi nè, nhưng chỉ cần xài thư viện thôi không cần tới API, làm cách này cũng đúng
-      console.log(data);
+      // console.log(data);
       this.userList = data;
       // console.log(this.userList.taiKhoan)
     });

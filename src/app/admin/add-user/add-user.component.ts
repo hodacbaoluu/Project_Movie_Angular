@@ -19,8 +19,8 @@ export class AddUserComponent implements OnInit {
   // userInfo: any = {};
   constructor(private authService: AuthService,private router: Router) {}
   handleAddUser() {
-    console.log(this.formAddUser?.value);
-    console.log(this.authService.getCurrentUser().taiKhoan);
+    // console.log(this.formAddUser?.value);
+    // console.log(this.authService.getCurrentUser().taiKhoan);
     this.authService
       .addUserAdmin(this.formAddUser?.value, this.token)
       .subscribe((data) => {

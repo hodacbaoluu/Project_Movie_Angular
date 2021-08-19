@@ -149,7 +149,7 @@ export class MovieDetailComponent implements OnInit {
   getMaLichChieu(maLichChieu: any) {
     // this.router.navigate([`/booking/${maLichChieu}`]);
     this.maLichChieu = maLichChieu;
-    console.log(this.maLichChieu);
+    // console.log(this.maLichChieu);
 
 
   }
@@ -158,7 +158,7 @@ export class MovieDetailComponent implements OnInit {
       this.infoMovie = data;
       this.getSao();
       this.lichChieuMovie = this.infoMovie.lichChieu;
-      console.log(this.lichChieuMovie);
+      // console.log(this.lichChieuMovie);
 
       this.listMaHeThongRap.push({ maHeThongRap: this.lichChieuMovie[0].thongTinRap.maHeThongRap, tenCumRap: this.lichChieuMovie[0].thongTinRap.tenCumRap });
       this.lichChieuMovie.forEach((value: any, index: any) => {
@@ -220,7 +220,7 @@ export class MovieDetailComponent implements OnInit {
     if ((this.infoMovie.danhGia - s) != 0) {
       this.sao.push({ sao: this.infoMovie.danhGia - s }, { link: "../../../../assets/img/star1.2.png" });
     }
-    console.log(this.sao);
+    // console.log(this.sao);
 
   }
   phatVideo() {

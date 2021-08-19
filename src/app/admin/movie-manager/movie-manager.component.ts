@@ -56,8 +56,8 @@ export class MovieManagerComponent implements OnInit {
     });
   }
   handleUpdateMovie(value: MovieResult, fileImg: any) {
-    console.log(value);
-    console.log(fileImg[0]);
+    // console.log(value);
+    // console.log(fileImg[0]);
 
     value.hinhAnh = fileImg[0].name;
     this.movieService.UpdateMovieApi(value, this.token).subscribe((data) => {

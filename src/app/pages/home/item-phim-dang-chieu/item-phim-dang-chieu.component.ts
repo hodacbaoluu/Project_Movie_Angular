@@ -54,7 +54,7 @@ export class ItemPhimDangChieuComponent implements OnInit {
     this.countChanged.emit(this.phim.trailer);
   }
   getTrailer() {
-    console.log(this.clip);
+    // console.log(this.clip);
 
   }
 

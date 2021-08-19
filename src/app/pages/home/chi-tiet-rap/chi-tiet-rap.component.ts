@@ -101,7 +101,7 @@ export class ChiTietRapComponent implements OnInit {
   }
   getLichChieuRap() {
     this.cinemaService.getInfoChieuCinemaAPI(this.listMa.maHeThongRap).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
 
       this.lichChieu = data;
 

@@ -23,12 +23,12 @@ export class PhimDangChieuComponent implements OnInit {
   countChangedHandler(trailer: any) {
     this.clip = trailer;
     // this.clip = this.sanitized.bypassSecurityTrustResourceUrl(trailer);
-    console.log(this.clip);
+    // console.log(this.clip);
 
   }
   exitVideo(ktra: boolean) {
     this.ktra = ktra;
-    console.log('exit' + this.ktra);
+    // console.log('exit' + this.ktra);
 
   }
   trailer(oldURL: string) {
@@ -36,7 +36,7 @@ export class PhimDangChieuComponent implements OnInit {
   }
   dongVideo() {
     this.ktra = false;
-    console.log(this.ktra);
+    // console.log(this.ktra);
 
   }
   ngOnInit(): void {
@@ -99,7 +99,7 @@ export class PhimDangChieuComponent implements OnInit {
           },
         ]
       });
-    }, 2000)
+    }, 500)
 
   }
 }

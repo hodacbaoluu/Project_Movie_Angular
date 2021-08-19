@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     this.getCarouselMovie();
     setTimeout(() => {
       this.loading = false;
-    }, 3000)
+    }, 1000)
   }
 
 }

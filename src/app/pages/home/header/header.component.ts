@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
 
   handleLogout() {
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
     localStorage.removeItem('userLogin');
 
   }

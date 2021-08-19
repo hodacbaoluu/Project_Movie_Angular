@@ -17,7 +17,7 @@ export class ItemCarouselComponent implements OnInit {
   phatVideo(trailer: any) {
     if (this.ktra == false) {
       this.ktra = true;
-      console.log(this.ktra);
+      // console.log(this.ktra);
       this.trailer.emit(trailer);
     }
 
