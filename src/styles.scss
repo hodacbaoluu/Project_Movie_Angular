@@ -1554,7 +1554,12 @@ tr {
   .khung{
     padding-top: 100px !important;
   }
-
+  .noi__dung{
+    opacity:0;
+  }
+  .overlay button{
+    opacity: 1 !important;
+  }
 }
 
 @media screen and (max-width: 678px) {

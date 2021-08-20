@@ -15,11 +15,14 @@
   justify-content: space-around;
 }
 .thuNgay{
-  margin: 20px 20px 25px 0;
+  margin: 20px 10px 25px 0;
+ 
 
 }
 .thuNgay span{
   white-space: nowrap;
+  border:1px red solid;
+  border-radius:10px;
 
 }
 .thuNgay span:hover{
@@ -29,4 +32,5 @@
 }
 .thuNgay.active{
   color: red;
+ 
 }
