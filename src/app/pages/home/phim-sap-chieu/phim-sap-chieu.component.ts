@@ -56,11 +56,11 @@ export class PhimSapChieuComponent implements OnInit {
           },
 
           {
-            breakpoint: 768,
+            breakpoint: 784,
             settings: {
 
               rows: 1,
-              slidesToShow: 4,
+              slidesToShow: 3,
               slidesToScroll: 3,
             }
 
@@ -70,15 +70,25 @@ export class PhimSapChieuComponent implements OnInit {
             settings: {
               rows: 1,
               arrows: false,
-              slidesToShow: 5,
-              slidesToScroll: 4,
+              slidesToShow: 3,
+              slidesToScroll: 2,
+
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              rows: 1,
+              arrows: false,
+              slidesToShow: 2,
+              slidesToScroll: 2,
 
             }
           },
         ]
       });
 
-    }, 2000)
+    }, 500)
   }
 
 
